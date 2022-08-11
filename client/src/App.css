@@ -2,6 +2,28 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: "InterRegular" ;
+  src: url("./Assets/fonts/Inter-Regular.ttf");
+
+  font-family: "MontSerratRegular";
+  src: url("./Assets/fonts/Montserrat-Regular.ttf");
+
+  font-family: "MontSerratMedium";
+  src: url("./Assets/fonts/Montserrat-Medium.ttf");
+
+  font-family: 'MontSerratSemiBold';
+  src: url("./Assets/fonts/Montserrat-SemiBold.ttf");
+
+  font-family: "MontSerratBold";
+  src: url("./Assets/fonts/Montserrat-Bold.ttf");
+
+
+
+
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

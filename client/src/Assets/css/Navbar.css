@@ -1,0 +1,234 @@
+/* .carousel-item{
+    height: 100vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover ;
+    background-size: cover;
+} */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: "MontserratRegular";
+    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
+    font-size: 16px;
+}
+
+.navbar-light .navbar-nav .nav-item .nav-link .nav-color {
+    color: #fff !important;
+}
+
+.Nav-header {
+    position: absolute;
+}
+
+.btn {
+    background-color: #194089;
+    color: #fff;
+}
+
+@media (max-width: 770px) {
+    .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-collapse a:hover:not(.active) {
+        background-color: #fff;
+        color: white;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+    }
+}
+
+
+.carousel-caption {
+    position: absolute;
+    top: 40%;
+    right: 15%;
+    /* bottom: 1.25rem; */
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    width: 40%;
+    text-align: left;
+    /* animation: text-up 13s linear infinite;
+    transform: translateY(100px); */
+}
+
+@media (max-width: 450px) {
+    .carousel-caption {
+        position: absolute;
+        top: 30%;
+        right: 15%;
+        /* bottom: 1.25rem; */
+        left: 15%;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        color: #fff;
+        text-align: center;
+        width: 40%;
+        text-align: left;
+        /* animation: text-up 13s linear infinite;
+        transform: translateY(100px); */
+    }
+}
+
+@media (max-width: 450px) {
+    .carousel-caption h2 {
+        font-family: 'MontserratSemiBold';
+    }
+}
+
+@media (min-width: 450px) {
+.carousel-caption h2 {
+    margin-bottom: 0.8rem;
+    margin-top: 1rem;
+    font-family: 'MontserratSemiBold';
+}}
+
+@media (min-width: 450px) {
+.carousel-caption p {
+    margin-top: 40px;
+    font-size: 25px;
+    padding-bottom: 10px;
+    font-family: 'MontserratMedium';
+}}
+
+@media (max-width: 450px) {
+    .carousel-caption p {
+        font-size: 13px;
+        font-family: 'MontserratMedium';
+    }
+}
+
+.carousel-caption span {
+    background: red;
+    height: 1px;
+    width: 100px;
+    position: absolute;
+    left: 0px;
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    height: 50%;
+    margin-right: -100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out;
+}
+
+
+@media (max-width: 770px){
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 3rem ;
+}}
+
+
+.imgs {
+    height: 50rem;
+}
+
+.video-Paragraph {
+    padding: 10%;
+}
+
+/* .video-lenght{
+    @media (min-width: 10300px){
+    padding-left: 60px;
+    padding-right: 60px;
+    }
+
+    @media (min-width: 450px){
+        padding-left: 40px;
+        padding-right: 40px;
+        height: 200px;
+    }
+} */
+
+
+@media (min-width: 450px) {
+    .video-lenght {
+        padding-left: 40px;
+        padding-right: 40px;
+        height: 200px;
+    }
+}
+
+body {
+    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
+}
+
+.container-fluid.row {
+    padding-top: 6rem;
+}
+
+.btn-outline-sucess {
+
+    margin-bottom: 30px;
+}
+
+@media (min-width: 780px) {
+    .btns {
+        margin-left: 80px;
+        font-size: 13;
+        padding: 5px 30px;
+    }
+}
+
+
+.big-banner {
+    /* background-color: #0c4a99; */
+    background-image: url('./../images/Background 2.jpg');
+}
+
+.big-banner2 {
+    /* background-image: url('./../images/blue.jpg'); */
+    background-color: #194089;
+}
+
+.big-banner3 {
+    background-image: url('./../images/conny2.jpg');
+}
+
+@media (max-width: 430px) {
+    .desp {
+        padding: 0px 30px;
+    }
+}
+
+@media (min-width: 780px) {
+    .desp {
+        padding: 0px 150px;
+    }
+}
+
+
+.logo {
+    width: 30%;
+}
+
+p {
+    margin: 0;
+}
+
+
+

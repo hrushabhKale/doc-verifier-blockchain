@@ -1,0 +1,116 @@
+@media only screen and (min-device-width: 1064px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    .home .social-icons-wrapper {
+        display: flex;
+        justify-content: center !important;
+        margin-left: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .home .social-icons-wrapper {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .social-icons-wrapper {
+        display: flex !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .social-icons-wrapper {
+        display: flex !important;
+    }
+}
+
+.social-icons-wrapper {
+    display: flex !important;   
+}
+
+.social-icons-wrapper a{
+    padding: 0.2rem;
+}
+
+@media screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .home .social-icons-wrapper a {
+        margin-right: 1rem;
+    }
+}
+
+@media only screen and (min-device-width: 1064px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    .desktop-copyright-text {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .desktop-copyright-text {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.desktop-copyright-text {
+    text-align: center;
+}
+
+
+@media only screen and (min-device-width: 1064px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    .desktop-copyright-text p {
+        font-size: .75rem;
+        color: #707070;
+        text-align: center;
+        font-family: MontserratRegular, sans-serif;
+        border: none;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .desktop-copyright-text p {
+        font-size: .75rem;
+        color: #707070;
+        text-align: center;
+        font-family: MontserratRegular, sans-serif;
+    }
+}
+
+.desktop-copyright-text p {
+    font-size: .75rem;
+    color: #707070;
+    text-align: center;
+    font-family: MontserratRegular, sans-serif;
+    margin: 0px !important;
+    padding: 10px;
+}
+
+
+.footer-list a {
+    color: #fff;
+    font-size: 16px;
+}
+
+@media (max-width: 450px) {
+.footer-row{
+    padding: 1rem !important;
+}}
+
+.footer-row{
+    padding: 3rem;
+}
+
+.footer-about .logo {
+    width: 25%;
+}
+
+.footer-about h3 {
+    padding: 0px;
+margin: 0px;
+padding-top: 10px;
+}

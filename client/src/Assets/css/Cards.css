@@ -1,0 +1,35 @@
+.card-img-top {
+    padding-top: 10px;
+    width: 50%;
+}
+
+.card-title {
+    color: black;
+    font-family: 'MontserratSemiBold';
+}
+
+@media (min-width: 1030px) {
+    .card {
+        width: 17rem;
+        height: 22rem;
+    }
+}
+
+.card {
+    height: 22rem;
+}
+
+
+.card:hover {
+    box-shadow: 5px 10px 20px 1px rgba(249, 243, 243, 0.253) !important;
+}
+
+.card-body {
+    padding: 3rem 0 !important;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.9rem;
+    line-height: unset;
+}
