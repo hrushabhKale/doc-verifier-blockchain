@@ -1,0 +1,78 @@
+.singUp_header {
+  background-color: #3274ad;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /* margin-top: 4rem; */
+  padding: 5px;
+  /* margin-bottom: 2rem; */
+}
+/* @media (min-width: 480px) {
+  .rounded {
+    padding: 1rem !important;
+  }
+} */
+
+.submit__btn {
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+  background-color: #3274ad;
+}
+
+.login__link {
+  color: blue;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+/* .formBody{
+    margin-top: 10px;
+} */
+.error_message {
+  color: red;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.signUp_box {
+  /* margin-top: 1.5rem; */
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  padding-bottom: 0.5rem !important;
+  padding-top: 0 !important;
+  /* margin-bottom: 3rem !important; */
+  border-radius: 0.4rem;
+   width: 25rem !important;
+  max-height: 50rem !important;
+  min-height: 25rem !important;
+  background-color: white;
+  opacity: 0.9;
+}
+@media screen and (max-width: 480px) {
+  .signUp_box {
+    box-shadow: unset !important;
+    width: 22rem !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .signUp_box {
+    box-shadow: unset !important;
+    width: 19rem !important;
+  }
+}
+.form__App{
+  background-image: url(../images/block-chain2.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+Label{
+  font-size: 14px;
+}
+
+input::placeholder {
+ font-size: 14px;
+}
+
+.Select_heading{
+  font-size: 14px !important;
+}
