@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 import './../Assets/css/Navbar.css';
 
 export default function Navbar() {
@@ -29,7 +30,7 @@ export default function Navbar() {
                   <a class="nav-link text-light" aria-current="page" href="#">Contact</a>
                 </li>
                     <li class="nav-item align-items-right ">
-                    <button class="btn btn-outline-primary btns " type="submit">Login</button>
+                    <Link to="/SignIn" exact><button class="btn btn-outline-primary btns " type="submit">Login</button></Link>
                     </li>
                 </ul>
             </div>
