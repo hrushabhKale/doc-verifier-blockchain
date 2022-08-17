@@ -24,9 +24,6 @@
     margin-left: 3px;
   }
   
-  /* .formBody{
-      margin-top: 10px;
-  } */
   .error_message {
     color: red;
     margin-bottom: 0.5rem;
@@ -64,6 +61,8 @@
     background-size: cover;
     padding-top: 2rem;
     padding-bottom: 5rem;
+    min-height: 100vh;
+    max-height: 125vh;
   }
   Label{
     font-size: 14px;
