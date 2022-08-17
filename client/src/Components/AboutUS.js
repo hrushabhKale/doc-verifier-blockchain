@@ -7,7 +7,7 @@ export default function AboutUS() {
     useEffect(() => {
         Aos.init({
              offset: 300,
-             duration: 500 });
+             duration: 2000 });
     },[]);
   return (
     <div>

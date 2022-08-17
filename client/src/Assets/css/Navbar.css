@@ -6,6 +6,11 @@
     background-size: cover;
 } */
 
+html{
+    width:100%;
+    overflow-x:hidden;
+    }
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -14,6 +19,8 @@ body {
     font-family: "MontserratRegular";
     background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
     font-size: 16px;
+    width:100%;
+    overflow-x:hidden;
 }
 
 .navbar-light .navbar-nav .nav-item .nav-link .nav-color {
@@ -49,6 +56,13 @@ body {
     }
 }
 
+.fixed-top {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
 
 .carousel-caption {
     position: absolute;
@@ -87,6 +101,7 @@ body {
 @media (max-width: 450px) {
     .carousel-caption h2 {
         font-family: 'MontserratSemiBold';
+        text-align: left;
     }
 }
 
@@ -95,6 +110,7 @@ body {
     margin-bottom: 0.8rem;
     margin-top: 1rem;
     font-family: 'MontserratSemiBold';
+    text-align: left;
 }}
 
 @media (min-width: 450px) {
@@ -103,12 +119,14 @@ body {
     font-size: 25px;
     padding-bottom: 10px;
     font-family: 'MontserratMedium';
+    text-align: left;
 }}
 
 @media (max-width: 450px) {
     .carousel-caption p {
         font-size: 13px;
         font-family: 'MontserratMedium';
+        text-align: left;
     }
 }
 

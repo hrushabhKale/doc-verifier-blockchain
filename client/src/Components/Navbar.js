@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './../Assets/css/Navbar.css';
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <>
     <nav class="navbar navbar-expand-lg navbar-dark  text-sm-start fixed-top Nav-header">
@@ -30,7 +30,7 @@ export default function Navbar() {
                   <a class="nav-link text-light" aria-current="page" href="#">Contact</a>
                 </li>
                     <li class="nav-item align-items-right ">
-                    <Link to="/SignIn" exact><button class="btn btn-outline-primary btns " type="submit">Login</button></Link>
+                    <Link to="/SignIn" exact><button class="btn btn-outline-primary btns " type="submit">{props.btn1}</button></Link>
                     </li>
                 </ul>
             </div>
