@@ -58,6 +58,7 @@
   background-size: cover;
   padding-top: 5rem;
   padding-bottom: 4rem;
+  height: 100vh;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -138,4 +139,5 @@ select:focus {
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
+  height: 100vh;
 }

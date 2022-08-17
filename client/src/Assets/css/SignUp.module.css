@@ -64,6 +64,8 @@
     background-size: cover;
     padding-top: 2rem;
     padding-bottom: 5rem;
+    min-height: 100vh;
+    max-height: 100vh;
   }
   Label{
     font-size: 14px;
