@@ -1,6 +1,6 @@
 .card-img-top {
     padding-top: 10px;
-    width: 50%;
+    width: 50% !important;
 }
 
 .card-title {
@@ -10,8 +10,8 @@
 
 @media (min-width: 1030px) {
     .card {
-        width: 17rem;
-        height: 22rem;
+        width: 17rem !important;
+        height: 22rem !important;
     }
 }
 

@@ -10,7 +10,7 @@ import VideoSection from '../Components/VideoSection'
 export default function HomePage() {
   return (
     <>
-     <Navbar/>
+     <Navbar btn1='Login'/>
      <HomeCarousel/>
      <VideoSection/>
      <Cards/>

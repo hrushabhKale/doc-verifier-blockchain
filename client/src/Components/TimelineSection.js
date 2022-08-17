@@ -25,7 +25,7 @@ export default function TimelineSection() {
               <h2>How to use Doc Verifier</h2>
               <p>Doc Verifier is very easy to use, You can be certificate issuer as well as validator</p>
             </div> */}
-              <div className="row d-sm-flex d-md-flex align-items-center justify-content-between p-5 ">
+              <div className="row d-sm-flex d-md-flex align-items-center justify-content-between p-4 ">
                 <div className="col-md-12 col-sm-12 col-12 col-lg-6">
                   <h5 className='text-center'>Issue Flow</h5>
                     <TimeLine/>
