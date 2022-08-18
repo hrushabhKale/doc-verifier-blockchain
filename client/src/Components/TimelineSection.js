@@ -3,6 +3,7 @@ import TimeLine from './TimeLine';
 import { useEffect } from 'react'
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import Timeline2 from './Timeline2';
 
 export default function TimelineSection() {
     useEffect(() => {
@@ -20,7 +21,7 @@ export default function TimelineSection() {
     </section>
 
     <section>
-            <div className="container-fluid big-banner3 text-light  ">
+            <div className="container-fluid big-banner text-light" id="timeline">
             {/* <div className='text-center'>
               <h2>How to use Doc Verifier</h2>
               <p>Doc Verifier is very easy to use, You can be certificate issuer as well as validator</p>
@@ -32,7 +33,7 @@ export default function TimelineSection() {
                 </div>
                 <div className="col-md-12 col-sm-12 col-12 col-lg-6">
                   <h5 className='text-center'>Validator Flow</h5>
-                    <TimeLine/>
+                    <Timeline2/>
                 </div>
               </div>
             </div>

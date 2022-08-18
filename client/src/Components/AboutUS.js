@@ -11,7 +11,7 @@ export default function AboutUS() {
     },[]);
   return (
     <div>
-    <section className='big-banner2 text-light'>
+    <section className='big-banner2 text-light' id='aboutUs'>
       <div className='container big-banner2 text-light text-center p-4'>
         <div className='about-us'>
           <h2 data-aos='slide-up'>About Us</h2>

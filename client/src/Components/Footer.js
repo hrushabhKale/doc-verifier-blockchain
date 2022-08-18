@@ -14,7 +14,7 @@ export default function Footer() {
 },[]);
   return (
     <>
-    <section>
+    <section id='contact'>
       <footer>
       <div className="container-fluid big-banner text-light">
         <div className='row d-sm-flex align-items-center justify-content-between footer-row text-left '>

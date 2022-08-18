@@ -8,7 +8,7 @@ export default function VideoSection() {
     },[]);
   return (
     <>
-    <section class="big-banner2 text-light p-5 text-center  ">
+    <section class="big-banner2 text-light p-5 text-center" id="what-we-do">
         <div class="container">
             <div class=" row d-sm-flex align-items-center justify-content-between">
                 <div className='col-md-6 text-box' data-aos='fade-right'>

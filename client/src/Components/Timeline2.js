@@ -4,8 +4,7 @@ import { useEffect } from 'react'
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
-
-export default function TimeLine() {
+export default function Timeline2() {
     useEffect(() => {
         Aos.init({
              offset: 300,
@@ -13,14 +12,14 @@ export default function TimeLine() {
     },[]);
   return (
     <>
-        <section className='timeline-section'>
+              <section className='timeline-section'>
             <div className="timeline-items">
                     <div className="timeline-item">
                     <div className="timeline-dot text-center"><p className='text-dark' data-aos='zoom-in'><b>1</b></p></div>
                     <div className="timeline-date"></div>
                     <div className="timeline-content" data-aos='flip-left'>
                         <h3>Login</h3>
-                        <p>For better Response</p>
+                        <p></p>
                     </div>
                     </div>
 
@@ -29,7 +28,7 @@ export default function TimeLine() {
                     <div className="timeline-date"></div>
                     <div className="timeline-content" data-aos='flip-right'>
                         <h3>Unique Id</h3>
-                        <p>select / Generate custom template</p>
+                        <p>Pass the unique id to verify a certificate</p>
                     </div>
                     </div>
 
@@ -38,7 +37,7 @@ export default function TimeLine() {
                     <div className="timeline-date"></div>
                     <div className="timeline-content" data-aos='flip-left'>
                         <h3>Show</h3>
-                        <p>Issue certificate manually or upload CSV</p>
+                        <p>Certificate is in View as well as Download</p>
                     </div>
                     </div>
 
@@ -47,12 +46,11 @@ export default function TimeLine() {
                     <div className="timeline-date"></div>
                     <div className="timeline-content" data-aos='flip-right'>
                         <h3>Authenticition</h3>
-                        <p>Issuer get the certificate store and can verify any time</p>
+                        <p>Access to issuers authenticity</p>
                     </div>
                     </div>
             </div>
         </section>
-
     </>
   )
 }

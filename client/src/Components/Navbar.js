@@ -18,16 +18,16 @@ export default function Navbar(props) {
                   <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#">What we Do?</a>
+                  <a class="nav-link text-light" href="#what-we-do">What we Do?</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" aria-current="page" href="#">Product</a>
+                  <a class="nav-link text-light" aria-current="page" href="#timeline">Product</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="/aboutUs">About Us</a>
+                  <a class="nav-link text-light" href="#aboutUs">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" aria-current="page" href="#">Contact</a>
+                  <a class="nav-link text-light" aria-current="page" href="#contact">Contact</a>
                 </li>
                     <li class="nav-item align-items-right ">
                     <Link to="/SignIn" exact><button class="btn btn-outline-primary btns " type="submit">{props.btn1}</button></Link>
