@@ -19,7 +19,7 @@ export default function Timeline2() {
                     <div className="timeline-date"></div>
                     <div className="timeline-content" data-aos='flip-left'>
                         <h3>Login</h3>
-                        <p></p>
+                        <p>For better Response</p>
                     </div>
                     </div>
 
