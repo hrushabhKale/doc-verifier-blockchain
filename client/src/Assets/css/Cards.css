@@ -1,3 +1,11 @@
+body {
+    font-family: "MontSerratRegular";
+    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
+    font-size: 16px;
+    width:100%;
+    overflow-x:hidden;
+}
+
 .card-img-top {
     padding-top: 10px;
     width: 50% !important;
@@ -5,7 +13,7 @@
 
 .card-title {
     color: black;
-    font-family: 'MontserratSemiBold';
+    font-family: 'MontSerratSemiBold';
 }
 
 @media (min-width: 1030px) {
@@ -32,4 +40,9 @@
     font-size: 0.9rem;
     padding: 0.4rem 1.9rem;
     line-height: unset;
+    font-family: 'MontSerratMedium';
+}
+
+.cards2 h2{
+    font-family: 'MontSerratSemiBold';
 }
