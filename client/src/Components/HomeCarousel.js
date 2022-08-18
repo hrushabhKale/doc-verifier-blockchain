@@ -12,7 +12,7 @@ export default function HomeCarousel() {
     },[]);
   return (
     <>
-    <Carousel controls={false} interval={null} >
+    <Carousel controls={false} interval={2000} >
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -20,7 +20,7 @@ export default function HomeCarousel() {
           alt="First slide" data-aos='zoom-out'
         />
         <Carousel.Caption>
-            <div data-aos='fade-up'>
+            <div>
         <p>Proof of Existence on </p>
               <span></span>
               <h2 >Blockchain.</h2>

@@ -14,7 +14,7 @@ export default function TimelineSection() {
   return (
     <>
     <section>
-        <div className='text-center big-banner2 text-light text-center p-5' >
+        <div className='text-center big-banner2 text-light text-center p-5 timeline-Header' >
           <h2 data-aos='slide-up'>How to use Doc Verifier</h2>
           <p data-aos='slide-up'>Doc Verifier is very easy to use, You can be certificate issuer as well as validator</p>
         </div>

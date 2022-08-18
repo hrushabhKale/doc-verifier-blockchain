@@ -1,0 +1,29 @@
+body {
+    font-family: "MontSerratRegular";
+    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
+    font-size: 16px;
+    width:100%;
+    overflow-x:hidden;
+}
+
+.about-us h2{
+    font-family: 'MontSerratSemiBold';
+}
+
+@media (max-width: 430px) {
+    .desp {
+        padding: 0px 30px;
+    }
+    .desp p{
+        font-family: "MontSerratMedium" !important;
+    }
+}
+
+@media (min-width: 780px) {
+    .desp {
+        padding: 0px 150px; 
+    }
+    .desp p{
+        font-family: "MontSerratMedium" !important;
+    }
+}
