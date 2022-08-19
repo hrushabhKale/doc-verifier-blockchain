@@ -4,6 +4,7 @@
   margin-top: 3rem;
 }
 
+
 .singIn_btn {
   text-align: center;
   margin-bottom: 1rem;
@@ -78,6 +79,7 @@ select {
   height: 3rem;
   border-radius: 8px;
   height: 2.5rem;
+  font-family: "MontSerratMedium" !important;
 }
 input:focus {
   outline: none;

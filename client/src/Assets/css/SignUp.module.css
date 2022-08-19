@@ -69,6 +69,7 @@
   }
   Label{
     font-size: 14px;
+    font-family: "MontSerratMedium" !important;
   }
   
   input::placeholder {

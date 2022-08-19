@@ -141,7 +141,7 @@ const SignUp = () => {
                 </Button>
               </Form.Group>
 
-              <Form.Group style={{ textAlign: "center" }}>
+              <Form.Group style={{ textAlign: "center",fontFamily: "MontSerratMedium" }}>
                 <Form.Text className="text-muted">
                   Already Registered?
                 </Form.Text>

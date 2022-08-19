@@ -53,7 +53,7 @@ const [message, setMessage] = useState('');
             toggle={() => setmodal(!modal)}
             style={{ backgroundColor: "#3274ad" }}
           >
-            <h4 style={{ textAlign: "center", color: "white" }}>
+            <h4 style={{ textAlign: "center", color: "white", fontFamily: "MontSerratMedium"}}>
               Forget Password
             </h4>
           </ModalHeader>
@@ -115,7 +115,7 @@ const [message, setMessage] = useState('');
             </Col>
             <Col>
               <Row className={SignCss.singIn_header}>
-                <h3 style={{ textAlign: "center", color: "white" }}>Sign In</h3>
+                <h3 style={{ textAlign: "center", color: "white", fontFamily: "MontSerratMedium"}}>Sign In</h3>
               </Row>
 
               <form
@@ -152,7 +152,7 @@ const [message, setMessage] = useState('');
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <a
-                    style={{ color: "blue", cursor: "pointer" }}
+                    style={{ color: "blue", cursor: "pointer", fontFamily: "MontSerratMedium" }}
                     onClick={() => setmodal(true)}
                   >
                     Forget Password
@@ -170,8 +170,8 @@ const [message, setMessage] = useState('');
                     Sign In
                   </Button>
                 </Form.Group>
-                <Form.Group className="mb-3" style={{ textAlign: "center" }}>
-                  <Form.Text className="text-muted">
+                <Form.Group className="mb-3" style={{ textAlign: "center",fontFamily: "MontSerratMedium" }}>
+                  <Form.Text className="text-muted" >
                     Don't have an account?
                   </Form.Text>
 
@@ -181,6 +181,7 @@ const [message, setMessage] = useState('');
                       color: "blue",
                       cursor: "pointer",
                       marginLeft: "3px",
+                      fontFamily: "MontSerratMedium"
                     }}
                   >
                     Join now
