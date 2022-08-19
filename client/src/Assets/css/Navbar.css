@@ -45,7 +45,7 @@ a:hover {
 
 .btn {
     background-color: #194089;
-    color: #fff;
+    color: #fff !important;
     font-family: 'MontSerratSemiBold';
 }
 
