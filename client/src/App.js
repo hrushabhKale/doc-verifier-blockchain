@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import TimeLine from "./Components/TimeLine";
 import Cards from "./Components/Cards";
 import VideoSection from "./Components/VideoSection";
@@ -11,7 +12,7 @@ import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import SecretTokenFile from "./Components/SecretToken";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ValidatorDashboard from "./Components/ValidatorDashboard";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/SignUp" exact element={<SignUp />} />
           <Route path="/SecretTokenFile" exact element={<SecretTokenFile />} />
+          <Route path="/Validator-Dashboard" exact element={<ValidatorDashboard />} />
         </Routes>
       </Router>
     </>
