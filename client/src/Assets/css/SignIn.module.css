@@ -21,6 +21,18 @@
   margin-bottom: 2rem;
   background-color: #3274ad;
 }
+
+@media screen and (max-width: 480px) {
+  .singIn_header {
+    border-top-left-radius: 5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .singIn_header {
+    border-top-left-radius: 5px;
+  }
+}
+
 .error_message {
   color: red;
   font-size: 14px;
@@ -32,7 +44,7 @@
   /* padding: 1rem !important; */
   padding-top: 0 !important;
   margin-bottom: 3rem !important;
-  border-radius: 0.4rem;
+  border-radius: 0.4rem !important;
   width: 45rem !important;
   max-height: 45rem !important;
   min-height: 24rem !important;
@@ -42,6 +54,7 @@
 
 @media screen and (max-width: 480px) {
   .signIn_box {
+    margin-top: 5rem;
     box-shadow: unset !important;
     width: 19rem !important;
   }
@@ -140,4 +153,17 @@ select:focus {
   padding-top: 7rem;
   padding-bottom: 7rem;
   height: 100vh;
+}
+.SignupScreen_homeBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 2rem;
+  width: 50px;
+  height: 50px;
+  background-color: #fff!important;
+  border-radius: 50%!important;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  top: 2rem;
 }
