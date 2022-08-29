@@ -1,0 +1,92 @@
+.dashboard_form{
+    background-image: url(../images/block-chain2.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 115vh;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    background-color: white;
+    opacity: 0.9;
+
+  }
+  .dashboard_form_section{
+    background-image: url(../images/block-chain2.jpg);
+    -webkit-background-size: cover;
+  }
+  @media screen and (min-device-width: 320px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 1)
+  {
+  .dashboard_form{
+    /* background-image: url(../images/block-chain2.jpg);
+    -webkit-background-size: cover;
+    background-size: cover; */
+    height: 164vh;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    background-color: white;
+    /* background-image: none; */
+
+  }
+}
+  .dashboard_form_body{
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    padding-bottom: 0.5rem !important;
+    padding-top: 1rem !important;
+    padding: 2rem !important;
+    /* margin-bottom: 3rem !important; */
+    border-radius: 0.4rem;
+     width: 45rem !important;
+    max-height: 50rem !important;
+    min-height: 30rem !important;
+    background-color: white;
+    /* opacity: 0.9; */
+  }
+  @media screen and (min-device-width: 320px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 1)
+  {
+  .dashboard_form_body{
+    box-shadow: unset !important;
+    padding-bottom: 0.5rem !important;
+    padding-top: 1rem !important;
+    padding: 1.5rem !important;
+    /* margin-bottom: 3rem !important; */
+    border-radius: 0.4rem;
+     width: 20rem !important;
+    max-height: 65rem !important;
+    min-height: 30rem !important;
+    background-color: white;
+    /* opacity: 0.9; */
+  }
+}
+  .dash_form_submit__btn {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    background-color: #3274ad;
+  }
+  .chooseFile{
+    width: 16rem;
+    color: gray;
+    border: none !important;
+    height: 3rem;
+    border-radius:0px !important;
+    height: 2.5rem;
+
+  }
+  .select_error_masg{
+    color: red;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+  }
+  .select_certificate{
+    font-size: 14px !important;
+    color: gray;
+  }
+  input[type=text]:active {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: rgb(235, 230, 230);
+    opacity: 1 !important;
+  }
+
+
+  

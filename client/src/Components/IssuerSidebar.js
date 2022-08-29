@@ -20,7 +20,7 @@ export default function IssuerSidebar() {
                     <div className='navbar text-light ' id = 'sidenavDiv'>
                     <div class="col-md-2">
                     <Link to="#" className='menu-bars'>    
-                    <FaIcons.FaAlignJustify onClick={showSidebar} className="svg-color"/>
+                    <AiIcons.AiOutlineMenu onClick={showSidebar} className="svg-color"/>
                     </Link>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ export default function IssuerSidebar() {
                                                                     </svg></span></span><span className="pro-item-content"><span> Home
                                                                 </span></span></div>
                                                     </li>
-                                                </Link><Link firstchild="1" popperarrow="0" to="/Validator-Dashboard">
+                                                </Link><Link firstchild="1" popperarrow="0" to="/DashboardForm">
                                                     <li className="pro-menu-item Sidebar_menuItem__37ym_" >
                                                         <div className="pro-inner-item" tabindex="0" role="button"><span
                                                                 className="pro-icon-wrapper"><span className="pro-icon">

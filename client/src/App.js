@@ -14,6 +14,8 @@ import SignIn from "./Components/SignIn";
 import SecretTokenFile from "./Components/SecretToken";
 import ValidatorDashboard from "./Components/ValidatorDashboard";
 import HelpDesk from "./Components/HelpDesk";
+import DashboardForm from "./Components/DashboardForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
           <Route path="/SecretTokenFile" exact element={<SecretTokenFile />} />
           <Route path="/Validator-Dashboard" exact element={<ValidatorDashboard />} />
           <Route path="/Help-Desk" exact element={<HelpDesk />} />
+          <Route path="/DashboardForm" exact element={<DashboardForm />} />
         </Routes>
       </Router>
     </>
