@@ -1,0 +1,74 @@
+@media screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1){
+    .Help-Accordian {
+        align-self: center;
+        margin: 2rem;
+        border-bottom: 1px solid #e6e6e6;
+    }}
+    
+    @media (max-device-width: 768px){
+    .Help-section{
+        display: block;
+        background: #CFF;
+        height:90vh;
+        width:100%;
+        /* padding: 60px;
+        padding-left: 120px; */
+        box-sizing:border-box;
+    }}
+
+    @media (max-device-width: 375px){
+        .Help-section{
+            display: block;
+            background: #CFF;
+            height:100vh;
+            width:100%;
+            /* padding: 60px;
+            padding-left: 120px; */
+            box-sizing:border-box;
+        }}
+
+    @media (min-device-width: 770px){
+        .Help-section{
+            display: block;
+            background: #CFF;
+            height:93vh;
+            width:100%;
+            padding: 60px;
+            box-sizing:border-box;
+        }}
+    
+    .help-Header{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'MontserratSemiBold';
+    }
+
+    .help-banner {
+        /* background-color: #0c4a99; */
+        background-image: url('./../images/Background 2.jpg');
+    }
+
+    @media (max-device-width: 375px){
+        .help-banner {
+            /* background-color: #0c4a99; */
+            background-image: url('./../images/Background 2.jpg');
+            padding-bottom: 2rem;
+        }}
+
+    .accordion-button {
+        font-family: 'MontSerratSemiBold' !important;
+    }
+
+    .accordion-body{
+        font-family: 'MontSerratMedium' !important;
+    }
+
+    .MuiContainer-root {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }

@@ -122,7 +122,7 @@ a:hover {
 @media (min-width: 450px) {
 .carousel-caption h2 {
     margin-bottom: 0.8rem;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     font-family: 'MontSerratSemiBold';
     text-align: left;
     padding-top: 1rem;
@@ -132,7 +132,7 @@ a:hover {
 .carousel-caption p {
     margin-top: 40px;
     font-size: 25px;
-    /* padding-bottom: 10px; */
+    padding-bottom: 10px;
     font-family: 'MontSerratMedium';
     text-align: left;
 }}
