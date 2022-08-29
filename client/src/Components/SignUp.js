@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const [isSuccessResponse, setIsSuccessResponse] = useState();
   const validationSchema = Yup.object().shape({
     Select: Yup.string().required("Please select user type"),
 
@@ -37,47 +38,75 @@ const SignUp = () => {
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
-    console.log("data", data);
-    reset();
-    navigate("/SecretTokenFile");
+  const onSubmit = async (data) => {
+    console.log("data", data, JSON.stringify(data));
+    // try {
+    //   var config = {
+    //     method: "post",
+    //     headers: {
+    //       "Content-Type": "application/x-www-form-urlencoded",
+    //     },
+    //     body: new URLSearchParams({
+    //       userType: data.Select,
+    //       email: data.email,
+    //       password: data.password,
+    //       confirmationPassword: data.passwordConfirmation,
+    //       username: data.userName,
+    //     }),
+    //   };
+    //   const response = await fetch("/users/register", config);
+    //   if (response.status === 200) {
+    //     let responseData = await response.json();
+    //     console.log("Here", responseData.msg);
+    //     setSuccessResponse(responseData.msg);
+    //     navigate("/SignIn");
+    //   } else {
+    //     throw Error("Invalid Credentials!");
+    //   }
+    // } catch (err) {
+    //   console.log("error", err.message);
+    //   setErrorResponse(err.message);
+    // }
   };
   console.log(errors);
 
   return (
     <>
       <div className={SignUpCss.form__App}>
-      <Link to="/">
-              <div class={SignUpCss.SignupScreen_homeBtn}>
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 1024 1024"
-                  width="30"
-                  height="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path>
-                </svg>
-              </div>
-            </Link>
+        <Link to="/">
+          <div class={SignUpCss.SignupScreen_homeBtn}>
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 1024 1024"
+              width="30"
+              height="30"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path>
+            </svg>
+          </div>
+        </Link>
         <Container
           className={SignUpCss.signUp_box}
-          style={{ minHeight: "39rem", maxHeight: "50rem",opacity:"0.9" }}
+          style={{ minHeight: "39rem", maxHeight: "50rem", opacity: "0.9" }}
         >
-        
           <form onSubmit={handleSubmit(onSubmit)}>
             <Row className={SignUpCss.singUp_header}>
               <h3 style={{ textAlign: "center", color: "white" }}>Sign Up</h3>
             </Row>
-            <Row style={{ margin: "1rem",marginBottom:"0px" }}>
+            <Row style={{ margin: "1rem", marginBottom: "0px" }}>
               <Form.Group className="mb-0">
                 <Form.Label>User Type</Form.Label>
-                <Form.Select name="usertype" className={SignUpCss.Select_heading} {...register("Select")}>
+                <Form.Select
+                  name="usertype"
+                  className={SignUpCss.Select_heading}
+                  {...register("Select")}
+                >
                   <option value="">Select User Type</option>
-                  <option value="Issuer">Issuer</option>
-                  <option value="Validator">Validator</option>
+                  <option value="issuer">Issuer</option>
+                  <option value="validator">Validator</option>
                 </Form.Select>
               </Form.Group>
               <p className={SignUpCss.error_message}>

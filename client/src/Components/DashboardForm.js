@@ -12,7 +12,8 @@ import { Link } from "react-router-dom";
 
 const DashboardForm = () => {
   const [showhide, setShowhide] = useState("");
-
+  const [hashValue, setHashValue] = useState();
+  const [ValidatorhashError, setValidatorHashError] = useState();
   const handleshowhide = (event) => {
     const getselect = event.target.value;
     // console.log(getselect);
@@ -57,18 +58,38 @@ const DashboardForm = () => {
     useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
-    console.log("file:", watch("logo"));
-    console.log("data", data);
-    console.warn("uploaded file", watch("logo"));
+  const onSubmit = async (data) => {
+    try {
+      const formData = new FormData();
+      formData.append("aadhar", data?.adharNumber);
+      formData.append("email", data?.emailAddress);
+      formData.append("certname", data?.certificateName);
+      formData.append("authority", data?.IssuedBy);
+      formData.append("startdate", data?.startDate);
+      formData.append("enddate", data?.endDate);
+      formData.append("score", data?.place);
+      formData.append("fileUploaded", data?.logo?.[0]);
+      formData.append("personname", data?.nameOfPerson);
+
+      const response = await fetch("users/v1/issue", {
+        method: "POST",
+        body: formData,
+      });
+      if (response.status === 200) {
+        let responseData = await response.json();
+        setHashValue(responseData.txhash);
+      } else {
+        throw Error("Something went wrong");
+      }
+    } catch (err) {
+      setValidatorHashError(err.message);
+    }
     reset();
 
     Swal.fire({
       title: "Certificate Generated",
       position: "center",
-      html:
-        "Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on" +
-        '<a href="#">text@example.com</a> ',
+      html: `Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on ${data?.emailAddress}`,
       icon: "success",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -76,12 +97,26 @@ const DashboardForm = () => {
       confirmButtonText: "View on Ethereum",
     }).then((result) => {
       if (result.isConfirmed) {
-        alert("thank you");
+        window.location = `https://mumbai.polygonscan.com/tx/${hashValue}`;
       }
     });
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (ValidatorhashError?.length && ValidatorhashError !== "") {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "ERROR",
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Close",
+        timer: 2500,
+      });
+    }
+  }, [ValidatorhashError]);
+
   return (
     <>
       <section className="dashboard_form_section">
@@ -89,7 +124,6 @@ const DashboardForm = () => {
         <IssuerSidebar />
         <div className="dashboard_form">
           <Container className="dashboard_form_body">
-            
             <form onSubmit={handleSubmit(onSubmit)}>
               <Row>
                 <h4 style={{ textAlign: "start", color: "black" }}>

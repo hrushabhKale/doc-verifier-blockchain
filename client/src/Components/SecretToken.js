@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import SignCss from "../Assets/css/SignIn.module.css";
 
 const SecretTokenFile = () => {
+  const [isSuccessResponse,setIsSuccessResponse]=useState()
   //   const [modal, setmodal] = useState(false);
   const validationSchema = Yup.object().shape({
     SecretToken: Yup.string()
@@ -16,8 +17,24 @@ const SecretTokenFile = () => {
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
+  const onSubmit =async (data) => {
     console.log("data", data);
+    // try {
+    //   const response = await axios.post(
+    //     "users/verify",
+    //     data
+    //   );
+    //   console.log("response",response)
+    //   if(response.status === 200){
+    //     setIsSuccessResponse(response)
+    //   }
+    // } catch (error) {
+    //   const errors = error.response.data.msg;
+    //   if (errors) {
+    //     console.log("error",error.response)
+    //     // return error.response;
+    //   }
+    // }
     reset();
   };
 
