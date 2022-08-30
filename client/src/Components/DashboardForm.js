@@ -19,48 +19,48 @@ const DashboardForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-  //   logo: Yup.mixed()
-  //   .test("required", "Please select the file", (value) =>{
-  //  if (!value.length){
-  //   return false
-  //  }
-  //  else{
-  //   return true
-  //  }
-  //   })
+    logo: Yup.mixed()
+    .test("required", "Please select the file", (value) =>{
+   if (!value.length){
+    return false
+   }
+   else{
+    return true
+   }
+    })
 
-  //   .test("type", "Only .jpg and .png formats are accepted", (value) => {
-  //     console.log("value", value.type);
-  //     return value && (
-  //         value?.[0]?.type === "image/jpeg" ||
-  //         value?.[0]?.type === "image/png" 
-  //     );
-  // }),
+    .test("type", "Only .jpg and .png formats are accepted", (value) => {
+      console.log("value", value.type);
+      return value && (
+          value?.[0]?.type === "image/jpeg" ||
+          value?.[0]?.type === "image/png" 
+      );
+  }),
 
-  //   usertype: Yup.string().required("Please select certificate type"),
+    usertype: Yup.string().required("Please select certificate type"),
 
-  //   emailAddress: Yup.string()
-  //     .required("Please enter your email")
-  //     .email("Please enter valid email"),
+    emailAddress: Yup.string()
+      .required("Please enter your email")
+      .email("Please enter valid email"),
 
-  //   adharNumber: Yup.string()
-  //     .required("Please enter aadhar number field")
-  //     .matches(
-  //       /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
-  //       "Please enter valid adhar number"
-  //     ),
+    adharNumber: Yup.string()
+      .required("Please enter aadhar number field")
+      .matches(
+        /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
+        "Please enter valid adhar number"
+      ),
 
-  //   certificateName: Yup.string().required("Please enter certificate name"),
+    certificateName: Yup.string().required("Please enter certificate name"),
 
-  //   startDate: Yup.string().required("Please enter or select start date"),
+    startDate: Yup.string().required("Please enter or select start date"),
 
-  //   place: Yup.string().required("Please enter place field"),
+    place: Yup.string().required("Please enter place field"),
 
-  //   IssuedBy: Yup.string().required("Please fill this field"),
+    IssuedBy: Yup.string().required("Please fill this field"),
 
-  //   endDate: Yup.string().required("Please enter or select date"),
+    endDate: Yup.string().required("Please enter or select date"),
 
-  //   nameOfPerson: Yup.string().required("Please enter name of person"),
+    nameOfPerson: Yup.string().required("Please enter name of person"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
   const { register, handleSubmit, reset, watch, formState } =

@@ -88,7 +88,7 @@
     opacity: 1 !important;
   }
 
-  .swal2-popup {
+  .swal2-popup{
     display: none;
     position: relative;
     box-sizing: border-box;
