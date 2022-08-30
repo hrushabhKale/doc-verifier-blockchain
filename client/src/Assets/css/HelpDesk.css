@@ -40,7 +40,7 @@
     .help-Header{
         font-size: 20px;
         font-weight: 600;
-        font-family: 'MontserratSemiBold';
+        font-family: 'Montserrat', sans-serif;
     }
 
     .help-banner {
@@ -56,11 +56,13 @@
         }}
 
     .accordion-button {
-        font-family: 'MontSerratSemiBold' !important;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif !important;
     }
 
     .accordion-body{
-        font-family: 'MontSerratMedium' !important;
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif !important;
     }
 
     .MuiContainer-root {

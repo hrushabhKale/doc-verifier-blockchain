@@ -6,14 +6,30 @@ import ValidatorSidebar from './ValidatorSidebar';
 
 export default function DragAndDrop({ open }) {
 
-    const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
-    useDropzone({});
+    const { getRootProps, getInputProps, isDragActive, acceptedFiles, fileRejections } =
+    useDropzone({
+        accept: {
+            'pdf': ['.pdf'],
+          }
+    });
 
     const files = acceptedFiles.map((file) => (
 
         <li key={file.path}>
           {file.path} - {file.size} bytes
         </li>
+      ));
+
+      const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+        // <li key={file.path}>
+        //   {file.path} - {file.size} bytes
+        //   <ul>
+        //     {errors.map(e => (
+        //       <li key={e.code}>{e.message} </li>
+        //     ))}
+        //   </ul>
+        // </li>
+        <p className='fileError'>Only .pdf files format are accepted</p>
       ));
 
     useEffect(() => {
@@ -79,7 +95,8 @@ export default function DragAndDrop({ open }) {
                         
                         </div>
                         <aside>
-                            <ul>{files}</ul>
+                            <p className='text-center pt-3'>{files} {fileRejectionItems}</p>
+                        
                         </aside>
                     </div>
                 </div>
