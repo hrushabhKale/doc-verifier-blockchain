@@ -8,49 +8,59 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import IssuerSidebar from "./IssuerSidebar";
 import { Link } from "react-router-dom";
-// import 'sweetalert2/src/sweetalert2.scss'
 
 const DashboardForm = () => {
   const [showhide, setShowhide] = useState("");
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
-    // console.log(getselect);
 
     setShowhide(getselect);
   };
 
   const validationSchema = Yup.object().shape({
-    // logo: Yup.mixed()
-    // .required("Please select the file")
-    // .test("fileSize", "The flie size is too large", (value) =>{
-    //   return value && value[0]?.size < 2000000
-    // }),
+  //   logo: Yup.mixed()
+  //   .test("required", "Please select the file", (value) =>{
+  //  if (!value.length){
+  //   return false
+  //  }
+  //  else{
+  //   return true
+  //  }
+  //   })
 
-    usertype: Yup.string().required("Please select certificate type"),
+  //   .test("type", "Only .jpg and .png formats are accepted", (value) => {
+  //     console.log("value", value.type);
+  //     return value && (
+  //         value?.[0]?.type === "image/jpeg" ||
+  //         value?.[0]?.type === "image/png" 
+  //     );
+  // }),
 
-    emailAddress: Yup.string()
-      .required("Please enter your email")
-      .email("Please enter valid email"),
+  //   usertype: Yup.string().required("Please select certificate type"),
 
-    adharNumber: Yup.string()
-      .required("Please enter aadhar number field")
-      .matches(
-        /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
-        "Please enter valid adhar number"
-      ),
+  //   emailAddress: Yup.string()
+  //     .required("Please enter your email")
+  //     .email("Please enter valid email"),
 
-    certificateName: Yup.string().required("Please enter certificate name"),
+  //   adharNumber: Yup.string()
+  //     .required("Please enter aadhar number field")
+  //     .matches(
+  //       /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
+  //       "Please enter valid adhar number"
+  //     ),
 
-    startDate: Yup.string().required("Please enter or select start date"),
+  //   certificateName: Yup.string().required("Please enter certificate name"),
 
-    place: Yup.string().required("Please enter place field"),
+  //   startDate: Yup.string().required("Please enter or select start date"),
 
-    IssuedBy: Yup.string().required("Please fill this field"),
+  //   place: Yup.string().required("Please enter place field"),
 
-    endDate: Yup.string().required("Please enter or select date"),
+  //   IssuedBy: Yup.string().required("Please fill this field"),
 
-    nameOfPerson: Yup.string().required("Please enter name of person"),
+  //   endDate: Yup.string().required("Please enter or select date"),
+
+  //   nameOfPerson: Yup.string().required("Please enter name of person"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
   const { register, handleSubmit, reset, watch, formState } =
@@ -244,6 +254,7 @@ const DashboardForm = () => {
                         <input
                           type="file"
                           className="chooseFile"
+                          // name='logo'
                           {...register("logo")}
                         />
                       </Form.Group>
