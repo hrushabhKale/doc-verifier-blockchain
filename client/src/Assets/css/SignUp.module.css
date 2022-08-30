@@ -71,10 +71,14 @@
   }
   Label{
     font-size: 14px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
   }
   
   input::placeholder {
    font-size: 14px;
+   font-weight: 500;
+   font-family: 'Montserrat', sans-serif;
   }
   
   .Select_heading{
