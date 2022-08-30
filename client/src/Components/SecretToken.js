@@ -16,8 +16,47 @@ const SecretTokenFile = () => {
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
-    console.log("data", data);
+  const onSubmit =async (data) => {
+    // try {
+    //   const response = await axios.post(
+    //     "users/verify",
+    //     data
+    //   );
+    //   console.log("response",response)
+    //   if(response.status === 200){
+    //     setIsSuccessResponse(response)
+    //   }
+    // } catch (error) {
+    //   const errors = error.response.data.msg;
+    //   if (errors) {
+    //     console.log("error",error.response)
+    //     // return error.response;
+    //   }
+    // }
+
+    // try {
+    //   var config = {
+    //     method: "post",
+    //     headers: {
+    //       "Content-Type": "application/x-www-form-urlencoded",
+    //     },
+    //     body: new URLSearchParams({
+    //       secretToken: data?.SecretToken
+    //     }),
+    //   };
+    //   const response = await fetch("/users/verify", config);
+    //   if (response.status === 200) {
+    //     let responseData = await response.json();
+    //     console.log("Here", responseData.msg);
+    //     // setSuccessResponse(responseData.msg);
+        
+    //   } else {
+    //     throw Error("Invalid Credentials!");
+    //   }
+    // } catch (err) {
+    //   console.log("error", err.message);
+    //   // setErrorResponse(err.message)
+    // }
     reset();
   };
 
