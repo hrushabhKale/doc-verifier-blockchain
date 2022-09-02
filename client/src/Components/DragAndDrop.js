@@ -4,6 +4,7 @@ import './../Assets/css/ValidatorDashboard.css';
 import image1 from './../Assets/images/swipe.png';
 import ValidatorSidebar from './ValidatorSidebar';
 import Swal from "sweetalert2";
+import DotLoader from "react-spinners/DotLoader";
 
 export default function DragAndDrop({ open }) {
   const { getRootProps, getInputProps, isDragActive, acceptedFiles,fileRejections} =
@@ -14,6 +15,14 @@ export default function DragAndDrop({ open }) {
     });
   const [issuerHashValue,setIssuerHashValue]=useState()
   const [issuerHashError,setIssuerHashError]=useState()
+  const [loading, setLoading] = useState(false);
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+
   const files = acceptedFiles.map((file) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
@@ -35,6 +44,7 @@ export default function DragAndDrop({ open }) {
   useEffect(() => {
     (async () => {
       if (acceptedFiles.length > 0) {
+        setLoading(!loading)
         try {
           const formData = new FormData();
           formData.append("fileUploaded", acceptedFiles?.[0]);
@@ -45,11 +55,13 @@ export default function DragAndDrop({ open }) {
           });
           let responseData = await response.json();
           if (responseData.success === true) {
+            setLoading(loading)
             setIssuerHashValue(responseData.txhash);
           } else {
             throw Error(responseData.message);
           }
         } catch (err) {
+          setLoading(loading)
           setIssuerHashError(err.message)
         }
       }
@@ -62,7 +74,7 @@ export default function DragAndDrop({ open }) {
       if (issuerHashValue && acceptedFiles.length > 0) {
         Swal.fire({
             title: 'Verified!',
-            text: "This document is verified Successfully",
+            text: "This document is verified successfully",
             icon: 'success',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -116,10 +128,11 @@ export default function DragAndDrop({ open }) {
                         
                         </div>
                         <aside>
-                            <p className='text-center pt-3'>{files} {fileRejectionItems}</p>
+                            <p className='text-center pt-3'>{fileRejectionItems}</p>
                         </aside>
                     </div>
                 </div>
+                <DotLoader loading={loading} size={300} override={override} />
             </div>
             </section>
     </>

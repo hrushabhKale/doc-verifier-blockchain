@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { Button, Container, Row } from "react-bootstrap";
@@ -7,8 +7,13 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import DotLoader from "react-spinners/DotLoader";
 
 const SignUp = () => {
+  const [successResponse,setSuccessResponse]=useState();
+  const [errorResponse,setErrorResponse]=useState();
+  const [loading, setLoading] = useState(false);
   const validationSchema = Yup.object().shape({
     Select: Yup.string().required("Please select user type"),
 
@@ -39,8 +44,7 @@ const SignUp = () => {
 
   const onSubmit = async(data) => {
     console.log("data", data);
-    // reset();
-    
+    setLoading(!loading)
     try {
       var config = {
         method: "post",
@@ -48,28 +52,45 @@ const SignUp = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          userType: data.Select,
+          usertype: data.Select,
           email: data.email,
-          username: data.userName,
           password: data.password,
-          confirmationPassword: data.passwordConfirmation
+          confirmationPassword: data.passwordConfirmation,
+          username: data.userName,
         }),
       };
-      const response = await fetch("/users/register", config);
-      if (response.status === 200) {
-        let responseData = await response.json();
+      const response = await fetch("/users/v1/register", config);
+      let responseData = await response.json();
+      if (responseData.success === true) {
+        setLoading(loading)
         console.log("Here", responseData.msg);
-        // setSuccessResponse(responseData.msg);
-        // navigate("/SecretTokenFile");
+        setSuccessResponse(responseData.msg);
+        navigate("/SecretTokenFile");
       } else {
-        throw Error("Invalid Credentials!");
+        throw Error(responseData.msg);
       }
     } catch (err) {
       console.log("error", err.message);
-      // setErrorResponse(err.message)
+      setLoading(loading)
+      setErrorResponse(err.message)
     }
   };
-  console.log(errors);
+
+  useEffect(()=>{
+    if(errorResponse?.length && errorResponse!==''){
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title:`${errorResponse}`,
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Close',
+        timer: 2500
+      })
+    }
+    setErrorResponse("")
+  },[errorResponse])
 
   return (
     <>
@@ -103,8 +124,8 @@ const SignUp = () => {
                 <Form.Label>User Type</Form.Label>
                 <Form.Select name="usertype" className={SignUpCss.Select_heading} {...register("Select")}>
                   <option value="">Select User Type</option>
-                  <option value="Issuer">Issuer</option>
-                  <option value="Validator">Validator</option>
+                  <option value="issuer">Issuer</option>
+                  <option value="validator">Validator</option>
                 </Form.Select>
               </Form.Group>
               <p className={SignUpCss.error_message}>
@@ -195,6 +216,7 @@ const SignUp = () => {
             </Row>
           </form>
         </Container>
+        <DotLoader loading={loading} size={60} />
       </div>
     </>
   );

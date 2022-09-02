@@ -7,12 +7,13 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import IssuerSidebar from "./IssuerSidebar";
-import { Link } from "react-router-dom";
+import DotLoader from "react-spinners/DotLoader";
 
 const DashboardForm = () => {
   const [showhide, setShowhide] = useState("");
   const [hashValue,setHashValue]=useState()
   const [validatorhashError,setValidatorHashError]=useState()
+  const [loading, setLoading] = useState(false);
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
@@ -66,8 +67,10 @@ const DashboardForm = () => {
   const { register, handleSubmit, reset, watch, formState } =
     useForm(formOptions);
   const { errors } = formState;
+  console.log("register",register,handleSubmit,formState)
 
   const onSubmit = async (data) => {
+    setLoading(!loading)
     try {
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
@@ -85,12 +88,14 @@ const DashboardForm = () => {
         body: formData,
       });
       if (response.status === 200) {
+        setLoading(loading)
         let responseData = await response.json();
         setHashValue(responseData.txhash);
       } else {
         throw Error("Something went wrong");
       }
     } catch (err) {
+      setLoading(loading)
       setValidatorHashError(err.message);
     }
     reset()
@@ -117,7 +122,7 @@ const DashboardForm = () => {
     Swal.fire({
       title: "Certificate Generated",
       position: "center",
-      html: `Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on `,
+      html: `Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on`,
       icon: "success",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -326,6 +331,7 @@ const DashboardForm = () => {
             </form>
           </Container>
         </div>
+        <DotLoader loading={loading} size={60} />
       </section>
     </>
   );

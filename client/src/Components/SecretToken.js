@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Button, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SignCss from "../Assets/css/SignIn.module.css";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import DotLoader from "react-spinners/DotLoader";
 
 const SecretTokenFile = () => {
   //   const [modal, setmodal] = useState(false);
+  const [errorResponse,setErrorResponse]=useState()
+  const [loading, setLoading] = useState(false);
   const validationSchema = Yup.object().shape({
     SecretToken: Yup.string()
     .required("Please enter secret token")
@@ -15,50 +20,53 @@ const SecretTokenFile = () => {
   const formOptions = { resolver: yupResolver(validationSchema) };
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
+  const navigate = useNavigate();
 
   const onSubmit =async (data) => {
-    // try {
-    //   const response = await axios.post(
-    //     "users/verify",
-    //     data
-    //   );
-    //   console.log("response",response)
-    //   if(response.status === 200){
-    //     setIsSuccessResponse(response)
-    //   }
-    // } catch (error) {
-    //   const errors = error.response.data.msg;
-    //   if (errors) {
-    //     console.log("error",error.response)
-    //     // return error.response;
-    //   }
-    // }
-
-    // try {
-    //   var config = {
-    //     method: "post",
-    //     headers: {
-    //       "Content-Type": "application/x-www-form-urlencoded",
-    //     },
-    //     body: new URLSearchParams({
-    //       secretToken: data?.SecretToken
-    //     }),
-    //   };
-    //   const response = await fetch("/users/verify", config);
-    //   if (response.status === 200) {
-    //     let responseData = await response.json();
-    //     console.log("Here", responseData.msg);
-    //     // setSuccessResponse(responseData.msg);
-        
-    //   } else {
-    //     throw Error("Invalid Credentials!");
-    //   }
-    // } catch (err) {
-    //   console.log("error", err.message);
-    //   // setErrorResponse(err.message)
-    // }
-    reset();
+    setLoading(!loading)
+    try {
+      var config = {
+        method: "post",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secretToken: data?.SecretToken
+        }),
+      };
+      const response = await fetch("/users/v1/verify", config);
+      let responseData = await response.json();
+      if (responseData.success === true) {
+        console.log("Here", responseData.msg);
+        // setSuccessResponse(responseData.msg);
+        setLoading(loading)
+        navigate("/SignIn")
+      } else {
+        throw Error(responseData.message);
+      }
+    } catch (err) {
+      console.log("error", err.message);
+      setLoading(loading)
+      setErrorResponse(err.message)
+    }
+    // reset();
   };
+
+  useEffect(()=>{
+    if(errorResponse?.length && errorResponse!==''){
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title:`${errorResponse}`,
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Close',
+        // timer: 2500
+      })
+    }
+    setErrorResponse("")
+  },[errorResponse])
 
   const SubmitHandler = (e) => {
     e.preventDefault();
@@ -114,6 +122,7 @@ const SecretTokenFile = () => {
           Check the spam folder if not found
         </p>
       </Container>
+      <DotLoader loading={loading} size={60} />
       </div>
     </>
   );

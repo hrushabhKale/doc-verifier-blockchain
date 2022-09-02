@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import TimeLine from "./Components/TimeLine";
 import Cards from "./Components/Cards";
 import VideoSection from "./Components/VideoSection";
@@ -15,8 +16,8 @@ import SecretTokenFile from "./Components/SecretToken";
 import ValidatorDashboard from "./Components/ValidatorDashboard";
 import HelpDesk from "./Components/HelpDesk";
 import DashboardForm from "./Components/DashboardForm";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import Protected from "./Components/Protected";
 function App() {
   return (
     <>
@@ -32,10 +33,10 @@ function App() {
           <Route path="/timelineSection" exact element={<TimelineSection />} />
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/SignUp" exact element={<SignUp />} />
-          <Route path="/SecretTokenFile" exact element={<SecretTokenFile />} />
-          <Route path="/Validator-Dashboard" exact element={<ValidatorDashboard />} />
-          <Route path="/Help-Desk" exact element={<HelpDesk />} />
-          <Route path="/DashboardForm" exact element={<DashboardForm />} />
+          <Route path="/SecretTokenFile"  element={<Protected component={SecretTokenFile} />} />
+          <Route path="/Validator-Dashboard" element={<Protected component={ValidatorDashboard} />} />
+          <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
+          <Route path="/DashboardForm" element={<Protected component={DashboardForm} />} />
         </Routes>
       </Router>
     </>
