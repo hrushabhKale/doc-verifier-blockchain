@@ -15,9 +15,9 @@ export default function DragAndDrop({ open }) {
   const [issuerHashValue,setIssuerHashValue]=useState()
   const [issuerHashError,setIssuerHashError]=useState()
   const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
+    <p key={file.path}>
+      {file.path}
+    </p>
   ));
 
   const fileRejectionItems = fileRejections.map(({ file, errors }) => (

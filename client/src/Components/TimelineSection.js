@@ -20,19 +20,19 @@ export default function TimelineSection() {
         </div>
     </section>
 
-    <section>
-            <div className="container-fluid big-banner text-light" id="timeline">
+    <section className="Timeline-banner timeline-align text-light">
+            <div className="container Timeline-banner text-light" id="timeline">
             {/* <div className='text-center'>
               <h2>How to use Doc Verifier</h2>
               <p>Doc Verifier is very easy to use, You can be certificate issuer as well as validator</p>
             </div> */}
               <div className="row d-sm-flex d-md-flex align-items-center justify-content-between p-4 ">
                 <div className="col-md-12 col-sm-12 col-12 col-lg-6">
-                  <h5 className='text-center'>Issue Flow</h5>
+                  <h5 className='text-center timeline-title'>Issue Flow</h5>
                     <TimeLine/>
                 </div>
                 <div className="col-md-12 col-sm-12 col-12 col-lg-6">
-                  <h5 className='text-center'>Validator Flow</h5>
+                  <h5 className='text-center timeline-title'>Validator Flow</h5>
                     <Timeline2/>
                 </div>
               </div>
