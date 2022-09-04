@@ -13,7 +13,7 @@ import './../Assets/css/Cards.css';
     render(){
         return(
             <section>
-            <div className="container-fluid p-5 big-banner text-dark text-center cards2" >
+            <div className="container-fluid p-5 card-banner text-dark text-center cards2" >
               <h2 className='pb-5 text-light'>Key Feature of Doc Verifier</h2>          
             
             <div className="d-flex justify-content-center">
