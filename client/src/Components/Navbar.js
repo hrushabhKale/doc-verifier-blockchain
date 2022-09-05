@@ -90,7 +90,7 @@ export default function Navbar(props) {
                             class="dropdown-item"
                             to={
                               userData.type === "issuer"
-                                ? "/DashboardForm"
+                                ? "/Issuer-Dashboard"
                                 : "/Validator-Dashboard"
                             }
                           >

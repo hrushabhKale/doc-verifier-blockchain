@@ -2,9 +2,9 @@ import React, { useState,useEffect } from 'react'
 import { useDropzone } from "react-dropzone";
 import './../Assets/css/ValidatorDashboard.css';
 import image1 from './../Assets/images/swipe.png';
-import ValidatorSidebar from './ValidatorSidebar';
 import Swal from "sweetalert2";
 import DotLoader from "react-spinners/DotLoader";
+import Sidebar from './Sidebar';
 
 
 export default function DragAndDrop({ open }) {
@@ -131,7 +131,7 @@ export default function DragAndDrop({ open }) {
   return (
     <>
           <section className='big-banner'>
-            <ValidatorSidebar/>
+            <Sidebar/>
             <div className='boxes big-banner '>
 
                 <div className='bg-light text-dark box p-3'>
