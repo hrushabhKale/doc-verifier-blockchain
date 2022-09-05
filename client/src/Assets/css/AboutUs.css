@@ -1,11 +1,3 @@
-/* body {
-    font-family: Montserrat-Regular;
-    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
-    font-size: 16px;
-    width:100%;
-    overflow-x:hidden;
-} */
-
 .about-us h2{
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
@@ -16,7 +8,7 @@
         padding: 0px 30px;
     }
     .desp p{
-        font-weight: 600;
+        font-weight: 500;
         font-family: 'Montserrat', sans-serif !important;
     }
 }

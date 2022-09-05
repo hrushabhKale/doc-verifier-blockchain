@@ -6,6 +6,7 @@ import ValidatorSidebar from './ValidatorSidebar';
 import Swal from "sweetalert2";
 import DotLoader from "react-spinners/DotLoader";
 
+
 export default function DragAndDrop({ open }) {
   const { getRootProps, getInputProps, isDragActive, acceptedFiles,fileRejections} =
     useDropzone({
@@ -67,6 +68,49 @@ export default function DragAndDrop({ open }) {
       }
     })();
   }, [acceptedFiles]);
+
+  const files = acceptedFiles.map((file) => (
+    <p key={file.path}>
+      {file.path}
+    </p>
+  ));
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    // <li key={file.path}>
+    //   {file.path} - {file.size} bytes
+    //   <ul>
+    //     {errors.map(e => (
+    //       <li key={e.code}>{e.message} </li>
+    //     ))}
+    //   </ul>
+    // </li>
+    <p className='fileError'>Only .pdf files format are accepted</p>
+  ));
+
+  useEffect(() => {
+    (async () => {
+      if (acceptedFiles.length > 0) {
+        try {
+          const formData = new FormData();
+          formData.append("fileUploaded", acceptedFiles?.[0]);
+
+          const response = await fetch("users/v1/validator", {
+            method: "POST",
+            body: formData,
+          });
+          let responseData = await response.json();
+          if (responseData.success === true) {
+            setIssuerHashValue(responseData.txhash);
+          } else {
+            throw Error(responseData.message);
+          }
+        } catch (err) {
+          setIssuerHashError(err.message)
+        }
+      }
+    })();
+  }, [acceptedFiles]);
+
 
  
   

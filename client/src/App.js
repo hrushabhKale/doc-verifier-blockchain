@@ -1,7 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import TimeLine from "./Components/TimeLine";
 import Cards from "./Components/Cards";
 import VideoSection from "./Components/VideoSection";
@@ -18,6 +16,7 @@ import HelpDesk from "./Components/HelpDesk";
 import DashboardForm from "./Components/DashboardForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Protected from "./Components/Protected";
+
 function App() {
   return (
     <>

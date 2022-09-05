@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as GrIcons from 'react-icons/gr';
 import * as MdIcons from 'react-icons/md';

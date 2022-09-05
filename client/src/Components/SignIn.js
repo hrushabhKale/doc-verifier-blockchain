@@ -22,6 +22,7 @@ const SignIn = () => {
     margin: "0 auto",
     borderColor: "red",
   };
+
   const validationSchema = Yup.object().shape({
     userName: Yup.string().required("Please enter your email")
     .email(" Please enter valid email"),
@@ -37,6 +38,7 @@ const SignIn = () => {
     console.log("data", data);
     setErrorResponse("")
     setLoading(!loading)
+
     try {
       var config = {
         method: "post",
@@ -92,6 +94,7 @@ useEffect(()=>{
   }
 },[errorResponse])
   const [message, setMessage] = useState('');
+
   const [error, setError] = useState(null);
 
   function isValidEmail(email) {

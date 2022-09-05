@@ -49,7 +49,8 @@ const SecretTokenFile = () => {
       setLoading(loading)
       setErrorResponse(err.message)
     }
-    // reset();
+    reset();
+
   };
 
   useEffect(()=>{

@@ -12,7 +12,7 @@ export default function VideoSection() {
         <div class="container">
             <div class=" row d-sm-flex align-items-center justify-content-between">
                 <div className='col-md-6 text-box' data-aos='fade-right'>
-                    <h1>What is DocVerifier Platform?</h1>
+                    <h1>What is DocVerifier Platform ?</h1>
                       <p className='video-Paragraph '>Doc-Verifier is a platform where Governments, Universities and Companies can Issue and Validate all kind of Certificates,
                          We are using the Ethereum Blockchain and IPFS Technology.
                       </p>

@@ -45,6 +45,7 @@ const SignUp = () => {
   const onSubmit = async(data) => {
     console.log("data", data);
     setLoading(!loading)
+
     try {
       var config = {
         method: "post",

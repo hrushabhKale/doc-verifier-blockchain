@@ -5,14 +5,6 @@
     padding: 100px 15px;
 } */
 
-/* body {
-    font-family: "MontSerratRegular";
-    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
-    font-size: 16px;
-    width:100%;
-    overflow-x:hidden;
-} */
-
 .timeline-Header h2{
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
@@ -114,3 +106,58 @@
         left: 0;
     }
 }
+
+
+@media(max-width: 375px){
+    .Time-Details{
+        margin-right: -11px;
+    }}
+    
+    .Time-Details-right{
+        width: 10rem;
+        text-align: left;
+    }
+    
+    .Timeline-banner {
+        /* background-color: #0c4a99; */
+        background-image: url('./../images/timeline11.jpg');
+        width: auto;
+    }
+    
+    .Timeline-banner2 {
+        /* background-color: #0c4a99; */
+        background-image: url('./../images/timeline7.jpg');
+        width: auto;
+    }
+    
+    @media(min-width: 1044px) and (min-width: 1024px){
+        .timeline-align{
+            padding: 0px 185px;
+        }
+    }
+    
+    @media(max-width: 1020px) and (min-width: 770px){
+        .timeline-align{
+            padding: 0px 50px;
+        }
+    }
+    
+    @media(max-width: 768px) and (min-width: 430px){
+        .timeline-align{
+            padding: 0px 60px;
+        }
+    }
+
+    @media(min-width: 375px){
+    .time-font{
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif !important;
+    }}
+
+    .timeline-title{
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif !important;
+    }
+
+    
+
