@@ -36,7 +36,7 @@ function App() {
           <Route path="/SecretTokenFile"  element={<Protected component={SecretTokenFile} />} />
           <Route path="/Validator-Dashboard" element={<Protected component={ValidatorDashboard} type="validator" />} />
           <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
-          <Route path="/DashboardForm" element={<Protected component={DashboardForm} type="issuer" />} />
+          <Route path="/Issuer-Dashboard" element={<Protected component={DashboardForm} type="issuer" />} />
           <Route path="/pagenotfound" exact element={<PageNotFound />} />
         </Routes>
       </Router>

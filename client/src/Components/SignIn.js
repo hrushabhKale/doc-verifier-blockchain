@@ -65,7 +65,7 @@ const SignIn = () => {
           })
         );
         if (responseData.type === "issuer") {
-          navigate("/DashboardForm");
+          navigate("/Issuer-Dashboard");
         } else {
           navigate("/Validator-Dashboard");
         }
