@@ -9,11 +9,20 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import DotLoader from "react-spinners/DotLoader";
 
 const SignIn = () => {
   const [modal, setmodal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [successResponse, setSuccessResponse] = useState();
   const [errorResponse,setErrorResponse]=useState("");
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+
   const validationSchema = Yup.object().shape({
     userName: Yup.string().required("Please enter your email")
     .email(" Please enter valid email"),
@@ -28,6 +37,8 @@ const SignIn = () => {
   const onSubmit = async (data) => {
     console.log("data", data);
     setErrorResponse("")
+    setLoading(!loading)
+
     try {
       var config = {
         method: "post",
@@ -42,14 +53,19 @@ const SignIn = () => {
       const response = await fetch("/users/v1/login", config);
       if (response.status === 200) {
         let responseData = await response.json();
-        console.log("Here", responseData.msg);
         setSuccessResponse(responseData.msg);
+        setLoading(loading)
+        localStorage.setItem("UserCredentials",JSON.stringify({
+          userName:`${data.userName}`,
+          password:`${data.password}`
+        }))
         if(responseData.type  === "issuer"){
-            navigate('/Validator-Dashboard')
-        }else{
           navigate('/DashboardForm')
+        }else{
+          navigate('/Validator-Dashboard')
         }
       } else {
+        setLoading(loading)
         throw Error("Invalid Credentials!");
       }
     } catch (err) {
@@ -73,11 +89,12 @@ useEffect(()=>{
       showCancelButton: true,
       cancelButtonColor: '#d33',
       cancelButtonText: 'Close',
-      timer: 2500
+      // timer: 2500
     })
   }
 },[errorResponse])
-const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('');
+
   const [error, setError] = useState(null);
 
   function isValidEmail(email) {
@@ -254,6 +271,7 @@ const [message, setMessage] = useState('');
               </form>
             </Col>
           </Row>
+          <DotLoader loading={loading} size={60} override={override} />
         </Container>
       </div>
     </>
