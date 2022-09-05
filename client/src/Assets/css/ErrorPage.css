@@ -1,0 +1,30 @@
+.box-error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+.error-svg-color{
+    fill: #fff !important;
+    vertical-align: large;
+    width: 50%;
+    height: 40vh;
+}
+
+.row{
+    width: 100%;
+}
+
+.error-banner {
+    /* background-color: #0c4a99; */
+    background-image: url('./../images/error3.jpg');
+}
+
+.error-msg{
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center !important;
+}
