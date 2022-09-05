@@ -138,15 +138,21 @@ export default function DragAndDrop({ open }) {
                     <div {...getRootProps({ className: "dropzone " })} >
                         <input className="input-zone" {...getInputProps()} />
                         <img src={image1} className=' Drag-img' alt='drag'/>
-                        <div className="text-center">
+                        <div className="text-center p-4">
                             {isDragActive ? (
                             <p className="dropzone-content">
                                 Release to drop the files here
                             </p>
                             ) : (
-                            <p className="dropzone-content">
-                                Drag’n’drop some files here <br/>, or click to select files
-                            </p>
+                              <>
+                                  <p className="dropzone-content">
+                                      Drag & drop some files here 
+                                  </p>
+                                  {/* <hr /> */}
+                                  <p className="dropzone-content">
+                                      , or click to select files
+                                  </p>
+                              </>
                             )}
                             <button type="button" onClick={open} className="btn btn-outline-primary mt-4 bg-dark text-light">
                             Select Files
