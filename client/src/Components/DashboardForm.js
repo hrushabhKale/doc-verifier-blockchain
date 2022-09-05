@@ -10,7 +10,7 @@ import IssuerSidebar from "./IssuerSidebar";
 import DotLoader from "react-spinners/DotLoader";
 
 const DashboardForm = () => {
-  const [showhide, setShowhide] = useState("");
+  const [showhide, setShowhide] = useState("Adhar");
   const [hashValue,setHashValue]=useState()
   const [validatorhashError,setValidatorHashError]=useState()
   const [loading, setLoading] = useState(false);
@@ -168,7 +168,7 @@ const DashboardForm = () => {
                       onChange={(e) => handleshowhide(e)}
                     >
                       <option value="">Select Certificate Type</option>
-                      <option value="Adhar">Aadhar</option>
+                      <option value="Adhar" selected>Aadhar</option>
                       <option value="xyz" disabled>
                         xyz
                       </option>
