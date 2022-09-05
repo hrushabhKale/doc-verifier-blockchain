@@ -37,10 +37,37 @@ const SignUp = () => {
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
     console.log("data", data);
-    reset();
-    navigate("/SecretTokenFile");
+    // reset();
+    
+    try {
+      var config = {
+        method: "post",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          userType: data.Select,
+          email: data.email,
+          username: data.userName,
+          password: data.password,
+          confirmationPassword: data.passwordConfirmation
+        }),
+      };
+      const response = await fetch("/users/register", config);
+      if (response.status === 200) {
+        let responseData = await response.json();
+        console.log("Here", responseData.msg);
+        // setSuccessResponse(responseData.msg);
+        // navigate("/SecretTokenFile");
+      } else {
+        throw Error("Invalid Credentials!");
+      }
+    } catch (err) {
+      console.log("error", err.message);
+      // setErrorResponse(err.message)
+    }
   };
   console.log(errors);
 

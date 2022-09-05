@@ -18,7 +18,7 @@ export default function Navbar(props) {
                   <a class="nav-link active text-light achr" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light achr" href="#what-we-do">What we Do?</a>
+                  <a class="nav-link text-light achr" href="#what-we-do">What we Do ?</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light achr" aria-current="page" href="#timeline">Product</a>

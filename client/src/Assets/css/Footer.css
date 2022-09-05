@@ -1,10 +1,4 @@
-/* body {
-    font-family: "MontSerratRegular";
-    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
-    font-size: 16px;
-    width:100%;
-    overflow-x:hidden;
-} */
+
 
 @media only screen and (min-device-width: 1064px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
     .home .social-icons-wrapper {
@@ -133,4 +127,9 @@
 .footer-subscription h5{
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
+}
+
+.Footer-banner {
+    /* background-color: #0c4a99; */
+    background-image: url('./../images/footer2.jpg');
 }

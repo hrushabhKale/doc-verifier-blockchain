@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Button, Container, Row, Card, ModalBody, Col } from "react-bootstrap";
@@ -7,9 +7,13 @@ import { Modal, ModalHeader } from "reactstrap";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
   const [modal, setmodal] = useState(false);
+  const [successResponse, setSuccessResponse] = useState();
+  const [errorResponse,setErrorResponse]=useState("");
   const validationSchema = Yup.object().shape({
     userName: Yup.string().required("Please enter your email")
     .email(" Please enter valid email"),
@@ -17,17 +21,62 @@ const SignIn = () => {
     password: Yup.string().required("Please enter your password"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
+  const navigate = useNavigate();
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("data", data);
+    setErrorResponse("")
+    try {
+      var config = {
+        method: "post",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          password: data.password,
+          email: data.userName,
+        }),
+      };
+      const response = await fetch("/users/v1/login", config);
+      if (response.status === 200) {
+        let responseData = await response.json();
+        console.log("Here", responseData.msg);
+        setSuccessResponse(responseData.msg);
+        if(responseData.type  === "issuer"){
+            navigate('/Validator-Dashboard')
+        }else{
+          navigate('/DashboardForm')
+        }
+      } else {
+        throw Error("Invalid Credentials!");
+      }
+    } catch (err) {
+      console.log("error", err.message);
+      setErrorResponse(err.message)
+    }
     reset();
   };
+  
 const modalSubmit = (data) =>{
   console.log("data", data);
 }
 
+useEffect(()=>{
+  if(errorResponse?.length && errorResponse!==''){
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title:`${errorResponse}`,
+      showConfirmButton: false,
+      showCancelButton: true,
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Close',
+      timer: 2500
+    })
+  }
+},[errorResponse])
 const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
 

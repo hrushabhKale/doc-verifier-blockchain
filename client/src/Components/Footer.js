@@ -16,18 +16,18 @@ export default function Footer() {
     <>
     <section id='contact'>
       <footer>
-      <div className="container-fluid big-banner text-light">
+      <div className="container-fluid Footer-banner text-light">
         <div className='row d-sm-flex align-items-center justify-content-between footer-row text-left '>
           <div className="div footer-about col-md-4 p-1">
             <img class="img-fluid logo" src={image1} alt=""/>
             <h3>Nanostuffs Technologies</h3>
-            <p>Suyog Center,Pune, Maharashta -411041</p>
+            <p>Suyog Center, Pune, Maharashta - 411041</p>
           </div>
 
           <div className="div footer-list col-md-4 p-1">
             <ul>
               <li><a href="#">Home</a></li>
-              <li><a href="#">What we Do?</a></li>
+              <li><a href="#">What we Do ?</a></li>
               <li><a href="#">Product</a></li>
               <li><a href="#">About us</a></li>
               <li><a href="#">Contact</a></li>

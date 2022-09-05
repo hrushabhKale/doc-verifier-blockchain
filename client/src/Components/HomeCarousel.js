@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import image3 from './../Assets/images/shubham-dhage-JlijbOtSWuw-unsplash.jpg';
 import image2 from './../Assets/images/Background 2.jpg';
 import image1 from './../Assets/images/Banner2.jpg';
+import './../Assets/css/Carosuel.css';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
@@ -12,10 +13,10 @@ export default function HomeCarousel() {
     },[]);
   return (
     <>
-    <Carousel controls={false} interval={2000} >
+    <Carousel controls={false}  >
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src={image1}
           alt="First slide" data-aos='zoom-out'
         />
@@ -29,7 +30,7 @@ export default function HomeCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src={image2}
           alt="Second slide" data-aos='zoom-out'
         />
@@ -42,7 +43,7 @@ export default function HomeCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src={image3}
           alt="Third slide" data-aos='zoom-out'
         />
