@@ -69,24 +69,6 @@ export default function DragAndDrop({ open }) {
     })();
   }, [acceptedFiles]);
 
-  const files = acceptedFiles.map((file) => (
-    <p key={file.path}>
-      {file.path}
-    </p>
-  ));
-
-  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
-    // <li key={file.path}>
-    //   {file.path} - {file.size} bytes
-    //   <ul>
-    //     {errors.map(e => (
-    //       <li key={e.code}>{e.message} </li>
-    //     ))}
-    //   </ul>
-    // </li>
-    <p className='fileError'>Only .pdf files format are accepted</p>
-  ));
-
   useEffect(() => {
     (async () => {
       if (acceptedFiles.length > 0) {

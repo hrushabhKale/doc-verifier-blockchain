@@ -107,36 +107,6 @@ const DashboardForm = () => {
       setValidatorHashError(err.message);
     }
     reset()
-
-
-  const onSubmit = async (data) => {
-    try {
-      const formData = new FormData();
-      formData.append("aadhar", data?.adharNumber);
-      formData.append("email", data?.emailAddress);
-      formData.append("certname", data?.certificateName);
-      formData.append("authority", data?.IssuedBy);
-      formData.append("startdate", data?.startDate);
-      formData.append("enddate", data?.endDate);
-      formData.append("score", data?.place);
-      formData.append("fileUploaded", data?.logo?.[0]);
-      formData.append("personname", data?.nameOfPerson);
-
-      const response = await fetch("users/v1/issue", {
-        method: "POST",
-        body: formData,
-      });
-      if (response.status === 200) {
-        let responseData = await response.json();
-        setHashValue(responseData.txhash);
-      } else {
-        throw Error("Something went wrong");
-      }
-    } catch (err) {
-      setValidatorHashError(err.message);
-    }
-    reset()
-
   };
 
   useEffect(() => {
@@ -374,5 +344,6 @@ const DashboardForm = () => {
     </>
   );
 };
+
 
 export default DashboardForm;
