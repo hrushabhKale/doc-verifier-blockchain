@@ -33,9 +33,9 @@ function App() {
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/SignUp" exact element={<SignUp />} />
           <Route path="/SecretTokenFile"  element={<Protected component={SecretTokenFile} />} />
-          <Route path="/Validator-Dashboard" element={<Protected component={ValidatorDashboard} />} />
+          <Route path="/Validator-Dashboard" element={<Protected component={ValidatorDashboard} type="validator" />} />
           <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
-          <Route path="/DashboardForm" element={<Protected component={DashboardForm} />} />
+          <Route path="/DashboardForm" element={<Protected component={DashboardForm} type="issuer" />} />
         </Routes>
       </Router>
     </>
