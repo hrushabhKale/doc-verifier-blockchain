@@ -24,20 +24,21 @@ const DashboardForm = () => {
 
   const validationSchema = Yup.object().shape({
     logo: Yup.mixed()
-    .test("required", "Please select the file", (value) =>{
-   if (!value.length){
-    return false
-   }
-   else{
-    return true
-   }
-    })
-    .test("type", "Only the following formats are accepted: .jpeg, .jpg, .bmp, .pdf and .doc", (value) => {
-      return value && (
-          value?.[0].type === "image/jpeg" ||
-          value[0].type === "image/png" 
-      )
-  }),
+      .test("required", "Please select the file", (value) => {
+        if (!value.length) {
+          return false;
+        } else {
+          return true;
+        }
+      })
+
+      .test("type", "Only .jpg and .png formats are accepted", (value) => {
+        return (
+          value &&
+          (value?.[0]?.type === "image/jpeg" ||
+            value?.[0]?.type === "image/png")
+        );
+      }),
 
     usertype: Yup.string().required("Please select certificate type"),
 
@@ -54,15 +55,21 @@ const DashboardForm = () => {
 
     certificateName: Yup.string().required("Please enter certificate name"),
 
-    startDate: Yup.string().required("Please enter or select start date"),
+    // startDate: Yup.string().required("Please enter or select start date"),
 
     place: Yup.string().required("Please enter place field"),
 
     IssuedBy: Yup.string().required("Please fill this field"),
 
-    endDate: Yup.string().required("Please enter or select date"),
+    // endDate: Yup.string().required("Please enter or select date"),
 
     nameOfPerson: Yup.string().required("Please enter name of person"),
+
+    startDate: Yup.date().typeError("Please enter or select start date"),
+
+    endDate: Yup.date()
+      .typeError("Please enter or select end date")
+      .min(Yup.ref("startDate"), "Please select valid end date"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
   const { register, handleSubmit, reset, watch, formState } =
@@ -174,7 +181,6 @@ const DashboardForm = () => {
         <IssuerSidebar />
         <div className="dashboard_form">
           <Container className="dashboard_form_body">
-            
             <form onSubmit={handleSubmit(onSubmit)}>
               <Row>
                 <h4 style={{ textAlign: "start", color: "black" }}>
@@ -193,7 +199,9 @@ const DashboardForm = () => {
                     >
                       <option value="">Select Certificate Type</option>
                       <option value="Adhar">Aadhar</option>
-                      <option value="xyz">xyz</option>
+                      <option value="xyz" disabled>
+                        xyz
+                      </option>
                     </Form.Select>
                   </Form.Group>
                   <p className="select_error_masg">
