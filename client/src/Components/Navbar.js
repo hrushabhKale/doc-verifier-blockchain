@@ -82,7 +82,7 @@ export default function Navbar(props) {
                         {userData.userName}
                       </div>
                       <ul
-                        class="dropdown-menu"
+                        class="dropdown-menu bg-dark text-light"
                         aria-labelledby="navbarDropdown"
                       >
                         <li>
