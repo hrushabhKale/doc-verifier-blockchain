@@ -1,5 +1,5 @@
 .dashboard_form{
-    background-image: url(../images/block-chain2.jpg);
+    background-image: url(../images/Background2.jpg);
     -webkit-background-size: cover;
     background-size: cover;
     height: 115vh;
@@ -10,7 +10,7 @@
 
   }
   .dashboard_form_section{
-    background-image: url(../images/block-chain2.jpg);
+    background-image: url(../images/Background2.jpg);
     -webkit-background-size: cover;
   }
   @media screen and (min-device-width: 320px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 1)
