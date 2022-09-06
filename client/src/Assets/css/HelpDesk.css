@@ -45,13 +45,13 @@
 
     .help-banner {
         /* background-color: #0c4a99; */
-        background-image: url('./../images/Background 2.jpg');
+        background-image: url('./../images/Background2.jpg');
     }
 
     @media (max-device-width: 375px){
         .help-banner {
             /* background-color: #0c4a99; */
-            background-image: url('./../images/Background 2.jpg');
+            background-image: url('./../images/Background2.jpg');
             padding-bottom: 2rem;
         }}
 

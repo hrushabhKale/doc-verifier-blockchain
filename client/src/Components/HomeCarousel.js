@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import image3 from './../Assets/images/shubham-dhage-JlijbOtSWuw-unsplash.jpg';
-import image2 from './../Assets/images/Background 2.jpg';
+import image2 from './../Assets/images/Background2.jpg';
 import image1 from './../Assets/images/Banner2.jpg';
 import './../Assets/css/Carosuel.css';
 import Aos from 'aos';
