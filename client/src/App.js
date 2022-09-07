@@ -32,7 +32,7 @@ function App() {
           <Route path="/timelineSection" exact element={<TimelineSection />} />
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/SignUp" exact element={<SignUp />} />
-          <Route path="/SecretTokenFile"  element={<Protected component={SecretTokenFile} />} />
+          <Route path="/SecretTokenFile"  element={<SecretTokenFile />} />
           <Route path="/Validator-Dashboard" element={<Protected component={ValidatorDashboard} type="validator" />} />
           <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
           <Route path="/DashboardForm" element={<Protected component={DashboardForm} type="issuer" />} />
