@@ -53,3 +53,15 @@
     transform: rotate(360deg);
   }
 }
+
+.loading{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      backdrop-filter: blur(2px);
+      height: 76vh;
+      position: absolute;
+      z-index: 100;
+}
+

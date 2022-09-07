@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import DotLoader from "react-spinners/DotLoader";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const SignUp = () => {
   const [successResponse,setSuccessResponse]=useState();
@@ -96,6 +96,9 @@ const SignUp = () => {
   return (
     <>
       <div className={SignUpCss.form__App}>
+      <div className={loading ? "loading" : ""}>
+          <FadeLoader loading={loading} />
+        </div>
       <Link to="/">
               <div class={SignUpCss.SignupScreen_homeBtn}>
                 <svg
@@ -217,7 +220,7 @@ const SignUp = () => {
             </Row>
           </form>
         </Container>
-        <DotLoader loading={loading} size={60} />
+       
       </div>
     </>
   );
