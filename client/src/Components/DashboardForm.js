@@ -7,14 +7,13 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import IssuerSidebar from "./IssuerSidebar";
-import DotLoader from "react-spinners/DotLoader";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const DashboardForm = () => {
   const [showhide, setShowhide] = useState("Adhar");
-  const [hashValue,setHashValue]=useState()
-  const [validatorhashError,setValidatorHashError]=useState()
+  const [hashValue, setHashValue] = useState();
+  const [validatorhashError, setValidatorHashError] = useState();
   const [loading, setLoading] = useState(false);
-
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
@@ -75,10 +74,10 @@ const DashboardForm = () => {
   const { register, handleSubmit, reset, watch, formState } =
     useForm(formOptions);
   const { errors } = formState;
-  console.log("register",register,handleSubmit,formState)
+  console.log("register", register, handleSubmit, formState);
 
   const onSubmit = async (data) => {
-    setLoading(!loading)
+    setLoading(!loading);
     try {
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
@@ -96,17 +95,17 @@ const DashboardForm = () => {
         body: formData,
       });
       if (response.status === 200) {
-        setLoading(loading)
+        setLoading(loading);
         let responseData = await response.json();
         setHashValue(responseData.txhash);
       } else {
         throw Error("Something went wrong");
       }
     } catch (err) {
-      setLoading(loading)
+      setLoading(loading);
       setValidatorHashError(err.message);
     }
-    reset()
+    reset();
   };
 
   useEffect(() => {
@@ -124,25 +123,27 @@ const DashboardForm = () => {
     }
   }, [validatorhashError]);
 
-  useEffect(()=>{
-    if(hashValue?.length && hashValue!==""){
-    Swal.fire({
-      title: "Certificate Generated",
-      position: "center",
-      html: `Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on`,
-      icon: "success",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "View on Ethereum",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.open(`https://mumbai.polygonscan.com/tx/${hashValue}`,"_blank");
-      }
-    });
+  useEffect(() => {
+    if (hashValue?.length && hashValue !== "") {
+      Swal.fire({
+        title: "Certificate Generated",
+        position: "center",
+        html: `Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on`,
+        icon: "success",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "View on Ethereum",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open(
+            `https://mumbai.polygonscan.com/tx/${hashValue}`,
+            "_blank"
+          );
+        }
+      });
     }
-
-  },[hashValue])
+  }, [hashValue]);
 
   return (
     <>
@@ -150,6 +151,9 @@ const DashboardForm = () => {
         {" "}
         <IssuerSidebar />
         <div className="dashboard_form">
+          <div className={loading && "loading"}>
+            <FadeLoader loading={loading} />
+          </div>
           <Container className="dashboard_form_body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Row>
@@ -168,7 +172,9 @@ const DashboardForm = () => {
                       onChange={(e) => handleshowhide(e)}
                     >
                       <option value="">Select Certificate Type</option>
-                      <option value="Adhar" selected>Aadhar</option>
+                      <option value="Adhar" selected>
+                        Aadhar
+                      </option>
                       <option value="xyz" disabled>
                         xyz
                       </option>
@@ -339,11 +345,9 @@ const DashboardForm = () => {
             </form>
           </Container>
         </div>
-        <DotLoader loading={loading} size={60} />
       </section>
     </>
   );
 };
-
 
 export default DashboardForm;
