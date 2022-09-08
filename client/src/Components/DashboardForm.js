@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
-import IssuerSidebar from "./IssuerSidebar";
 import FadeLoader from "react-spinners/FadeLoader";
+import Sidebar from "./Sidebar";
 
 const DashboardForm = () => {
   const [showhide, setShowhide] = useState("Adhar");
@@ -149,7 +149,7 @@ const DashboardForm = () => {
     <>
       <section className="dashboard_form_section">
         {" "}
-        <IssuerSidebar />
+        <Sidebar   />
         <div className="dashboard_form">
           <div className={loading && "loading"}>
             <FadeLoader loading={loading} />

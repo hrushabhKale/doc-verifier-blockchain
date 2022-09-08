@@ -82,7 +82,7 @@ export default function Navbar(props) {
                         {userData.userName}
                       </div>
                       <ul
-                        class="dropdown-menu"
+                        class="dropdown-menu bg-dark text-light"
                         aria-labelledby="navbarDropdown"
                       >
                         <li>
@@ -90,7 +90,7 @@ export default function Navbar(props) {
                             class="dropdown-item"
                             to={
                               userData.type === "issuer"
-                                ? "/DashboardForm"
+                                ? "/Issuer-Dashboard"
                                 : "/Validator-Dashboard"
                             }
                           >

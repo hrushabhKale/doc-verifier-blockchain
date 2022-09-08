@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
+
 import "./../Assets/css/ValidatorDashboard.css";
 import image1 from "./../Assets/images/swipe.png";
-import ValidatorSidebar from "./ValidatorSidebar";
 import Swal from "sweetalert2";
 import FadeLoader from "react-spinners/FadeLoader";
+import Sidebar from "./Sidebar";
 
 export default function DragAndDrop({ open }) {
   const {
@@ -135,24 +136,31 @@ export default function DragAndDrop({ open }) {
   return (
     <>
       <section className="big-banner">
-        <ValidatorSidebar />
+        <Sidebar />
         <div className="boxes big-banner ">
           <div className={loading && "loading"}>
             <FadeLoader loading={loading} />
           </div>
+
           <div className="bg-light text-dark box p-3">
             <div {...getRootProps({ className: "dropzone " })}>
               <input className="input-zone" {...getInputProps()} />
               <img src={image1} className=" Drag-img" alt="drag" />
-              <div className="text-center">
+              <div className="text-center p-4">
                 {isDragActive ? (
                   <p className="dropzone-content">
                     Release to drop the files here
                   </p>
                 ) : (
-                  <p className="dropzone-content">
-                    Drag’n’drop some files here <br />, or click to select files
-                  </p>
+                  <>
+                    <p className="dropzone-content">
+                      Drag & drop some files here
+                    </p>
+                    {/* <hr /> */}
+                    <p className="dropzone-content">
+                      , or click to select files
+                    </p>
+                  </>
                 )}
                 <button
                   type="button"

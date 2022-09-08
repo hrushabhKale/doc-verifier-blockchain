@@ -15,6 +15,19 @@
     border-radius: 20px;
 }
 
+@media(max-width: 1024px){
+    .box{
+        background-color: aliceblue;
+        position:absolute;
+        width: 20%;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+    }
+}
+
 @media(max-width: 450px){
     .boxes{
         /* max-width: 700px; */
@@ -34,17 +47,30 @@
     }
 }
 
-@media(min-width: 450px) and (max-width: 1024px){
+@media(min-width: 770px) and (max-width: 1024px){
     .box{
         width: 30%;
     }
 }
 
-@media (max-width: 450px) {
+@media(min-width: 450px) and (max-width: 768px){
     .box{
-        width: 60%;
+        width: 40%;
     }
 }
+
+@media (max-width: 450px) {
+    .box{
+        width: 70%;
+    }
+}
+
+@media (max-width: 375px) {
+    .box{
+        width: 80%;
+    }
+}
+
 
 .section{
     position: relative;

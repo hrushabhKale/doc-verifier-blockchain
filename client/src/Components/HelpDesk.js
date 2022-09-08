@@ -1,19 +1,20 @@
 import React,{useState,useEffect} from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import './../Assets/css/HelpDesk.css';
-import IssuerSidebar from './IssuerSidebar';
-import ValidatorSidebar from './ValidatorSidebar';
+import Sidebar from './Sidebar';
+
 
 export default function HelpDesk() {
-  const [userType, setUserType] = useState();
+  // const [userType, setUserType] = useState();
 
-  useEffect(() => {
-    setUserType(JSON.parse(localStorage.getItem("UserCredentials")).type);
-  }, []);
+  // useEffect(() => {
+  //   setUserType(JSON.parse(localStorage.getItem("UserCredentials")).type);
+  // }, []);
   return (
     <>
       <section className='help-banner text-light'>
-      {userType === "issuer" ? <IssuerSidebar/> : <ValidatorSidebar />}
+      {/* {userType === "issuer" ? <IssuerSidebar/> : <ValidatorSidebar />} */}
+      <Sidebar/>
         <div className='help-banner text-light Help-section'>
             <div className='container help-container'>
             <div className='help-Header text-center text-center p-5'>
