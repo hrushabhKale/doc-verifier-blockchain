@@ -33,7 +33,7 @@ export default function TimeLine() {
           <TimelineDot variant="outlined" color="primary" />
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent><p className='time-font'>select / Generate custom template</p></TimelineContent>
+        <TimelineContent><p className='time-font'>Select / Generate custom template</p></TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
