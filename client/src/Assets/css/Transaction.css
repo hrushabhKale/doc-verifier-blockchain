@@ -1,0 +1,17 @@
+.transaction{
+  height: 100vh;
+    background-image: url(../images/block-chain2.jpg);
+    background-size: cover;
+   
+}
+.transaction-table{
+    background: white;
+    width: 75%;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    left: 10rem;
+    top: 10rem;
+    
+    
+}

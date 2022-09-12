@@ -16,7 +16,8 @@ import HelpDesk from "./Components/HelpDesk";
 import DashboardForm from "./Components/DashboardForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Protected from "./Components/Protected";
-import PageNotFound from "./Components/PageNotFound";
+import PageNotFound from "./Components/PageNotFound"; 
+import Transaction from "./Components/Transaction";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
           <Route path="/Issuer-Dashboard" element={<Protected component={DashboardForm} type="issuer" />} />
           <Route path="/pagenotfound" exact element={<PageNotFound />} />
+          <Route path="/Transaction" exact element={<Transaction />} />
         </Routes>
       </Router>
     </>
