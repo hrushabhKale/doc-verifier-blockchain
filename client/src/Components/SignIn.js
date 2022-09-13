@@ -17,12 +17,6 @@ const SignIn = () => {
   const [successResponse, setSuccessResponse] = useState();
   const [errorResponse, setErrorResponse] = useState("");
 
-  const override = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-  };
-
   const validationSchema = Yup.object().shape({
     userName: Yup.string()
       .required("Please enter your email")
@@ -36,7 +30,6 @@ const SignIn = () => {
   const { errors } = formState;
 
   const onSubmit = async (data) => {
-    console.log("data", data);
     setErrorResponse("");
     setLoading(!loading);
 
@@ -47,21 +40,20 @@ const SignIn = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          password: data.password,
-          email: data.userName,
+          password: data?.password,
+          email: data?.userName,
         }),
       };
       const response = await fetch("/users/v1/login", config);
       if (response.status === 200) {
         let responseData = await response.json();
-        setSuccessResponse(responseData.msg);
+        setSuccessResponse(responseData?.msg);
         setLoading(!loading);
         localStorage.setItem(
           "UserCredentials",
           JSON.stringify({
-            userName: `${data.userName}`,
-            password: `${data.password}`,
-            type: `${responseData.type}`,
+            userName: `${data?.userName}`,
+            type: `${responseData?.type}`,
           })
         );
         if (responseData.type === "issuer") {
@@ -74,8 +66,7 @@ const SignIn = () => {
         throw Error("Invalid Credentials!");
       }
     } catch (err) {
-      console.log("error", err.message);
-      setErrorResponse(err.message);
+      setErrorResponse(err?.message);
     }
     reset();
   };
@@ -94,7 +85,6 @@ const SignIn = () => {
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",
-        // timer: 2500
       });
     }
   }, [errorResponse]);

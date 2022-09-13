@@ -36,17 +36,15 @@ const SecretTokenFile = () => {
       const response = await fetch("/users/v1/verify", config);
       let responseData = await response.json();
       if (responseData.success === true) {
-        console.log("Here", responseData.msg);
-        // setSuccessResponse(responseData.msg);
         setLoading(loading);
         navigate("/SignIn");
       } else {
-        throw Error(responseData.message);
+        throw Error(responseData?.message);
       }
     } catch (err) {
-      console.log("error", err.message);
+      console.log("error", err?.message);
       setLoading(loading);
-      setErrorResponse(err.message);
+      setErrorResponse(err?.message);
     }
     reset();
   };
