@@ -122,7 +122,7 @@ export default function Sidebar() {
                     </li>
                   </Link>
                   {userType === "issuer" && (
-                    <Link firstchild="1" popperarrow="0" to="/Transction">
+                    <Link firstchild="1" popperarrow="0" to="/Transaction">
                       <li className="pro-menu-item Sidebar_menuItem__37ym_">
                         <div
                           className="pro-inner-item"

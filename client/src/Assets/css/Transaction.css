@@ -1,0 +1,52 @@
+.transaction{
+    height: 150vh;
+      background-image: url(../images/block-chain2.jpg);
+      background-size: cover;
+     
+  }
+  .transaction-table{
+      background: white;
+      width: 60%;
+      justify-content: center;
+      text-align: center;
+      opacity: 0.9;
+      /* position: relative;
+      left: 10rem;
+      top: 10rem; */
+      
+      
+  }
+  
+  table {
+      font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    table tr:hover {
+      background-color: #ddd;
+    }
+    
+    table th, tfoot td {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: #3274ad !important;
+      color: white;
+    }
+    .nextPrev{
+      background-color: #198754 !important;
+    }
+    .pageNo{
+      background-color: #6c757d !important;
+    }
