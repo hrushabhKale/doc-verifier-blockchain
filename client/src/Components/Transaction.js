@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import "../Assets/css/Transaction.css";
 import Sidebar from "./Sidebar";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const Transaction = () => {
-  const [post, setPost] = useState([]);
+  const [loading,setLoading]=useState(false)
+  const [transaction, setTransaction] = useState([]);
   const [lastIndex, setLastIndex] = useState(10); // No of pages
   const [firstIndex, setFirstIndex] = useState(0);
   const [currentPage,setCurrentPage]=useState(0)
@@ -13,19 +15,25 @@ const Transaction = () => {
   const postPerPage = 10;
 
   useEffect(() => {
+    setLoading(!loading);
     const fetchApi = async () => {
       const data = await fetch(
         // "https://mocki.io/v1/b3706515-a786-4bb1-b575-d6266a88f0ce"
-        "https://mocki.io/v1/747e03c9-eae8-4bd3-9ea5-e75e262ecb89"
+        "users/v1/transactions"
       );
-      const dataJ = await data.json();
-      setPost(dataJ);
+      const dataResponse = await data.json();
+      console.log("Chek",dataResponse)
+      setTransaction(dataResponse?.userlist);
+      setLoading(loading);
     };
     fetchApi();
   }, []);
 
+
+  console.log("DATAAA",transaction)
+
   const TotalNumberOfPages = [];
-  for (let i = 1; i <= Math.ceil(post.length / postPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(transaction?.length / postPerPage); i++) {
     TotalNumberOfPages.push(i);
   }
 
@@ -35,7 +43,7 @@ const Transaction = () => {
   };
 
   const nextChange = () => {
-     if(lastIndex < post.length ){
+     if(lastIndex < transaction.length ){
       setCurrentPage(currentPage+1)
       setLastIndex(lastIndex + 10); //end index point
       setFirstIndex(lastIndex); // start index point
@@ -102,7 +110,10 @@ const Transaction = () => {
               </tr>
             </thead>
             <tbody>
-              {post.slice(firstIndex, lastIndex).map((Val) => {
+            <div className={loading ? "loading" : ""}>
+          <FadeLoader loading={loading} />
+        </div>
+              {transaction?.slice(firstIndex, lastIndex).map((Val) => {
                 return (
                   <>
                     <tr
@@ -113,10 +124,10 @@ const Transaction = () => {
                         {Val.Issue_Date}
                       </td>
                       <td className="border-2 border-dark text-capitalize">
-                        {Val.transaction_Hash}
+                        {Val.txhash}
                       </td>
                       <td className="border-2 border-dark text-capitalize">
-                        {Val.last_name}
+                        {Val.email}
                       </td>
                       <td className="border-2 border-dark text-capitalize">
                         {Val.date_of_birth}
