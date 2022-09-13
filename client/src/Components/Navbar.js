@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./../Assets/css/Navbar.css";
+import image1 from "./../Assets/images/User-Icon.png";
 
 export default function Navbar(props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,7 +34,7 @@ export default function Navbar(props) {
             <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
                 <a
-                  class="nav-link active text-light achr"
+                  class="nav-link active text-light achr nav-pad"
                   aria-current="page"
                   href="/"
                 >
@@ -41,13 +42,13 @@ export default function Navbar(props) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light achr" href="#what-we-do">
+                <a class="nav-link text-light achr nav-pad" href="#what-we-do">
                   What we Do ?
                 </a>
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link text-light achr"
+                  class="nav-link text-light achr nav-pad"
                   aria-current="page"
                   href="#timeline"
                 >
@@ -55,13 +56,13 @@ export default function Navbar(props) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light achr" href="#aboutUs">
+                <a class="nav-link text-light achr nav-pad" href="#aboutUs">
                   About Us
                 </a>
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link text-light achr"
+                  class="nav-link text-light achr nav-pad"
                   aria-current="page"
                   href="#contact"
                 >
@@ -73,13 +74,16 @@ export default function Navbar(props) {
                   <>
                     <li class="nav-item dropdown ">
                       <div
-                        className="nav-link dropdown-toggle text-light drop-align"
+                        className="nav-link dropdown-toggle text-light drop-align p-2"
                         id="navbarDropdown"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        {userData.userName}
+                        <img src={image1} width="25" height="25" class="rounded-circle user-margin"/>
+                        {/* {userData.userName} */}
+                           Khilesh
+                        {/* <img src={image1} width="30" height="30" class="rounded-circle user-margin"/> */}
                       </div>
                       <ul
                         class="dropdown-menu bg-dark text-light"
