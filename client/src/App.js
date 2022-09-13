@@ -17,6 +17,7 @@ import DashboardForm from "./Components/DashboardForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Protected from "./Components/Protected";
 import PageNotFound from "./Components/PageNotFound";
+import ForgetPassword from "./Components/ForgetPassword";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
           <Route path="/Issuer-Dashboard" element={<Protected component={DashboardForm} type="issuer" />} />
           <Route path="/pagenotfound" exact element={<PageNotFound />} />
+          <Route path="/ForgetPassword" exact element={<ForgetPassword />} />
         </Routes>
       </Router>
     </>
