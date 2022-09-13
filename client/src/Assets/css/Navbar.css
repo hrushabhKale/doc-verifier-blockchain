@@ -172,7 +172,7 @@ p {
 
 .dropdown-menu[data-bs-popper] {
     top: 100% !important;
-    left: 65px !important;
+    /* left: 65px !important; */
     margin-top: var(--bs-dropdown-spacer);
 }
 
@@ -181,3 +181,13 @@ p {
     background-color: #194089;
     padding: 5px 30px;
 }
+
+.user-margin{
+    margin-right: 5px;
+}
+
+.nav-pad{
+    padding-top: 9px !important;
+}
+
+
