@@ -53,27 +53,25 @@ const SignUp = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          usertype: data.Select,
-          email: data.email,
-          password: data.password,
-          confirmationPassword: data.passwordConfirmation,
-          username: data.userName,
+          usertype: data?.Select,
+          email: data?.email,
+          password: data?.password,
+          confirmationPassword: data?.passwordConfirmation,
+          username: data?.userName,
         }),
       };
       const response = await fetch("/users/v1/register", config);
       let responseData = await response.json();
       if (responseData.success === true) {
         setLoading(loading)
-        console.log("Here", responseData.msg);
-        setSuccessResponse(responseData.msg);
+        setSuccessResponse(responseData?.msg);
         navigate("/SecretTokenFile");
       } else {
-        throw Error(responseData.msg);
+        throw Error(responseData?.msg);
       }
     } catch (err) {
-      console.log("error", err.message);
       setLoading(loading)
-      setErrorResponse(err.message)
+      setErrorResponse(err?.message)
     }
   };
 

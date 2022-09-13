@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
+import PageNotFound from './PageNotFound';
 
 const Protected = (props) => {
   const [userType,setUserType]=useState()
@@ -14,7 +15,7 @@ const Protected = (props) => {
 
   return (
     <div>
-     {props?.type ? (props?.type === userType ?<Component/> : "Cannot access" ) :<Component/>} 
+     {props?.type ? (props?.type === userType ?<Component/> : <PageNotFound/> ) :<Component/>} 
          </div>
   )
 }

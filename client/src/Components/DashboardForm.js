@@ -14,10 +14,10 @@ const DashboardForm = () => {
   const [hashValue, setHashValue] = useState();
   const [validatorhashError, setValidatorHashError] = useState();
   const [loading, setLoading] = useState(false);
+  const [userName,setUserName]=useState()
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
-
     setShowhide(getselect);
   };
 
@@ -74,10 +74,10 @@ const DashboardForm = () => {
   const { register, handleSubmit, reset, watch, formState } =
     useForm(formOptions);
   const { errors } = formState;
-  console.log("register", register, handleSubmit, formState);
 
   const onSubmit = async (data) => {
     setLoading(!loading);
+    setUserName(JSON.parse(localStorage.getItem("UserCredentials"))?.userName)
     try {
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
@@ -128,7 +128,7 @@ const DashboardForm = () => {
       Swal.fire({
         title: "Certificate Generated",
         position: "center",
-        html: `Your blockchain-based certificate for user username has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on`,
+        html: `Your blockchain-based certificate for user ${userName} has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on ${userName} `,
         icon: "success",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

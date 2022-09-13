@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
-
 import "./../Assets/css/ValidatorDashboard.css";
 import image1 from "./../Assets/images/swipe.png";
 import Swal from "sweetalert2";
@@ -23,19 +22,13 @@ export default function DragAndDrop({ open }) {
   const [issuerHashError, setIssuerHashError] = useState();
   const [loading, setLoading] = useState(false);
 
-  const override = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-  };
-
-  const files = acceptedFiles.map((file) => (
+  const files = acceptedFiles?.map((file) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
   ));
 
-  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+  const fileRejectionItems = fileRejections?.map(({ file, errors }) => (
     // <li key={file.path}>
     //   {file.path} - {file.size} bytes
     //   <ul>
@@ -49,7 +42,7 @@ export default function DragAndDrop({ open }) {
 
   useEffect(() => {
     (async () => {
-      if (acceptedFiles.length > 0) {
+      if (acceptedFiles?.length > 0) {
         setLoading(!loading);
         try {
           const formData = new FormData();
@@ -59,16 +52,16 @@ export default function DragAndDrop({ open }) {
             method: "POST",
             body: formData,
           });
-          let responseData = await response.json();
+          let responseData = await response?.json();
           if (responseData.success === true) {
             setLoading(loading);
-            setIssuerHashValue(responseData.txhash);
+            setIssuerHashValue(responseData?.txhash);
           } else {
-            throw Error(responseData.message);
+            throw Error(responseData?.message);
           }
         } catch (err) {
           setLoading(loading);
-          setIssuerHashError(err.message);
+          setIssuerHashError(err?.message);
         }
       }
     })();
@@ -76,7 +69,7 @@ export default function DragAndDrop({ open }) {
 
   useEffect(() => {
     (async () => {
-      if (acceptedFiles.length > 0) {
+      if (acceptedFiles?.length > 0) {
         try {
           const formData = new FormData();
           formData.append("fileUploaded", acceptedFiles?.[0]);
@@ -87,9 +80,9 @@ export default function DragAndDrop({ open }) {
           });
           let responseData = await response.json();
           if (responseData.success === true) {
-            setIssuerHashValue(responseData.txhash);
+            setIssuerHashValue(responseData?.txhash);
           } else {
-            throw Error(responseData.message);
+            throw Error(responseData?.message);
           }
         } catch (err) {
           setIssuerHashError(err.message);
@@ -99,7 +92,7 @@ export default function DragAndDrop({ open }) {
   }, [acceptedFiles]);
 
   useEffect(() => {
-    if (issuerHashValue && acceptedFiles.length > 0) {
+    if (issuerHashValue && acceptedFiles?.length > 0) {
       Swal.fire({
         title: "Verified!",
         text: "This document is verified successfully",
@@ -110,7 +103,7 @@ export default function DragAndDrop({ open }) {
         cancelButtonText: "Close",
         confirmButtonText: "View on Etherum",
       }).then((result) => {
-        if (result.isConfirmed) {
+        if (result?.isConfirmed) {
           window.open(
             `https://mumbai.polygonscan.com/tx/${issuerHashValue}`,
             "_blank"
@@ -126,7 +119,6 @@ export default function DragAndDrop({ open }) {
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",
-        // timer: 3000
       });
     }
     setIssuerHashError("");
@@ -156,7 +148,6 @@ export default function DragAndDrop({ open }) {
                     <p className="dropzone-content">
                       Drag & drop some files here
                     </p>
-                    {/* <hr /> */}
                     <p className="dropzone-content">
                       , or click to select files
                     </p>
