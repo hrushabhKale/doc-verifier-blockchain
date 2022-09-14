@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Button, Container, Row, Card, ModalBody, Col } from "react-bootstrap";
 import SignCss from "../Assets/css/SignIn.module.css";
-import { Modal, ModalHeader } from "reactstrap";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,7 +11,6 @@ import Swal from "sweetalert2";
 import FadeLoader from "react-spinners/FadeLoader";
 
 const SignIn = () => {
-  const [modal, setmodal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successResponse, setSuccessResponse] = useState();
   const [errorResponse, setErrorResponse] = useState("");
@@ -71,9 +69,6 @@ const SignIn = () => {
     reset();
   };
 
-  const modalSubmit = (data) => {
-    console.log("data", data);
-  };
 
   useEffect(() => {
     if (errorResponse?.length && errorResponse !== "") {
@@ -96,64 +91,25 @@ const SignIn = () => {
     return /\S+@\S+\.\S+/.test(email);
   }
 
-  const handleChange = (event) => {
-    if (!isValidEmail(event.target.value)) {
-      setError("Please enter valid email");
-    } else {
-      setError(null);
+  const forgotPass =  async() =>{
+    const { value: email } = await Swal.fire({
+      title: 'Forgot Password',
+      input: 'email',
+      inputLabel: 'Your email address',
+      inputPlaceholder: 'Enter your email address',
+      showCancelButton: true,
+      confirmButtonText: 'Submit'
+    })
+    
+    if (email) {
+      //  Swal.fire(`Entered email: ${email}`)
+      console.log("email", email);
+      navigate("/ForgetPassword")
     }
-
-    setMessage(event.target.value);
-  };
+  }
 
   return (
     <>
-      <div>
-        <Modal isOpen={modal} toggle={() => setmodal(!modal)}>
-          <ModalHeader
-            toggle={() => setmodal(!modal)}
-            style={{ backgroundColor: "#3274ad" }}
-          >
-            <h4 style={{ textAlign: "center", color: "white" }}>
-              Forget Password
-            </h4>
-          </ModalHeader>
-          <ModalBody>
-            <Form onSubmit={modalSubmit}>
-              <Form.Group className="mb-3" controlId="popup_singIn_email">
-                <Form.Label>Enter Email Id</Form.Label>
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="Enter email "
-                  value={message}
-                  onChange={handleChange}
-                />
-                {error && (
-                  <span style={{ color: "red", fontSize: "14px" }}>
-                    {error}
-                  </span>
-                )}
-              </Form.Group>
-              <Form.Group className="mb-3" style={{ textAlign: "center" }}>
-                <Button
-                  variant="primary"
-                  type="submit"
-                  style={{
-                    paddingLeft: "4rem",
-                    paddingRight: "4rem",
-                    backgroundColor: "#3274ad",
-                  }}
-                  // onClick={forgotPasswordHandler}
-                >
-                  Submit
-                </Button>
-              </Form.Group>
-            </Form>
-          </ModalBody>
-        </Modal>
-      </div>
 
       <div className={SignCss.form__App}>
         <div className={loading ? "loading" : ""}>
@@ -238,7 +194,7 @@ const SignIn = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <a
                     style={{ color: "blue", cursor: "pointer" }}
-                    onClick={() => setmodal(true)}
+                    onClick={forgotPass}
                   >
                     Forget Password
                   </a>
