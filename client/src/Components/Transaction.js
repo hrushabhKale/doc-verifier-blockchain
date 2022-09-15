@@ -3,7 +3,10 @@ import Table from "react-bootstrap/Table";
 import "../Assets/css/Transaction.css";
 import Sidebar from "./Sidebar";
 import FadeLoader from "react-spinners/FadeLoader";
-import _ from 'lodash'
+import _ from "lodash";
+import { GrNext } from 'react-icons/gr';
+import { GrPrevious } from 'react-icons/gr';
+// import { MdOutlineNavigateNext } from "@react-icons/all-files/md/MdOutlineNavigateNext";GrCaretPrevious
 
 const Transaction = () => {
   const [loading, setLoading] = useState(false);
@@ -44,7 +47,7 @@ const Transaction = () => {
   const TotalNumberOfPages = [];
   for (let i = 1; i <= Math.ceil(transaction?.length / postPerPage); i++) {
     TotalNumberOfPages.push(i);
-  } 
+  }
 
   const onInputChange = (event) => {
     setPageInput(_.toNumber(event.target.value));
@@ -52,20 +55,19 @@ const Transaction = () => {
 
   const onInputClick = (e) => {
     e.preventDefault();
-    if(pageInput<=0 || pageInput>TotalNumberOfPages.length){
-      setCurrentPage(1)
+    if (pageInput <= 0 || pageInput > TotalNumberOfPages.length) {
+      setCurrentPage(1);
       setLastIndex(10);
       setFirstIndex(0);
       setPrevDisable(true);
       setNextDisable(false);
-    }else{
-      setCurrentPage(pageInput-1)
+    } else {
+      setCurrentPage(pageInput - 1);
       setLastIndex(pageInput * 10);
       setFirstIndex(pageInput * 10 - 10);
       setPrevDisable(false);
       setNextDisable(false);
     }
-    
   };
 
   const prevChange = () => {
@@ -100,7 +102,7 @@ const Transaction = () => {
       <div className="container-fluid transaction">
         <Sidebar />
         <div className="row d-flex justify-content-center">
-          <Table className="transaction-table mt-5">
+          <Table className="transaction-table mt-1 mb-0">
             <thead>
               <tr className="border-2 border-dark text-center my-2">
                 <th className="col-3 border-2 border-dark fs-4 text-capitalize">
@@ -146,35 +148,51 @@ const Transaction = () => {
               })}
             </tbody>
           </Table>
-          <div className="my-3 text-center">
-            <button
-              className={`px-3 py-1 m-1 text-center btn btn-success nextPrev ${
-                prevDisable ? "disabled" : null
-              }`}
-              onClick={prevChange}
-            >
-              Previous
-            </button>
-            {currentPage+1}
-            <button
-              className={`px-3 py-1 m-1 text-center btn btn-success nextPrev ${
-                nextDisable ? "disabled" : null
-              }`}
-              onClick={nextChange}
-            >
-              Next
-            </button>
-            <form className="" onSubmit={onInputClick}>
-              <input
-                type="text"
-                size={1}
-                placeholder={`${currentPage + 1}`}
-                value={pageInput}
-                onChange={onInputChange}
-                className="text-right"
-              />
-            </form>
-            {`of ${TotalNumberOfPages.length}`}
+          <div className="my-3 text-center container">
+            <div className="row">
+              <div className="col d-flex justify-content-center">
+                <span style={{ color: "white" }}>
+                  Page{" "}
+                  <strong>
+                    {currentPage + 1} of {`${TotalNumberOfPages.length}`}
+                  </strong>{" "}
+                  <span>|</span>
+                </span>
+                <span style={{ color: "white",marginLeft: '4px',marginRight: '4px' }}>Go to Page:</span>
+                <form className="" onSubmit={onInputClick}>
+                  <input
+                    type="text"
+                    size={1}
+                    placeholder={`${currentPage + 1}`}
+                    value={pageInput}
+                    onChange={onInputChange}
+                    className="text-right"
+                    style={{ width: "45px" ,height:'28px'}}
+                  />
+                </form>
+
+                <button
+                  className={`px-3 py-1 m-1 text-center btn btn-light nextPrev ${
+                    prevDisable ? "disabled" : null
+                  }`}
+                  onClick={prevChange}
+                >
+                  <span style={{color:'black'}}> <GrPrevious className="mb-2"/></span>
+                </button>
+                {/* {currentPage + 1} */}
+
+                <button
+                  className={`px-3 py-1 m-1 text-center btn btn-light nextPrev ${
+                    nextDisable ? "disabled" : null
+                  }`}
+                  onClick={nextChange}
+                >
+                 <span style={{color:'black'}}> <GrNext className="mb-2"/></span>
+                </button>
+
+                {/* {`of ${TotalNumberOfPages.length}`} */}
+              </div>
+            </div>
           </div>
         </div>
       </div>
