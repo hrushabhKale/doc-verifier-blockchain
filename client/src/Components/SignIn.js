@@ -30,7 +30,6 @@ const SignIn = () => {
   const onSubmit = async (data) => {
     setErrorResponse("");
     setLoading(!loading);
-
     try {
       var config = {
         method: "post",
@@ -69,7 +68,6 @@ const SignIn = () => {
     reset();
   };
 
-
   useEffect(() => {
     if (errorResponse?.length && errorResponse !== "") {
       Swal.fire({
@@ -83,13 +81,7 @@ const SignIn = () => {
       });
     }
   }, [errorResponse]);
-  const [message, setMessage] = useState("");
-
-  const [error, setError] = useState(null);
-
-  function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
+  
 
   const forgotPass =  async() =>{
     const { value: email } = await Swal.fire({
@@ -102,15 +94,35 @@ const SignIn = () => {
     })
     
     if (email) {
-      //  Swal.fire(`Entered email: ${email}`)
-      console.log("email", email);
-      navigate("/ForgetPassword")
+      setLoading(!loading)
+      try {
+        var config = {
+          method: "post",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            email: email,
+          }),
+        };
+        const response = await fetch("/users/v1/forgotpasswd", config);
+        let responseResult = await response.json();
+        if (responseResult?.success === true) {
+          setSuccessResponse(responseResult?.msg);
+          setLoading(loading);
+          navigate("/ForgetPassword")
+        } else {
+          setLoading(loading);
+          throw Error(responseResult?.msg);
+        }
+      } catch (err) {
+        setErrorResponse(err?.message);
+      }
     }
   }
 
   return (
     <>
-
       <div className={SignCss.form__App}>
         <div className={loading ? "loading" : ""}>
           <FadeLoader loading={loading} />
@@ -153,6 +165,9 @@ const SignIn = () => {
                   top: "6rem",
                 }}
               />
+
+            
+
             </Col>
             <Col>
               <Row className={SignCss.singIn_header}>
