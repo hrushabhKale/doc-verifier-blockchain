@@ -12,7 +12,7 @@ export default function Sidebar() {
     const [userType, setUserType] = useState();
   
     useEffect(() => {
-      setUserType(JSON.parse(localStorage.getItem("UserCredentials")).type);
+      setUserType(JSON.parse(localStorage.getItem("UserCredentials"))?.type);
     }, []);
   
     const handleClick = () => {

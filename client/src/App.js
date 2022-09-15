@@ -41,7 +41,7 @@ function App() {
           <Route path="/Issuer-Dashboard" element={<Protected component={DashboardForm} type="issuer" />} />
           <Route path="/pagenotfound" exact element={<PageNotFound />} />
           <Route path="/ForgetPassword" exact element={<ForgetPassword />} />
-          <Route path="/Transaction" exact element={<Transaction />} />
+          <Route path="/Transaction" exact element={<Protected component={Transaction} type="issuer"/>} />
         </Routes>
       </Router>
     </>

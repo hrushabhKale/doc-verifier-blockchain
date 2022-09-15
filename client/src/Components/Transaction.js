@@ -4,9 +4,9 @@ import "../Assets/css/Transaction.css";
 import Sidebar from "./Sidebar";
 import FadeLoader from "react-spinners/FadeLoader";
 import _ from "lodash";
-import { GrNext } from 'react-icons/gr';
-import { GrPrevious } from 'react-icons/gr';
-// import { MdOutlineNavigateNext } from "@react-icons/all-files/md/MdOutlineNavigateNext";GrCaretPrevious
+import Swal from "sweetalert2";
+import { GrNext } from "react-icons/gr";
+import { GrPrevious } from "react-icons/gr";
 
 const Transaction = () => {
   const [loading, setLoading] = useState(false);
@@ -17,21 +17,70 @@ const Transaction = () => {
   const [prevDisable, setPrevDisable] = useState(true);
   const [nextDisable, setNextDisable] = useState(false);
   const [pageInput, setPageInput] = useState(1);
+  const [errorResponse, setErrorResponse] = useState();
   const postPerPage = 10;
 
+  // useEffect(() => {
+  //   setLoading(!loading);
+  //   const fetchApi = async () => {
+  //     const data = await fetch(
+  //       "https://mocki.io/v1/b3706515-a786-4bb1-b575-d6266a88f0ce"
+  //       // "users/v1/transactions"
+  //     );
+  //     const dataResponse = await data.json();
+  //     setTransaction(dataResponse);
+  //     setLoading(loading);
+  //   };
+  //   fetchApi();
+  // }, []);
+
   useEffect(() => {
-    setLoading(!loading);
-    const fetchApi = async () => {
-      const data = await fetch(
-        "https://mocki.io/v1/b3706515-a786-4bb1-b575-d6266a88f0ce"
-        // "users/v1/transactions"
-      );
-      const dataResponse = await data.json();
-      setTransaction(dataResponse);
-      setLoading(loading);
-    };
-    fetchApi();
+    (async () => {
+      setLoading(!loading);
+      try {
+        var config = {
+          method: "post",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            email: JSON.parse(localStorage.getItem("UserCredentials"))
+              ?.userName,
+          }),
+        };
+        const response = await fetch("/users/v1/transactions", config);
+        let responseData = await response.json();
+        if (responseData.success === true) {
+          setLoading(loading);
+          console.log("DATAA", responseData);
+          setTransaction(responseData?.userlist);
+        } else {
+          throw Error("No data to display");
+        }
+      } catch (err) {
+        setLoading(loading);
+        setErrorResponse(err?.message);
+      }
+    })();
   }, []);
+
+  useEffect(() => {
+    if (errorResponse?.length && errorResponse !== "") {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `${errorResponse}`,
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Close",
+        timer: 2500,
+      });
+    }
+    setErrorResponse("");
+  }, [errorResponse]);
+
+  console.log("transaction", transaction);
 
   useEffect(() => {
     if (currentPage === 0) {
@@ -56,7 +105,7 @@ const Transaction = () => {
   const onInputClick = (e) => {
     e.preventDefault();
     if (pageInput <= 0 || pageInput > TotalNumberOfPages.length) {
-      setCurrentPage(1);
+      setCurrentPage(0);
       setLastIndex(10);
       setFirstIndex(0);
       setPrevDisable(true);
@@ -86,7 +135,7 @@ const Transaction = () => {
   };
 
   const nextChange = () => {
-    if (lastIndex < transaction.length) {
+    if (lastIndex < transaction?.length) {
       setCurrentPage(currentPage + 1);
       setLastIndex(lastIndex + 10); //end index point
       setFirstIndex(lastIndex); // start index point
@@ -128,10 +177,10 @@ const Transaction = () => {
                   <>
                     <tr
                       className="border-2 border-dark text-center"
-                      key={Val.Issue_Date}
+                      key={Val._id}
                     >
                       <td className="border-2 border-dark text-capitalize">
-                        {Val.Issue_Date}
+                        {Val.startdate}
                       </td>
                       <td className="border-2 border-dark text-capitalize">
                         {Val.txhash}
@@ -140,7 +189,7 @@ const Transaction = () => {
                         {Val.email}
                       </td>
                       <td className="border-2 border-dark text-capitalize">
-                        {Val.date_of_birth}
+                        {Val.aadhar}
                       </td>
                     </tr>
                   </>
@@ -158,7 +207,15 @@ const Transaction = () => {
                   </strong>{" "}
                   <span>|</span>
                 </span>
-                <span style={{ color: "white",marginLeft: '4px',marginRight: '4px' }}>Go to Page:</span>
+                <span
+                  style={{
+                    color: "white",
+                    marginLeft: "4px",
+                    marginRight: "4px",
+                  }}
+                >
+                  Go to Page:
+                </span>
                 <form className="" onSubmit={onInputClick}>
                   <input
                     type="text"
@@ -167,7 +224,7 @@ const Transaction = () => {
                     value={pageInput}
                     onChange={onInputChange}
                     className="text-right"
-                    style={{ width: "45px" ,height:'28px'}}
+                    style={{ width: "45px", height: "28px" }}
                   />
                 </form>
 
@@ -177,20 +234,22 @@ const Transaction = () => {
                   }`}
                   onClick={prevChange}
                 >
-                  <span style={{color:'black'}}> <GrPrevious className="mb-2"/></span>
+                  <span style={{ color: "black" }}>
+                    {" "}
+                    <GrPrevious className="mb-2" />
+                  </span>
                 </button>
-                {/* {currentPage + 1} */}
-
                 <button
                   className={`px-3 py-1 m-1 text-center btn btn-light nextPrev ${
                     nextDisable ? "disabled" : null
                   }`}
                   onClick={nextChange}
                 >
-                 <span style={{color:'black'}}> <GrNext className="mb-2"/></span>
+                  <span style={{ color: "black" }}>
+                    {" "}
+                    <GrNext className="mb-2" />
+                  </span>
                 </button>
-
-                {/* {`of ${TotalNumberOfPages.length}`} */}
               </div>
             </div>
           </div>

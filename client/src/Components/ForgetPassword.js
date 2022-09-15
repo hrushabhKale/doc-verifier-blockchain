@@ -34,7 +34,6 @@ const ForgetPassword = () => {
   const { errors } = formState;
 
   const onSubmit = async (data) => {
-    console.log("data", data);
     reset();
     setLoading(!loading);
 
@@ -64,6 +63,21 @@ const ForgetPassword = () => {
       setErrorResponse(err?.message)
     }
   };
+
+
+  useEffect(() => {
+    if (successResponse?.length && successResponse !== "") {
+      Swal.fire({
+        title: "Successfully Password Changed",
+        position: "center",
+        icon: "success",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "View on Ethereum",
+      })
+    }
+  }, [successResponse]);
 
   useEffect(()=>{
     if(errorResponse?.length && errorResponse!==''){
