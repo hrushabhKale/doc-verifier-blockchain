@@ -12,7 +12,7 @@ export default function Sidebar() {
     const [userType, setUserType] = useState();
   
     useEffect(() => {
-      setUserType(JSON.parse(localStorage.getItem("UserCredentials")).type);
+      setUserType(JSON.parse(localStorage.getItem("UserCredentials"))?.type);
     }, []);
   
     const handleClick = () => {
@@ -122,7 +122,7 @@ export default function Sidebar() {
                     </li>
                   </Link>
                   {userType === "issuer" && (
-                    <Link firstchild="1" popperarrow="0" to="/Transction">
+                    <Link firstchild="1" popperarrow="0" to="/Transaction">
                       <li className="pro-menu-item Sidebar_menuItem__37ym_">
                         <div
                           className="pro-inner-item"

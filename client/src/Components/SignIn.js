@@ -68,6 +68,35 @@ const SignIn = () => {
     reset();
   };
 
+
+  const modalSubmit = async(data) => { 
+    console.log("NEWWW DATA",data)
+  //   try {
+  //   var config = {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //     body: new URLSearchParams({
+  //       email: data?.userName,
+  //     }),
+  //   };
+  //   const response = await fetch("/users/v1/forgotpasswd", config);
+  //   let responseData = await response.json();
+  //   if (response.status === 200) {
+  //     setSuccessResponse(responseData?.msg);
+  //     setLoading(!loading);
+  //     // navigate("/ForgetPassword");
+  //   } else {
+  //     setLoading(loading);
+  //     throw Error(responseData?.msg);
+  //   }
+  // } catch (err) {
+  //   setErrorResponse(err?.message);
+  // }
+  };
+
+
   useEffect(() => {
     if (errorResponse?.length && errorResponse !== "") {
       Swal.fire({

@@ -5,12 +5,15 @@ import { Button, Container, Row } from "react-bootstrap";
 import style from "../Assets/css/ForgetPassword.module.css";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import FadeLoader from "react-spinners/FadeLoader";
 
 const ForgetPassword = () => {
   const [loading, setLoading] = useState(false);
+  const [successResponse,setSuccessResponse]=useState()
+  const [errorResponse,setErrorResponse]=useState()
   const validationSchema = Yup.object().shape({
     secretToken: Yup.string().required("Please enter secret token"),
 
@@ -31,38 +34,67 @@ const ForgetPassword = () => {
   const { errors } = formState;
 
   const onSubmit = async (data) => {
-    console.log("data", data);
     reset();
     setLoading(!loading);
 
-    // try {
-    //   var config = {
-    //     method: "post",
-    //     headers: {
-    //       "Content-Type": "application/x-www-form-urlencoded",
-    //     },
-    //     body: new URLSearchParams({
-    //       usertype: data?.Select,
-    //       email: data?.email,
-    //       password: data?.password,
-    //       confirmationPassword: data?.passwordConfirmation,
-    //       username: data?.userName,
-    //     }),
-    //   };
-    //   const response = await fetch("/users/v1/register", config);
-    //   let responseData = await response.json();
-    //   if (responseData.success === true) {
-    //     setLoading(loading)
-    //     setSuccessResponse(responseData?.msg);
-    //     navigate("/SecretTokenFile");
-    //   } else {
-    //     throw Error(responseData?.msg);
-    //   }
-    // } catch (err) {
-    //   setLoading(loading)
-    //   setErrorResponse(err?.message)
-    // }
+    try {
+      var config = {
+        method: "post",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secretToken: data?.secretToken,
+          password:data?.password,
+          confirmationPassword:data?.passwordConfirmation
+        }),
+      };
+      const response = await fetch("/users/v1/verifypasswd", config);
+      let responseData = await response.json();
+      if (responseData.success === true) {
+        setLoading(loading)
+        setSuccessResponse(responseData?.message);
+        navigate("/SignIn");
+      } else {
+        throw Error(responseData?.message);
+      }
+    } catch (err) {
+      setLoading(loading)
+      setErrorResponse(err?.message)
+    }
   };
+
+
+  useEffect(() => {
+    if (successResponse?.length && successResponse !== "") {
+      Swal.fire({
+        title: "Successfully Password Changed",
+        position: "center",
+        icon: "success",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "View on Ethereum",
+      })
+    }
+  }, [successResponse]);
+
+  useEffect(()=>{
+    if(errorResponse?.length && errorResponse!==''){
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title:`${errorResponse}`,
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Close',
+        timer: 2500
+      })
+    }
+    setErrorResponse("")
+  },[errorResponse])
+
   return (
     <>
       <div className={style.form__App}>
