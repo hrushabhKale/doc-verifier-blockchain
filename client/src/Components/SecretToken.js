@@ -10,9 +10,9 @@ import Swal from "sweetalert2";
 import FadeLoader from "react-spinners/FadeLoader";
 
 const SecretTokenFile = () => {
-  //   const [modal, setmodal] = useState(false);
   const [errorResponse, setErrorResponse] = useState();
   const [loading, setLoading] = useState(false);
+
   const validationSchema = Yup.object().shape({
     SecretToken: Yup.string().required("Please enter secret token"),
   });
@@ -42,7 +42,6 @@ const SecretTokenFile = () => {
         throw Error(responseData?.message);
       }
     } catch (err) {
-      console.log("error", err?.message);
       setLoading(loading);
       setErrorResponse(err?.message);
     }
@@ -59,17 +58,10 @@ const SecretTokenFile = () => {
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",
-        // timer: 2500
       });
     }
     setErrorResponse("");
   }, [errorResponse]);
-
-  const SubmitHandler = (e) => {
-    e.preventDefault();
-
-    //
-  };
 
   return (
     <>
@@ -117,7 +109,6 @@ const SecretTokenFile = () => {
                   paddingRight: "4rem",
                   backgroundColor: "#3274ad",
                 }}
-                //   onClick={SubmitHandler}
               >
                 Submit
               </Button>
