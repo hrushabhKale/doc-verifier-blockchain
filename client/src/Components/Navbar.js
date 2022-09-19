@@ -6,6 +6,7 @@ import image1 from "./../Assets/images/User-Icon.png";
 export default function Navbar(props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userData, setUserData] = useState();
+
   useEffect(() => {
     if (localStorage.getItem("UserCredentials")) {
       setIsAuthenticated(true);
@@ -80,9 +81,13 @@ export default function Navbar(props) {
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        <img src={image1} width="25" height="25" class="rounded-circle user-margin"/>
-                        {/* {userData.userName} */}
-                           Khilesh
+                        <img
+                          src={image1}
+                          width="25"
+                          height="25"
+                          class="rounded-circle user-margin"
+                        />
+                        {userData.userName}
                         {/* <img src={image1} width="30" height="30" class="rounded-circle user-margin"/> */}
                       </div>
                       <ul

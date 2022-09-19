@@ -8,18 +8,18 @@ import { IconContext } from "react-icons";
 import image2 from "./../Assets/images/ethereum.png";
 
 export default function Sidebar() {
-    const [sidebar, setSidebar] = useState(false);
-    const [userType, setUserType] = useState();
-  
-    useEffect(() => {
-      setUserType(JSON.parse(localStorage.getItem("UserCredentials"))?.type);
-    }, []);
-  
-    const handleClick = () => {
-      localStorage.clear();
-    };
-  
-    const showSidebar = () => setSidebar(!sidebar);
+  const [sidebar, setSidebar] = useState(false);
+  const [userData, setUserData] = useState();
+
+  useEffect(() => {
+    setUserData(JSON.parse(localStorage.getItem("UserCredentials")));
+  }, []);
+
+  const handleClick = () => {
+    localStorage.clear();
+  };
+
+  const showSidebar = () => setSidebar(!sidebar);
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -48,8 +48,8 @@ export default function Sidebar() {
             <div className="pro-sidebar-header Sidebar_header__1KB1K">
               <div className="Sidebar_userDesc__HPrgs">
                 <img src={image2} alt="image1" className="Sidebar-img-top" />
-                <h3>Company Name</h3>
-                <p>{userType}</p>
+                <h3>{userData?.userName}</h3>
+                <p>{userData?.type}</p>
               </div>
             </div>
             <div className="pro-sidebar-content sidebarContent">
@@ -92,7 +92,7 @@ export default function Sidebar() {
                     firstchild="1"
                     popperarrow="0"
                     to={
-                      userType === "issuer"
+                      userData?.type === "issuer"
                         ? "/Issuer-Dashboard"
                         : "/Validator-Dashboard"
                     }
@@ -121,7 +121,7 @@ export default function Sidebar() {
                       </div>
                     </li>
                   </Link>
-                  {userType === "issuer" && (
+                  {userData?.type === "issuer" && (
                     <Link firstchild="1" popperarrow="0" to="/Transaction">
                       <li className="pro-menu-item Sidebar_menuItem__37ym_">
                         <div
@@ -157,7 +157,7 @@ export default function Sidebar() {
                       >
                         <span className="pro-icon-wrapper">
                           <span className="pro-icon">
-                          <AiIcons.AiOutlineUsergroupAdd
+                            <AiIcons.AiOutlineUsergroupAdd
                               className="Sidebar_icons__2Z2FR"
                               style={{
                                 color: "black",
@@ -185,5 +185,5 @@ export default function Sidebar() {
         </nav>
       </IconContext.Provider>
     </>
-  )
+  );
 }

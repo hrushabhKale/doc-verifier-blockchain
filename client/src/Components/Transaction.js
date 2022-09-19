@@ -11,7 +11,7 @@ import { GrPrevious } from "react-icons/gr";
 const Transaction = () => {
   const [loading, setLoading] = useState(false);
   const [transaction, setTransaction] = useState([]);
-  const [lastIndex, setLastIndex] = useState(10); // No of pages
+  const [lastIndex, setLastIndex] = useState(10);
   const [firstIndex, setFirstIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [prevDisable, setPrevDisable] = useState(true);
@@ -20,23 +20,9 @@ const Transaction = () => {
   const [errorResponse, setErrorResponse] = useState();
   const postPerPage = 10;
 
-  // useEffect(() => {
-  //   setLoading(!loading);
-  //   const fetchApi = async () => {
-  //     const data = await fetch(
-  //       "https://mocki.io/v1/b3706515-a786-4bb1-b575-d6266a88f0ce"
-  //       // "users/v1/transactions"
-  //     );
-  //     const dataResponse = await data.json();
-  //     setTransaction(dataResponse);
-  //     setLoading(loading);
-  //   };
-  //   fetchApi();
-  // }, []);
-
   useEffect(() => {
+    setLoading(!loading);
     (async () => {
-      setLoading(!loading);
       try {
         var config = {
           method: "post",
@@ -44,15 +30,13 @@ const Transaction = () => {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: new URLSearchParams({
-            email: JSON.parse(localStorage.getItem("UserCredentials"))
-              ?.userName,
+            email: JSON.parse(localStorage.getItem("UserCredentials"))?.email,
           }),
         };
         const response = await fetch("/users/v1/transactions", config);
         let responseData = await response.json();
         if (responseData.success === true) {
           setLoading(loading);
-          console.log("DATAA", responseData);
           setTransaction(responseData?.userlist);
         } else {
           throw Error("No data to display");
@@ -79,8 +63,6 @@ const Transaction = () => {
     }
     setErrorResponse("");
   }, [errorResponse]);
-
-  console.log("transaction", transaction);
 
   useEffect(() => {
     if (currentPage === 0) {
@@ -151,6 +133,9 @@ const Transaction = () => {
       <div className="container-fluid transaction">
         <Sidebar />
         <div className="row d-flex justify-content-center">
+          <div className={loading ? "loading" : ""}>
+            <FadeLoader loading={loading} color="#3274ad" />
+          </div>
           <Table className="transaction-table mt-1 mb-0">
             <thead>
               <tr className="border-2 border-dark text-center my-2">
@@ -169,9 +154,6 @@ const Transaction = () => {
               </tr>
             </thead>
             <tbody>
-              <div className={loading ? "loading" : ""}>
-                <FadeLoader loading={loading} />
-              </div>
               {transaction?.slice(firstIndex, lastIndex).map((Val) => {
                 return (
                   <>

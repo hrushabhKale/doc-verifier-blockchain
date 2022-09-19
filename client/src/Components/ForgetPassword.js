@@ -12,8 +12,9 @@ import FadeLoader from "react-spinners/FadeLoader";
 
 const ForgetPassword = () => {
   const [loading, setLoading] = useState(false);
-  const [successResponse,setSuccessResponse]=useState()
-  const [errorResponse,setErrorResponse]=useState()
+  const [successResponse, setSuccessResponse] = useState();
+  const [errorResponse, setErrorResponse] = useState();
+
   const validationSchema = Yup.object().shape({
     secretToken: Yup.string().required("Please enter secret token"),
 
@@ -45,55 +46,54 @@ const ForgetPassword = () => {
         },
         body: new URLSearchParams({
           secretToken: data?.secretToken,
-          password:data?.password,
-          confirmationPassword:data?.passwordConfirmation
+          password: data?.password,
+          confirmationPassword: data?.passwordConfirmation,
         }),
       };
       const response = await fetch("/users/v1/verifypasswd", config);
       let responseData = await response.json();
       if (responseData.success === true) {
-        setLoading(loading)
-        setSuccessResponse(responseData?.message);
-        navigate("/SignIn");
+        setLoading(loading);
+        setSuccessResponse(responseData?.msg);
       } else {
-        throw Error(responseData?.message);
+        throw Error(responseData?.msg);
       }
     } catch (err) {
-      setLoading(loading)
-      setErrorResponse(err?.message)
+      setLoading(loading);
+      setErrorResponse(err?.message);
     }
   };
-
 
   useEffect(() => {
     if (successResponse?.length && successResponse !== "") {
       Swal.fire({
-        title: "Successfully Password Changed",
+        title: `${successResponse}`,
         position: "center",
         icon: "success",
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "View on Ethereum",
-      })
+      }).then(() => {
+        navigate("/SignIn");
+      });
     }
   }, [successResponse]);
 
-  useEffect(()=>{
-    if(errorResponse?.length && errorResponse!==''){
+  useEffect(() => {
+    if (errorResponse?.length && errorResponse !== "") {
       Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title:`${errorResponse}`,
+        position: "center",
+        icon: "error",
+        title: `${errorResponse}`,
         showConfirmButton: false,
         showCancelButton: true,
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Close',
-        timer: 2500
-      })
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Close",
+        timer: 2500,
+      });
     }
-    setErrorResponse("")
-  },[errorResponse])
+    setErrorResponse("");
+  }, [errorResponse]);
 
   return (
     <>
@@ -186,7 +186,6 @@ const ForgetPassword = () => {
               </Form.Group>
             </Row>
           </form>
-          
         </Container>
       </div>
     </>

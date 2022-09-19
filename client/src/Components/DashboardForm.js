@@ -14,7 +14,7 @@ const DashboardForm = () => {
   const [hashValue, setHashValue] = useState();
   const [validatorhashError, setValidatorHashError] = useState();
   const [loading, setLoading] = useState(false);
-  const [userName,setUserName]=useState()
+  const [userName, setUserName] = useState();
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
@@ -54,13 +54,9 @@ const DashboardForm = () => {
 
     certificateName: Yup.string().required("Please enter certificate name"),
 
-    // startDate: Yup.string().required("Please enter or select start date"),
-
     place: Yup.string().required("Please enter place field"),
 
     IssuedBy: Yup.string().required("Please fill this field"),
-
-    // endDate: Yup.string().required("Please enter or select date"),
 
     nameOfPerson: Yup.string().required("Please enter name of person"),
 
@@ -77,7 +73,7 @@ const DashboardForm = () => {
 
   const onSubmit = async (data) => {
     setLoading(!loading);
-    setUserName(JSON.parse(localStorage.getItem("UserCredentials"))?.userName)
+    setUserName(JSON.parse(localStorage.getItem("UserCredentials"))?.userName);
     try {
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
@@ -149,7 +145,7 @@ const DashboardForm = () => {
     <>
       <section className="dashboard_form_section">
         {" "}
-        <Sidebar   />
+        <Sidebar />
         <div className="dashboard_form">
           <div className={loading && "loading"}>
             <FadeLoader loading={loading} />
@@ -164,7 +160,6 @@ const DashboardForm = () => {
               <Row>
                 <Col xs={12} lg={6} md={6} sm={6}>
                   <Form.Group className="mb-0">
-                    {/* <Form.Label>User Type</Form.Label> */}
                     <Form.Select
                       className="select_certificate"
                       name="usertype"
@@ -313,13 +308,11 @@ const DashboardForm = () => {
                         <input
                           type="file"
                           className="chooseFile"
-                          // name='logo'
                           {...register("logo")}
                         />
                       </Form.Group>
                       <p className="select_error_masg">
                         {errors.logo?.message}
-                        {/* {errors.logoFile && <p>{errors.logoFile?.message}</p>} */}
                       </p>
                     </Col>
                     <Col></Col>

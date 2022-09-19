@@ -49,7 +49,8 @@ const SignIn = () => {
         localStorage.setItem(
           "UserCredentials",
           JSON.stringify({
-            userName: `${data?.userName}`,
+            email: `${data?.userName}`,
+            userName: `${responseData?.username}`,
             type: `${responseData?.type}`,
           })
         );
@@ -68,35 +69,6 @@ const SignIn = () => {
     reset();
   };
 
-
-  const modalSubmit = async(data) => { 
-    console.log("NEWWW DATA",data)
-  //   try {
-  //   var config = {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/x-www-form-urlencoded",
-  //     },
-  //     body: new URLSearchParams({
-  //       email: data?.userName,
-  //     }),
-  //   };
-  //   const response = await fetch("/users/v1/forgotpasswd", config);
-  //   let responseData = await response.json();
-  //   if (response.status === 200) {
-  //     setSuccessResponse(responseData?.msg);
-  //     setLoading(!loading);
-  //     // navigate("/ForgetPassword");
-  //   } else {
-  //     setLoading(loading);
-  //     throw Error(responseData?.msg);
-  //   }
-  // } catch (err) {
-  //   setErrorResponse(err?.message);
-  // }
-  };
-
-
   useEffect(() => {
     if (errorResponse?.length && errorResponse !== "") {
       Swal.fire({
@@ -110,20 +82,19 @@ const SignIn = () => {
       });
     }
   }, [errorResponse]);
-  
 
-  const forgotPass =  async() =>{
+  const forgotPass = async () => {
     const { value: email } = await Swal.fire({
-      title: 'Forgot Password',
-      input: 'email',
-      inputLabel: 'Your email address',
-      inputPlaceholder: 'Enter your email address',
+      title: "Forgot Password",
+      input: "email",
+      inputLabel: "Your email address",
+      inputPlaceholder: "Enter your email address",
       showCancelButton: true,
-      confirmButtonText: 'Submit'
-    })
-    
+      confirmButtonText: "Submit",
+    });
+
     if (email) {
-      setLoading(!loading)
+      setLoading(!loading);
       try {
         var config = {
           method: "post",
@@ -139,7 +110,6 @@ const SignIn = () => {
         if (responseResult?.success === true) {
           setSuccessResponse(responseResult?.msg);
           setLoading(loading);
-          navigate("/ForgetPassword")
         } else {
           setLoading(loading);
           throw Error(responseResult?.msg);
@@ -148,7 +118,23 @@ const SignIn = () => {
         setErrorResponse(err?.message);
       }
     }
-  }
+  };
+
+  useEffect(() => {
+    if (successResponse?.length && successResponse !== "") {
+      Swal.fire({
+        title:
+          "Secret Token is send on your registered email Id,please Check..!!",
+        position: "center",
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+      }).then(() => {
+        navigate("/ForgetPassword");
+      });
+    }
+  }, [successResponse]);
 
   return (
     <>
@@ -194,9 +180,6 @@ const SignIn = () => {
                   top: "6rem",
                 }}
               />
-
-            
-
             </Col>
             <Col>
               <Row className={SignCss.singIn_header}>
