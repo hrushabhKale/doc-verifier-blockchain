@@ -65,3 +65,12 @@
       z-index: 100;
 }
 
+p h2 h3 td :-ms-input-placeholder {
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button{
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif
+}

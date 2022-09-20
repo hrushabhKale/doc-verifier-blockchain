@@ -29,19 +29,25 @@ html{
 }
 
 .achr{
-    font-weight: 600;
+    font-weight: 400;
     font-family: 'Montserrat', sans-serif;
 }
 
-a:hover {
-    color: #194089 !important;
+.achr:hover {
+    /* color: #194089 !important; */
+    color: #739dec !important;
+    font-size: 17px;
+    font-weight: 600;
   }
 
 .btn {
     background-color: #194089 !important;
     color: #fff !important;
+    font-size: 15px !important;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif !important;
+    padding: 4px 25px !important;
+    margin-top: 2px;
 }
 
 @media (max-width: 770px) {
@@ -132,8 +138,9 @@ a:hover {
 @media (min-width: 990px) {
     .btns {
         margin-left: 80px;
-        font-size: 13;
-        padding: 5px 30px;
+        font-size: 15px !important;
+        padding: 4px 25px !important;
+        margin-top: 2px;
     }
 }
 
@@ -184,10 +191,16 @@ p {
 
 .user-margin{
     margin-right: 5px;
+    margin-left: 5px;
+    margin-top: -6px;
 }
 
 .nav-pad{
     padding-top: 9px !important;
 }
 
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #FFF !important;
+    background-color: #194089 !important;
+}
 

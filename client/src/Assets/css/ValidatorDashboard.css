@@ -190,3 +190,13 @@
 .fileError{
     color: red;
 }
+
+td{
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+th{
+    font-weight: 500 !important;
+    font-family: 'Montserrat', sans-serif !important;
+}

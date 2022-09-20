@@ -75,16 +75,22 @@ const DashboardForm = () => {
     setLoading(!loading);
     setUserName(JSON.parse(localStorage.getItem("UserCredentials"))?.userName);
     try {
+      var myDate = new Date(data?.startDate);
+      // let day = myDate.getDate();
+      // console.log(day);
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
       formData.append("email", data?.emailAddress);
       formData.append("certname", data?.certificateName);
       formData.append("authority", data?.IssuedBy);
-      formData.append("startdate", data?.startDate);
+      formData.append("startdate", myDate.toLocaleDateString());
       formData.append("enddate", data?.endDate);
       formData.append("score", data?.place);
       formData.append("fileUploaded", data?.logo?.[0]);
       formData.append("personname", data?.nameOfPerson);
+      console.log(myDate.toLocaleString());
+
+
 
       const response = await fetch("users/v1/issue", {
         method: "POST",
