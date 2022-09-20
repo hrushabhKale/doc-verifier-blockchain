@@ -212,3 +212,9 @@ a {
     text-decoration: none!important;
     color: inherit!important;
 }
+
+.sd-title:hover{
+    color: #194089 !important;
+    font-weight: 800px !important;
+    font-size: 1.2rem;
+}

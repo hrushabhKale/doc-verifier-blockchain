@@ -83,7 +83,7 @@ export default function Sidebar() {
                           </span>
                         </span>
                         <span className="pro-item-content">
-                          <span> Home</span>
+                          <span className="sd-title"> Home</span>
                         </span>
                       </div>
                     </li>
@@ -116,7 +116,7 @@ export default function Sidebar() {
                           </span>
                         </span>
                         <span className="pro-item-content">
-                          <span> Dashboard</span>
+                          <span className="sd-title"> Dashboard</span>
                         </span>
                       </div>
                     </li>
@@ -142,7 +142,7 @@ export default function Sidebar() {
                             </span>
                           </span>
                           <span className="pro-item-content">
-                            <span>Transaction</span>
+                            <span className="sd-title">Transaction</span>
                           </span>
                         </div>
                       </li>
@@ -168,7 +168,7 @@ export default function Sidebar() {
                           </span>
                         </span>
                         <span className="pro-item-content">
-                          <span>Help Desk</span>
+                          <span className="sd-title">Help Desk</span>
                         </span>
                       </div>
                     </li>
