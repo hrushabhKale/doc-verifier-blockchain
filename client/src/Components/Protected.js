@@ -12,7 +12,7 @@ const Protected = (props) => {
     if (!localStorage.getItem("UserCredentials")) {
       navigate("/SignIn");
     }
-  }, []);
+  }, [props]);
 
   return (
     <div>

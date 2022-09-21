@@ -159,9 +159,9 @@ const DashboardForm = () => {
           <Container className="dashboard_form_body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Row>
-                <h4 style={{ textAlign: "start", color: "black" }}>
+                <h3 className= "mb-3" style={{ textAlign: "start", color: "black"}}>
                   Dashboard
-                </h4>
+                </h3>
               </Row>
               <Row>
                 <Col xs={12} lg={6} md={6} sm={6}>

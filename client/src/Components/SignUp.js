@@ -210,7 +210,7 @@ const SignUp = () => {
               </Form.Group>
 
               <Form.Group style={{ textAlign: "center" }}>
-                <Form.Text className="text-muted">
+                <Form.Text className="text-muted" style={{fontFamily: "Montserrat, sans-serif" }}>
                   Already Registered?
                 </Form.Text>
                 <Link to="/SignIn" className={SignUpCss.login__link} exact>

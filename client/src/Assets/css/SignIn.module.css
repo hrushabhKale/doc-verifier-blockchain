@@ -74,9 +74,9 @@
   padding-bottom: 4rem;
   height: 100vh;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 @media screen and (max-width: 600px) {
   .imglogo {
@@ -122,7 +122,7 @@ select:focus {
   border-radius: 0.4rem;
   width: 25rem !important;
   max-height: 25rem !important;
-  min-height: 20rem !important;
+  min-height: 18rem !important;
   background-color: rgb(249, 249, 250);
   opacity: 0.9;
 }
