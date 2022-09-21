@@ -114,10 +114,10 @@ const SecretTokenFile = () => {
               </Button>
             </Form.Group>
           </Form>
-          <p style={{ textAlign: "center", marginBottom: "0px" }}>
+          <p style={{ textAlign: "center", marginBottom: "0px", fontFamily:'montserrat, sans-serif',fontSize: "15px" }}>
             Please check your registered email ID for token.
           </p>
-          <p style={{ textAlign: "center" }}>
+          <p style={{ textAlign: "center", fontFamily:'montserrat, sans-serif', fontSize: "15px"  }}>
             Check the spam folder if not found
           </p>
         </Container>

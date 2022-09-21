@@ -136,19 +136,19 @@ const Transaction = () => {
           <div className={loading ? "loading" : ""}>
             <FadeLoader loading={loading} color="#3274ad" />
           </div>
-          <Table className="transaction-table mt-1 mb-0">
+          {/* <Table className="transaction-table mt-1 mb-0">
             <thead>
               <tr className="border-2 border-dark text-center my-2">
-                <th className="col-3 border-2 border-dark fs-4 text-capitalize">
+                <th className="border-2 border-dark fs-4 text-capitalize">
                   Issue Date
                 </th>
-                <th className="col-3 border-2 border-dark fs-4 text-capitalize">
+                <th className="border-2 border-dark fs-4 text-capitalize">
                   Transaction Hash
                 </th>
-                <th className="col-3 border-2 border-dark fs-4 text-capitalize">
+                <th className="border-2 border-dark fs-4 text-capitalize">
                   Email Id
                 </th>
-                <th className="col-3 border-2 border-dark fs-4 text-capitalize">
+                <th className="border-2 border-dark fs-4 text-capitalize">
                   Certificate Id
                 </th>
               </tr>
@@ -178,11 +178,96 @@ const Transaction = () => {
                 );
               })}
             </tbody>
-          </Table>
+          </Table> */}
+          {/* <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>0xae68541b5b39812b8a3ffd24b2f92120519ba047e82d21ceec393ec99a29c3d6</td>
+      <td>Vrahane8@Gmail.Com</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>0xae68541b5b39812b8a3ffd24b2f92120519ba047e82d21ceec393ec99a29c3d6</td>
+      <td>Vrahane8@Gmail.Com</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>0xae68541b5b39812b8a3ffd24b2f92120519ba047e82d21ceec393ec99a29c3d6</td>
+      <td>Vrahane8@Gmail.Com</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> */}
+
+          <div class="container" style={{ width: "80%" }}>
+            {/* <h3 style={{ color: "white" }} className='mb-5'>Transaction</h3> */}
+            <h4 style={{ color: "white",fontFamily: "Montserrat, sans-serif",marginBottom:'1.5rem' }}>Certificates Issued</h4>
+            <div class="table-responsive">
+              <table class="table transaction-table">
+                <thead>
+                  <tr className="border-2 border-dark text-center my-2">
+                    <th className="border-2 border-dark fs-4 text-capitalize">
+                      Issue Date
+                    </th>
+                    <th className="border-2 border-dark fs-4 text-capitalize">
+                      Transaction Hash
+                    </th>
+                    <th className="border-2 border-dark fs-4 text-capitalize">
+                      Email Id
+                    </th>
+                    <th className="border-2 border-dark fs-4 text-capitalize">
+                      Certificate Id
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {transaction?.slice(firstIndex, lastIndex).map((Val) => {
+                    return (
+                      <>
+                        <tr
+                          className="border-2 border-dark text-center"
+                          key={Val._id}
+                        >
+                          <td className="border-2 border-dark text-capitalize">
+                            {Val.startdate}
+                          </td>
+                          <td className="border-2 border-dark text-capitalize">
+                            {Val.txhash}
+                          </td>
+                          <td className="border-2 border-dark text-capitalize">
+                            {Val.email}
+                          </td>
+                          <td className="border-2 border-dark text-capitalize">
+                            {Val.aadhar}
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
           <div className="my-3 text-center container">
             <div className="row">
               <div className="col d-flex justify-content-center">
-                <span style={{ color: "white" }}>
+                <span
+                  style={{
+                    color: "white",
+                    fontFamily: "Montserrat, sans-serif",
+                  }}
+                >
                   Page{" "}
                   <strong>
                     {currentPage + 1} of {`${TotalNumberOfPages.length}`}
@@ -194,6 +279,7 @@ const Transaction = () => {
                     color: "white",
                     marginLeft: "4px",
                     marginRight: "4px",
+                    fontFamily: "Montserrat, sans-serif",
                   }}
                 >
                   Go to Page:

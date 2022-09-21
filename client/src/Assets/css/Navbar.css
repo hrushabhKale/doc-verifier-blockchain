@@ -11,9 +11,9 @@ html{
     overflow-x:hidden;
     }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .text-box h1{
     font-weight: 600;

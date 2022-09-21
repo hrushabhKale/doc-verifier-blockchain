@@ -74,3 +74,25 @@ p h2 h3 td :-ms-input-placeholder {
     font-weight: 600;
     font-family: 'Montserrat', sans-serif
 }
+.swal2-popup .swal2-title{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.swal2-popup .swal2-input-label{
+  font-family: 'Montserrat', sans-serif;
+}
+.swal2-styled.swal2-confirm {
+  font-family: 'Montserrat', sans-serif;
+}
+.swal2-styled.swal2-cancel{
+  font-family: 'Montserrat', sans-serif;
+}
+.swal2-html-container{
+  font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.2rem !important;
+  font-weight: 600 !important;
+}

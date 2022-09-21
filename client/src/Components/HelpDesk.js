@@ -14,7 +14,7 @@ export default function HelpDesk() {
               <h2>Help Desk</h2>
             </div>
             <div className="Help-Accordian text-dark">
-              <Accordion>
+              <Accordion style={{opacity:'0.9'}}>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>How It work's ?</Accordion.Header>
                   <Accordion.Body>

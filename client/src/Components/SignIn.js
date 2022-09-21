@@ -220,7 +220,7 @@ const SignIn = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <a
-                    style={{ color: "blue", cursor: "pointer" }}
+                    style={{ color: "blue", cursor: "pointer", fontFamily: "Montserrat, sans-serif" }}
                     onClick={forgotPass}
                   >
                     Forget Password
@@ -239,7 +239,7 @@ const SignIn = () => {
                   </Button>
                 </Form.Group>
                 <Form.Group className="mb-3" style={{ textAlign: "center" }}>
-                  <Form.Text className="text-muted">
+                  <Form.Text className="text-muted" style={{ fontFamily: "Montserrat, sans-serif"}}>
                     Don't have an account?
                   </Form.Text>
 
@@ -249,6 +249,7 @@ const SignIn = () => {
                       color: "blue",
                       cursor: "pointer",
                       marginLeft: "3px",
+                      fontFamily: "Montserrat, sans-serif"
                     }}
                   >
                     Join now
