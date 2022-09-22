@@ -216,7 +216,7 @@ const Transaction = () => {
             <div class="table-responsive">
               <table class="table transaction-table">
                 <thead>
-                  <tr className="border-2 border-dark text-center my-2">
+                  <tr className="border-2 border-dark text-center my-2" style={{whiteSpace: "nowrap"}}>
                     <th className="border-2 border-dark fs-4 text-capitalize">
                       Issue Date
                     </th>
