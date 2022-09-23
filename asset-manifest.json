@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/doc-verifier-blockchain/static/css/main.490d5813.css",
+    "main.js": "/doc-verifier-blockchain/static/js/main.38261611.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/doc-verifier-blockchain/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/error3.jpg": "/doc-verifier-blockchain/static/media/error3.92c9fb7372440b5bec53.jpg",
+    "static/media/timeline7.jpg": "/doc-verifier-blockchain/static/media/timeline7.0c32f5d6fbded8f13f36.jpg",
+    "static/media/Inter-Regular.ttf": "/doc-verifier-blockchain/static/media/Inter-Regular.e89cb19905e7db5591b0.ttf",
+    "static/media/Montserrat-SemiBold.ttf": "/doc-verifier-blockchain/static/media/Montserrat-SemiBold.d5e0cc788cba9ced1fb9.ttf",
+    "static/media/Montserrat-Medium.ttf": "/doc-verifier-blockchain/static/media/Montserrat-Medium.c86e3b9010ff63c99166.ttf",
+    "static/media/Montserrat-Bold.ttf": "/doc-verifier-blockchain/static/media/Montserrat-Bold.2c155811b35513d5beaa.ttf",
+    "static/media/Montserrat-Regular.ttf": "/doc-verifier-blockchain/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
+    "static/media/Background2.jpg": "/doc-verifier-blockchain/static/media/Background2.7f7a03757e4b5d33f5f0.jpg",
+    "static/media/footer2.jpg": "/doc-verifier-blockchain/static/media/footer2.b3dde211f50ec7806ae7.jpg",
+    "static/media/shubham-dhage-JlijbOtSWuw-unsplash.jpg": "/doc-verifier-blockchain/static/media/shubham-dhage-JlijbOtSWuw-unsplash.d2e1aaa3a8502cb90578.jpg",
+    "static/media/block-chain2.jpg": "/doc-verifier-blockchain/static/media/block-chain2.8d825d152451a5bd8c2e.jpg",
+    "static/media/Banner2.jpg": "/doc-verifier-blockchain/static/media/Banner2.2f80d151f16d88d3c271.jpg",
+    "static/media/timeline11.jpg": "/doc-verifier-blockchain/static/media/timeline11.dfb2bf334cd24f9d748a.jpg",
+    "static/media/conny2.jpg": "/doc-verifier-blockchain/static/media/conny2.803c30f30b97359883b4.jpg",
+    "static/media/instagram.png": "/doc-verifier-blockchain/static/media/instagram.1792ff30fb032c94685c.png",
+    "static/media/b-logo.png": "/doc-verifier-blockchain/static/media/b-logo.31da9bbfd3c78611d918.png",
+    "static/media/swipe.png": "/doc-verifier-blockchain/static/media/swipe.e3191032362b0c97c7f3.png",
+    "static/media/ipfs.png": "/doc-verifier-blockchain/static/media/ipfs.a63f61012e97cd051560.png",
+    "static/media/sales-circle-icon.png": "/doc-verifier-blockchain/static/media/sales-circle-icon.b0801ca8d567801d1613.png",
+    "index.html": "/doc-verifier-blockchain/index.html",
+    "main.490d5813.css.map": "/doc-verifier-blockchain/static/css/main.490d5813.css.map",
+    "main.38261611.js.map": "/doc-verifier-blockchain/static/js/main.38261611.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/doc-verifier-blockchain/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.490d5813.css",
+    "static/js/main.38261611.js"
+  ]
+}
