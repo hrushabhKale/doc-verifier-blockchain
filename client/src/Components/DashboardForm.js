@@ -222,19 +222,22 @@ const DashboardForm = () => {
                       <p className="select_error_masg">
                         {errors.certificateName?.message}
                       </p>
+
                       <Form.Group className="mb-0">
-                        <Form.Label className="mb-0">Start Date</Form.Label>
+                        <Form.Label className="mb-0">Issued by</Form.Label>
 
                         <input
-                          type="date"
-                          name="startDate"
+                          type="text"
+                          name="IssuedBy"
                           className="form-control"
-                          {...register("startDate")}
+                          placeholder="Issued by"
+                          {...register("IssuedBy")}
                         />
                       </Form.Group>
                       <p className="select_error_masg">
-                        {errors.startDate?.message}
+                        {errors.IssuedBy?.message}
                       </p>
+                    
                       <Form.Group className="mb-0">
                         <Form.Label className="mb-0">Place</Form.Label>
 
@@ -266,19 +269,19 @@ const DashboardForm = () => {
                         {errors.emailAddress?.message}
                       </p>
                       <Form.Group className="mb-0">
-                        <Form.Label className="mb-0">Issued by</Form.Label>
+                        <Form.Label className="mb-0">Start Date</Form.Label>
 
                         <input
-                          type="text"
-                          name="IssuedBy"
+                          type="date"
+                          name="startDate"
                           className="form-control"
-                          placeholder="Issued by"
-                          {...register("IssuedBy")}
+                          {...register("startDate")}
                         />
                       </Form.Group>
                       <p className="select_error_masg">
-                        {errors.IssuedBy?.message}
+                        {errors.startDate?.message}
                       </p>
+                     
                       <Form.Group className="mb-0">
                         <Form.Label className="mb-0">End Date</Form.Label>
 
