@@ -243,7 +243,7 @@ const Transaction = () => {
                             {Val.startdate}
                           </td>
                           <td className="border-2 border-dark text-capitalize">
-                            {Val.txhash}
+                            <a href={`https://mumbai.polygonscan.com/tx/${Val.txhash}`} target="_blank">{Val.txhash} </a>
                           </td>
                           <td className="border-2 border-dark text-capitalize">
                             {Val.email}
@@ -286,7 +286,7 @@ const Transaction = () => {
                 </span>
                 <form className="" onSubmit={onInputClick}>
                   <input
-                    type="text"
+                    type="number"
                     size={1}
                     placeholder={`${currentPage + 1}`}
                     value={pageInput}
