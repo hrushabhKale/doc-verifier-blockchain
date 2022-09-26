@@ -75,7 +75,7 @@ export default function Navbar(props) {
                   <>
                     <li class="nav-item dropdown ">
                       <div
-                        className="nav-link dropdown-toggle text-light drop-align p-2"
+                        className="nav-link dropdown-toggle text-light drop-align"
                         id="navbarDropdown"
                         role="button"
                         data-bs-toggle="dropdown"

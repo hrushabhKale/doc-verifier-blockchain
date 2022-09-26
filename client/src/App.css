@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: "InterRegular" ;
   src: url("./Assets/fonts/Inter-Regular.ttf");

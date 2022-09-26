@@ -76,8 +76,6 @@ const DashboardForm = () => {
     setUserName(JSON.parse(localStorage.getItem("UserCredentials"))?.userName);
     try {
       var myDate = new Date(data?.startDate);
-      // let day = myDate.getDate();
-      // console.log(day);
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
       formData.append("email", data?.emailAddress);
@@ -88,9 +86,6 @@ const DashboardForm = () => {
       formData.append("score", data?.place);
       formData.append("fileUploaded", data?.logo?.[0]);
       formData.append("personname", data?.nameOfPerson);
-      console.log(myDate.toLocaleString());
-
-
 
       const response = await fetch("users/v1/issue", {
         method: "POST",
@@ -113,14 +108,19 @@ const DashboardForm = () => {
   useEffect(() => {
     if (validatorhashError?.length && validatorhashError !== "") {
       Swal.fire({
+        customClass:{
+          title:"swal-title",
+          text:"swwal-text",
+          popup:"swal-popup"
+        },
         position: "center",
         icon: "error",
-        title: "ERROR",
-        showConfirmButton: false,
+        title: "Something Went Wrong..!!",
+        text:"There's some issue occured while processing your request,Please try again shortly",
+        showConfirmButton: true,
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",
-        timer: 2500,
       });
     }
   }, [validatorhashError]);
@@ -176,8 +176,8 @@ const DashboardForm = () => {
                       <option value="Adhar" selected>
                         Aadhar
                       </option>
-                      <option value="xyz" disabled>
-                        xyz
+                      <option value="salesforce">
+                       SalesForce Platform-1
                       </option>
                     </Form.Select>
                   </Form.Group>
@@ -186,17 +186,19 @@ const DashboardForm = () => {
                   </p>
                 </Col>
               </Row>
-              {showhide === "Adhar" && (
+              {/* {showhide === "Adhar" && ( */}
                 <>
                   <Row>
                     <Col lg={6} sm={6} md={6} xs={12}>
                       <Form.Group className="mb-0">
-                        <Form.Label className="mb-0">Aadhar Number</Form.Label>
+                        <Form.Label className="mb-0">{
+                          showhide === "Adhar" ? "Aadhar Number" : "Certification Id"
+                        }</Form.Label>
                         <input
                           type="text"
                           name="adharNumber"
                           className="form-control"
-                          placeholder="Enter Aadhar Number"
+                          placeholder={showhide === "Adhar" ? "Aadhar Number" : "Enter Certification Id"}
                           {...register("adharNumber")}
                         />
                       </Form.Group>
@@ -309,7 +311,7 @@ const DashboardForm = () => {
                     <Col className="mt-0">
                       <Form.Group controlId="formFile" className="mb-0">
                         <Form.Label className="mb-0">
-                          Please upload logo
+                          Please upload your photo
                         </Form.Label>
                         <input
                           type="file"
@@ -340,7 +342,7 @@ const DashboardForm = () => {
                     </Form.Group>
                   </Row>
                 </>
-              )}
+              {/* )} */}
             </form>
           </Container>
         </div>

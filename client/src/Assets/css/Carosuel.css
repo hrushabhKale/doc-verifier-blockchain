@@ -94,3 +94,10 @@
     backface-visibility: hidden;
     transition: transform .6s ease-in-out;
 }
+
+@media (max-width: 450px) {
+    .carousel-img {
+        height: 250px!important;
+        max-height: 800px!important;
+    }
+}

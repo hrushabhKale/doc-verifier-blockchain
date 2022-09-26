@@ -41,7 +41,7 @@ const SignIn = () => {
           email: data?.userName,
         }),
       };
-      const response = await fetch("/users/v1/login", config);
+      const response = await fetch("users/v1/login", config);
       if (response.status === 200) {
         let responseData = await response.json();
         setSuccessResponse(responseData?.msg);
@@ -223,7 +223,7 @@ const SignIn = () => {
                     style={{ color: "blue", cursor: "pointer", fontFamily: "Montserrat, sans-serif" }}
                     onClick={forgotPass}
                   >
-                    Forget Password
+                    Forgot Password
                   </a>
                 </Form.Group>
                 <Form.Group

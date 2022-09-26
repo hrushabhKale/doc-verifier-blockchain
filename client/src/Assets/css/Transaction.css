@@ -82,7 +82,17 @@
       padding-left: 16px;
     }
 
-  
+    @media screen and (max-width: 480px) {
+      table {
+       font-size: small;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+       th{
+        font-size: 17px;
+      }
+    }
 
   /* @media screen and (max-width: 767px){
 
