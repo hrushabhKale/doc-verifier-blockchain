@@ -44,13 +44,12 @@
       overflow: scroll;
       
     }
-
-   
     
     table td,
     table th {
       border: 1px solid #ddd;
       padding: 8px;
+      font-size: 16px !important;
     }
     
     table tr:nth-child(even) {
@@ -107,3 +106,7 @@
     border-image: initial;
 }
   } */
+
+.txhash__link{
+  color: #194089;
+}

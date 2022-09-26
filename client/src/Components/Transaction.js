@@ -217,16 +217,16 @@ const Transaction = () => {
               <table class="table transaction-table">
                 <thead>
                   <tr className="border-2 border-dark text-center my-2" style={{whiteSpace: "nowrap"}}>
-                    <th className="border-2 border-dark fs-4 text-capitalize">
+                    <th className="border-2 border-dark fs-5 text-capitalize">
                       Issue Date
                     </th>
-                    <th className="border-2 border-dark fs-4 text-capitalize">
+                    <th className="border-2 border-dark fs-5 text-capitalize">
                       Transaction Hash
                     </th>
-                    <th className="border-2 border-dark fs-4 text-capitalize">
+                    <th className="border-2 border-dark fs-5 text-capitalize">
                       Email Id
                     </th>
-                    <th className="border-2 border-dark fs-4 text-capitalize">
+                    <th className="border-2 border-dark fs-5 text-capitalize">
                       Certificate Id
                     </th>
                   </tr>
@@ -242,8 +242,8 @@ const Transaction = () => {
                           <td className="border-2 border-dark text-capitalize">
                             {Val.startdate}
                           </td>
-                          <td className="border-2 border-dark text-capitalize">
-                            <a href={`https://mumbai.polygonscan.com/tx/${Val.txhash}`} target="_blank">{Val.txhash} </a>
+                          <td className="border-2 border-dark text-capitalize txhash__link ">
+                            <a href={`https://mumbai.polygonscan.com/tx/${Val.txhash}`} target="_blank" >{Val.txhash} </a>
                           </td>
                           <td className="border-2 border-dark text-capitalize">
                             {Val.email}
