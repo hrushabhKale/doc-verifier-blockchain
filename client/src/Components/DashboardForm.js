@@ -75,14 +75,15 @@ const DashboardForm = () => {
     setLoading(!loading);
     setUserName(JSON.parse(localStorage.getItem("UserCredentials"))?.userName);
     try {
-      var myDate = new Date(data?.startDate);
+      var myStartDate = new Date(data?.startDate);
+      var myEndDate = new Date(data?.endDate);
       const formData = new FormData();
       formData.append("aadhar", data?.adharNumber);
       formData.append("email", data?.emailAddress);
       formData.append("certname", data?.certificateName);
       formData.append("authority", data?.IssuedBy);
-      formData.append("startdate", myDate.toLocaleDateString());
-      formData.append("enddate", data?.endDate);
+      formData.append("startdate", myStartDate?.toLocaleDateString());
+      formData.append("enddate", myEndDate?.toLocaleDateString());
       formData.append("score", data?.place);
       formData.append("fileUploaded", data?.logo?.[0]);
       formData.append("personname", data?.nameOfPerson);
@@ -110,7 +111,7 @@ const DashboardForm = () => {
       Swal.fire({
         customClass:{
           title:"swal-title",
-          text:"swwal-text",
+          text:"swal-text",
           popup:"swal-popup"
         },
         position: "center",
@@ -128,9 +129,14 @@ const DashboardForm = () => {
   useEffect(() => {
     if (hashValue?.length && hashValue !== "") {
       Swal.fire({
+        customClass:{
+          title:"swal-title",
+          text:"swal-text",
+          popup:"swal-popup"
+        },
         title: "Certificate Generated",
         position: "center",
-        html: `Your blockchain-based certificate for user ${userName} has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subsriber on ${userName} `,
+        html: `Your blockchain-based certificate for user <strong>${userName}</strong> has been generated on Ethereum! It can be verified in one-click without any forgery. It has been shared with your subscriber on <strong>${userName}</strong>`,
         icon: "success",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -177,7 +183,25 @@ const DashboardForm = () => {
                         Aadhar
                       </option>
                       <option value="salesforce">
-                       SalesForce Platform-1
+                       Salesforce Certification
+                      </option>
+                      <option value="training">
+                      Training
+                      </option>
+                      <option value="experience">
+                        Experience
+                      </option>
+                      <option value="course">
+                        Course
+                      </option>
+                      <option value="proof">
+                        Employment Proof
+                      </option>
+                      <option value="medical_certificate">
+                       Medical Certificate
+                      </option>
+                      <option value="provisional">
+                       Provisional
                       </option>
                     </Form.Select>
                   </Form.Group>
@@ -186,7 +210,7 @@ const DashboardForm = () => {
                   </p>
                 </Col>
               </Row>
-              {/* {showhide === "Adhar" && ( */}
+              {(showhide === "Adhar" || showhide ==="salesforce" )&& (
                 <>
                   <Row>
                     <Col lg={6} sm={6} md={6} xs={12}>
@@ -345,7 +369,7 @@ const DashboardForm = () => {
                     </Form.Group>
                   </Row>
                 </>
-              {/* )} */}
+              )} 
             </form>
           </Container>
         </div>

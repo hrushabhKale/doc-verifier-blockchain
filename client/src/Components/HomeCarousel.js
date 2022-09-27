@@ -52,7 +52,7 @@ export default function HomeCarousel() {
           />
 
           <Carousel.Caption>
-            <p>Sign the Transction's on</p>
+            <p>Sign the Transactions on</p>
             <span></span>
             <h2
               className="fadeInUpShorter animated"
