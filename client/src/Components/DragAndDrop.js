@@ -80,8 +80,8 @@ export default function DragAndDrop({ open }) {
   useEffect(() => {
     if (issuerHashValue && acceptedFiles?.length > 0) {
       Swal.fire({
-        title: "Verified!",
-        text: "This document is verified successfully",
+        title: "Valid Document",
+        text: "The uploaded document is genuine",
         icon: "success",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -100,8 +100,9 @@ export default function DragAndDrop({ open }) {
       Swal.fire({
         position: "center",
         icon: "error",
-        title: `${issuerHashError}`,
-        showConfirmButton: false,
+        title: "Invalid Document",
+        text:'The file you have uploaded is not a genuine certificate. Please upload a valid file.',
+        showConfirmButton: true,
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",

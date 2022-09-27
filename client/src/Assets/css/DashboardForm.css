@@ -19,8 +19,9 @@
     /* background-image: url(../images/block-chain2.jpg);
     -webkit-background-size: cover;
     background-size: cover; */
-    min-height: 164vh;
-    max-height: 230vh;
+    /* min-height: 164vh;
+    max-height: 230vh; */
+    height: 164vh;
     padding-top: 2rem;
     padding-bottom: 3rem;
     background-color: white;

@@ -1,99 +1,80 @@
-.transaction{
-    height: 150vh;
-      background-image: url(../images/block-chain2.jpg);
-      background-size: cover;
-     
-  }
+.transaction {
+  height: 110vh;
+  /* min-height: 100vh; */
+  max-height: 150vh;
+  background-image: url(../images/block-chain2.jpg);
+  background-size: cover;
+}
 
- 
-
-  /* @media screen and (min-device-width: 320px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 1){
-    .transaction {
-      width: 164vh;
-    }
-  }
-  @media screen and (min-device-width: 600px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
-    .transaction {
-      width: 164vh;
-    }
-  }
-
-  @media screen and (min-device-width: 768px) and (max-device-width: 1064px) and (-webkit-min-device-pixel-ratio: 1){
-    .transaction {
-      width: 164vh;
-    }
-  } */
-
-  .transaction-table{
-      background: white;
-      /* width: 70%; */
-      justify-content: center;
-      text-align: center;
-      opacity: 0.9;
-      /* position: relative;
+.transaction-table {
+  background: white;
+  /* width: 70%; */
+  justify-content: center;
+  text-align: center;
+  opacity: 0.9;
+  /* position: relative;
       left: 10rem;
       top: 10rem; */
-      overflow-x: scroll;
-      
-  }
+  overflow-x: scroll;
+}
 
+table {
+  font-family: "Montserrat", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  overflow: scroll;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 16px !important;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th,
+tfoot td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #3274ad !important;
+  color: white;
+}
+.nextPrev {
+  background-color: #f6f1f1 !important;
+  position: relative;
+  bottom: 3px;
+  height: 28px;
+}
+.pageNo {
+  background-color: #6c757d !important;
+}
+.text-right {
+  color: black;
+  padding-left: 16px;
+}
+
+@media screen and (max-width: 480px) {
   table {
-    font-family: 'Montserrat', sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-      overflow: scroll;
-      
-    }
-    
-    table td,
-    table th {
-      border: 1px solid #ddd;
-      padding: 8px;
-      font-size: 16px !important;
-    }
-    
-    table tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-    
-    table tr:hover {
-      background-color: #ddd;
-    }
-    
-    table th, tfoot td {
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: center;
-      background-color: #3274ad !important;
-      color: white;
-    }
-    .nextPrev{
-      background-color: #f6f1f1 !important;
-      position: relative;
-      bottom:3px;
-      height: 28px;
-    }
-    .pageNo{
-      background-color: #6c757d !important;
-    }
-    .text-right{
-      color: black;
-      padding-left: 16px;
-    }
+    font-size: small;
+  }
+}
 
-    @media screen and (max-width: 480px) {
-      table {
-       font-size: small;
-      }
-    }
+@media screen and (max-width: 480px) {
+  th {
+    font-size: 17px;
+  }
+}
 
-    @media screen and (max-width: 480px) {
-       th{
-        font-size: 17px;
-      }
-    }
-
-  /* @media screen and (max-width: 767px){
+/* @media screen and (max-width: 767px){
 
 
 .table-responsive {
@@ -107,6 +88,10 @@
 }
   } */
 
-.txhash__link{
+.txhash__link {
   color: #194089;
+}
+
+.loading{
+  top: -1%;
 }

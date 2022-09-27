@@ -80,11 +80,11 @@ const SignUp = () => {
         position: "center",
         icon: "error",
         title: `${errorResponse}`,
+        text:"Email is Already registered , you may login or create an account with another email",
         showConfirmButton: false,
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",
-        timer: 2500,
       });
     }
     setErrorResponse("");
