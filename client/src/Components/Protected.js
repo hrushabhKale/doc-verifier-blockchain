@@ -16,8 +16,8 @@ const Protected = (props) => {
 
   return (
     <div>
-      {props?.type ? (
-        userType && props?.type === userType ? (
+      {props?.type && userType ? (
+         props?.type === userType ? (
           <Component />
         ) : (
           <PageNotFound />

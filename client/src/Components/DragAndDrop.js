@@ -54,31 +54,7 @@ export default function DragAndDrop({ open }) {
   }, [acceptedFiles]);
 
   useEffect(() => {
-    (async () => {
-      if (acceptedFiles?.length > 0) {
-        try {
-          const formData = new FormData();
-          formData.append("fileUploaded", acceptedFiles?.[0]);
-
-          const response = await fetch("users/v1/validator", {
-            method: "POST",
-            body: formData,
-          });
-          let responseData = await response.json();
-          if (responseData.success === true) {
-            setIssuerHashValue(responseData?.txhash);
-          } else {
-            throw Error(responseData?.message);
-          }
-        } catch (err) {
-          setIssuerHashError(err.message);
-        }
-      }
-    })();
-  }, [acceptedFiles]);
-
-  useEffect(() => {
-    if (issuerHashValue && acceptedFiles?.length > 0) {
+    if (issuerHashValue) {
       Swal.fire({
         title: "Valid Document",
         text: "The uploaded document is genuine",
@@ -96,7 +72,12 @@ export default function DragAndDrop({ open }) {
           );
         }
       });
-    } else if (issuerHashError) {
+    } 
+    setIssuerHashValue("")
+  }, [issuerHashValue]);
+
+  useEffect(()=>{
+    if (issuerHashError && issuerHashError?.length) {
       Swal.fire({
         position: "center",
         icon: "error",
@@ -109,8 +90,7 @@ export default function DragAndDrop({ open }) {
       });
     }
     setIssuerHashError("");
-    setIssuerHashValue("");
-  }, [issuerHashValue, issuerHashError]);
+  },[issuerHashError])
 
   return (
     <>
