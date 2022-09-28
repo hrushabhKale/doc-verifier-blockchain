@@ -15,12 +15,16 @@ const DashboardForm = () => {
   const [validatorhashError, setValidatorHashError] = useState();
   const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState();
+  const [certificateId,setCertificateId]=useState();
+  const [adharType,setAdharType]=useState()
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
+    setAdharType(event.target.value ==="Adhar" ? true: false)
     setShowhide(getselect);
   };
 
+  console.log("Here",adharType)
   const validationSchema = Yup.object().shape({
     logo: Yup.mixed()
       .test("required", "Please select the file", (value) => {
@@ -45,12 +49,18 @@ const DashboardForm = () => {
       .required("Please enter your email")
       .email("Please enter valid email"),
 
-    adharNumber: Yup.string()
-      .required("Please enter aadhar number field")
+     adharNumber: Yup.string().when('adharType',{
+      is: true,
+      then:Yup.string().required("Please enter aadhar number field")
       .matches(
         /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
-        "Please enter valid adhar number"
-      ),
+        "Please enter valid adhar number"),
+        otherwise:Yup.string()
+     }),
+      
+      
+
+    
 
     certificateName: Yup.string().required("Please enter certificate name"),
 
@@ -78,7 +88,7 @@ const DashboardForm = () => {
       var myStartDate = new Date(data?.startDate);
       var myEndDate = new Date(data?.endDate);
       const formData = new FormData();
-      formData.append("aadhar", data?.adharNumber);
+      { showhide === "Adhar" ? formData.append("aadhar", data?.adharNumber) : formData.append("aadhar",certificateId )}
       formData.append("email", data?.emailAddress);
       formData.append("certname", data?.certificateName);
       formData.append("authority", data?.IssuedBy);
@@ -105,6 +115,13 @@ const DashboardForm = () => {
     }
     reset();
   };
+
+  useEffect(()=>{
+    if(showhide ==="salesforce"){
+      setCertificateId(Math.floor((Math.random() * 100) + 1))
+    }
+  }
+  ,[showhide])
 
   useEffect(() => {
     if (validatorhashError?.length && validatorhashError !== "") {
@@ -214,22 +231,46 @@ const DashboardForm = () => {
                 <>
                   <Row>
                     <Col lg={6} sm={6} md={6} xs={12}>
+                      {
+                        showhide ==="Adhar"?
+                      <>
                       <Form.Group className="mb-0">
-                        <Form.Label className="mb-0">{
-                          showhide === "Adhar" ? "Aadhar Number" : "Certification Id"
-                        }</Form.Label>
+                        <Form.Label className="mb-0">
+                           Aadhar Number 
+                        </Form.Label>
                         <input
                           type="text"
                           name="adharNumber"
                           className="form-control"
-                          placeholder={showhide === "Adhar" ? "Aadhar Number" : "Enter Certification Id"}
+                          placeholder="Aadhar Number" 
                           {...register("adharNumber")}
                         />
                       </Form.Group>
                       <p className="select_error_masg">
                         {errors.adharNumber?.message}
                       </p>
-
+                      </>
+                      :
+                      <>
+                      <Form.Group className="mb-0">
+                        <Form.Label className="mb-0">
+                         Certification Id
+                        </Form.Label>
+                        <input
+                          type="text"
+                          name="certification"
+                          className="form-control"
+                          placeholder={certificateId}
+                          // value={Math.floor((Math.random() * 100) + 1)}
+                          // {...register(e.target.value)}
+                            disabled
+                        />
+                      </Form.Group>
+                      <p className="select_error_masg">
+                        {errors.certification?.message}
+                      </p>
+                      </>
+}
                       <Form.Group className="mb-0">
                         <Form.Label className="mb-0">
                           Certificate Name
