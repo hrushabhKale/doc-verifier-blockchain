@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import FadeLoader from "react-spinners/FadeLoader";
 import Sidebar from "./Sidebar";
+import { v4 as uuidv4 } from 'uuid';
 
 const DashboardForm = () => {
   const [showhide, setShowhide] = useState("Adhar");
@@ -16,15 +17,12 @@ const DashboardForm = () => {
   const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState();
   const [certificateId,setCertificateId]=useState();
-  const [adharType,setAdharType]=useState()
 
   const handleshowhide = (event) => {
     const getselect = event.target.value;
-    setAdharType(event.target.value ==="Adhar" ? true: false)
     setShowhide(getselect);
   };
 
-  console.log("Here",adharType)
   const validationSchema = Yup.object().shape({
     logo: Yup.mixed()
       .test("required", "Please select the file", (value) => {
@@ -49,14 +47,20 @@ const DashboardForm = () => {
       .required("Please enter your email")
       .email("Please enter valid email"),
 
-     adharNumber: Yup.string().when('adharType',{
-      is: true,
-      then:Yup.string().required("Please enter aadhar number field")
+    adharNumber: Yup.string().when("usertype",{
+      is: (val)=> val === 'Adhar',
+      then: Yup.string().required("Please enter aadhar number field")
       .matches(
         /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
         "Please enter valid adhar number"),
-        otherwise:Yup.string()
      }),
+
+    // adharNumber: Yup.string()
+    //   .required("Please enter aadhar number field")
+    //   .matches(
+    //     /(^[0-9]{4}[0-9]{4}[0-9]{4}$)|(^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$)|(^[0-9]{4}-[0-9]{4}-[0-9]{4}$)/,
+    //     "Please enter valid adhar number"
+    //   ),
       
       
 
@@ -105,6 +109,7 @@ const DashboardForm = () => {
       if (response.status === 200) {
         setLoading(loading);
         let responseData = await response.json();
+        // setCertificateId("")
         setHashValue(responseData.txhash);
       } else {
         throw Error("Something went wrong");
@@ -118,7 +123,7 @@ const DashboardForm = () => {
 
   useEffect(()=>{
     if(showhide ==="salesforce"){
-      setCertificateId(Math.floor((Math.random() * 100) + 1))
+      setCertificateId(uuidv4())
     }
   }
   ,[showhide])
@@ -261,8 +266,6 @@ const DashboardForm = () => {
                           name="certification"
                           className="form-control"
                           placeholder={certificateId}
-                          // value={Math.floor((Math.random() * 100) + 1)}
-                          // {...register(e.target.value)}
                             disabled
                         />
                       </Form.Group>

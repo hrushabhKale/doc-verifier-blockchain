@@ -1,10 +1,19 @@
 .transaction {
-  height: 150vh;
-  /* min-height: 100vh; */
-  /* max-height: 180vh; */
+  height: 120vh;
+  /* min-height: 120vh; 
+  max-height: 187vh; */
   background-image: url(../images/block-chain2.jpg);
   background-size: cover;
 }
+
+@media screen and (max-width: 900px) {
+  .transaction {
+    height: 183vh;
+    background-image: url(../images/block-chain2.jpg);
+    background-size: cover;
+  }
+}
+
 
 .transaction-table {
   background: white;
