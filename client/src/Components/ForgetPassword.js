@@ -67,7 +67,8 @@ const ForgetPassword = () => {
   useEffect(() => {
     if (successResponse?.length && successResponse !== "") {
       Swal.fire({
-        title: `${successResponse}`,
+        title:"Password Updated",
+        text: `${successResponse}`,
         position: "center",
         icon: "success",
         showCancelButton: false,

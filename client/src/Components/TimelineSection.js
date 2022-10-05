@@ -32,7 +32,7 @@ export default function TimelineSection() {
             </div> */}
           <div className="row d-sm-flex d-md-flex align-items-center justify-content-between p-4 ">
             <div className="col-md-12 col-sm-12 col-12 col-lg-6">
-              <h5 className="text-center timeline-title">Issue Flow</h5>
+              <h5 className="text-center timeline-title">Issuer Flow</h5>
               <TimeLine />
             </div>
             <div className="col-md-12 col-sm-12 col-12 col-lg-6">

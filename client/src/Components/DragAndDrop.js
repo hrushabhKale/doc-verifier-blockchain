@@ -54,34 +54,10 @@ export default function DragAndDrop({ open }) {
   }, [acceptedFiles]);
 
   useEffect(() => {
-    (async () => {
-      if (acceptedFiles?.length > 0) {
-        try {
-          const formData = new FormData();
-          formData.append("fileUploaded", acceptedFiles?.[0]);
-
-          const response = await fetch("users/v1/validator", {
-            method: "POST",
-            body: formData,
-          });
-          let responseData = await response.json();
-          if (responseData.success === true) {
-            setIssuerHashValue(responseData?.txhash);
-          } else {
-            throw Error(responseData?.message);
-          }
-        } catch (err) {
-          setIssuerHashError(err.message);
-        }
-      }
-    })();
-  }, [acceptedFiles]);
-
-  useEffect(() => {
-    if (issuerHashValue && acceptedFiles?.length > 0) {
+    if (issuerHashValue) {
       Swal.fire({
-        title: "Verified!",
-        text: "This document is verified successfully",
+        title: "Valid Document",
+        text: "The uploaded document is genuine",
         icon: "success",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -96,20 +72,25 @@ export default function DragAndDrop({ open }) {
           );
         }
       });
-    } else if (issuerHashError) {
+    } 
+    setIssuerHashValue("")
+  }, [issuerHashValue]);
+
+  useEffect(()=>{
+    if (issuerHashError && issuerHashError?.length) {
       Swal.fire({
         position: "center",
         icon: "error",
-        title: `${issuerHashError}`,
-        showConfirmButton: false,
+        title: "Invalid Document",
+        text:'The file you have uploaded is not a genuine certificate. Please upload a valid file.',
+        showConfirmButton: true,
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",
       });
     }
     setIssuerHashError("");
-    setIssuerHashValue("");
-  }, [issuerHashValue, issuerHashError]);
+  },[issuerHashError])
 
   return (
     <>

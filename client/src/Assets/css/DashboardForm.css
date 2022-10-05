@@ -19,6 +19,8 @@
     /* background-image: url(../images/block-chain2.jpg);
     -webkit-background-size: cover;
     background-size: cover; */
+    /* min-height: 164vh;
+    max-height: 230vh; */
     height: 164vh;
     padding-top: 2rem;
     padding-bottom: 3rem;
@@ -86,6 +88,8 @@
     opacity: 1 !important;
   }
 
+  
+
   /* .swal2-popup{
     display: none;
     position: relative;
@@ -102,3 +106,7 @@
     font-size: 1rem;
     height: 27rem !important;
 } */
+
+.swal2-html-container{
+  font-size: 16px !important;
+}

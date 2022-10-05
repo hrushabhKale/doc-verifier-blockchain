@@ -37,7 +37,7 @@ export default function Timeline2() {
           </TimelineSeparator>
           <TimelineContent>
             <p className="time-font">
-              Pass the unique id to verify a certificate
+            Drag n Drop or upload a PDF
             </p>
           </TimelineContent>
         </TimelineItem>
@@ -49,7 +49,7 @@ export default function Timeline2() {
           <TimelineContent>
             <p className="Time-Details time-font">
               {" "}
-              Certificate is in View as well as Download{" "}
+              View certificate on Ethereum & IPFS
             </p>
           </TimelineContent>
         </TimelineItem>

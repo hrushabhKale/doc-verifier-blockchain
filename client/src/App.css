@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: "InterRegular" ;
   src: url("./Assets/fonts/Inter-Regular.ttf");
@@ -54,15 +59,19 @@
   }
 }
 
-.loading{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      backdrop-filter: blur(2px);
-      height: 76vh;
-      position: absolute;
-      z-index: 100;
+
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  height: inherit;
+  position: absolute;
+  z-index: 100;
+  top: 1%;
 }
 
 p h2 h3 td :-ms-input-placeholder {

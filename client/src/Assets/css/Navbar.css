@@ -55,7 +55,7 @@ html{
         flex-basis: 100%;
         flex-grow: 1;
         align-items: center;
-        background: rgba(0, 0, 0, 0.5);
+        background-color:#000 !important;
     }
 
     .navbar-collapse a:hover:not(.active) {
@@ -173,9 +173,9 @@ p {
     background-color: #194089;
 } */
 
-.drop-align{
+/* .drop-align{
     margin-left: 40px;
-}
+} */
 
 .dropdown-menu[data-bs-popper] {
     top: 100% !important;
@@ -191,7 +191,7 @@ p {
 
 .user-margin{
     margin-right: 5px;
-    margin-left: 5px;
+    /* margin-left: 5px; */
     margin-top: -6px;
 }
 

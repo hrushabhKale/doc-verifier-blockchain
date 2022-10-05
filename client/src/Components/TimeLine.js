@@ -45,7 +45,7 @@ export default function TimeLine() {
           </TimelineSeparator>
           <TimelineContent>
             <p className="time-font">
-              Issue certificate manually or upload CSV
+              Issuer certificate manually 
             </p>
           </TimelineContent>
         </TimelineItem>

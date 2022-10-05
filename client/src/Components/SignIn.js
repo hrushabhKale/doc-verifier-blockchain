@@ -14,6 +14,7 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [successResponse, setSuccessResponse] = useState();
   const [errorResponse, setErrorResponse] = useState("");
+  const [resetPassword,setResetPassword]=useState()
 
   const validationSchema = Yup.object().shape({
     userName: Yup.string()
@@ -41,7 +42,7 @@ const SignIn = () => {
           email: data?.userName,
         }),
       };
-      const response = await fetch("/users/v1/login", config);
+      const response = await fetch("users/v1/login", config);
       if (response.status === 200) {
         let responseData = await response.json();
         setSuccessResponse(responseData?.msg);
@@ -61,7 +62,7 @@ const SignIn = () => {
         }
       } else {
         setLoading(loading);
-        throw Error("Invalid Credentials!");
+        throw Error("Invalid Credentials !");
       }
     } catch (err) {
       setErrorResponse(err?.message);
@@ -72,9 +73,15 @@ const SignIn = () => {
   useEffect(() => {
     if (errorResponse?.length && errorResponse !== "") {
       Swal.fire({
+        customClass:{
+          title:"swal-title",
+          popup:"swal-popup",
+          icon:'swal-error-icon'
+        },
         position: "center",
         icon: "error",
         title: `${errorResponse}`,
+        text:"Please enter the correct username and password ",
         showConfirmButton: false,
         showCancelButton: true,
         cancelButtonColor: "#d33",
@@ -115,15 +122,31 @@ const SignIn = () => {
           throw Error(responseResult?.msg);
         }
       } catch (err) {
-        setErrorResponse(err?.message);
+        setResetPassword(err?.message);
       }
     }
   };
 
   useEffect(() => {
+    if (resetPassword?.length && resetPassword !== "") {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title:"Invalid Email",
+        text: `${resetPassword}`,
+        showConfirmButton: true,
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Close",
+      });
+    }
+  }, [resetPassword]);
+
+  useEffect(() => {
     if (successResponse?.length && successResponse !== "") {
       Swal.fire({
-        title:
+        title:"Check Email",
+        text:
           "Secret Token is send on your registered email Id,please Check..!!",
         position: "center",
         icon: "success",
@@ -223,7 +246,7 @@ const SignIn = () => {
                     style={{ color: "blue", cursor: "pointer", fontFamily: "Montserrat, sans-serif" }}
                     onClick={forgotPass}
                   >
-                    Forget Password
+                    Forgot Password
                   </a>
                 </Form.Group>
                 <Form.Group
