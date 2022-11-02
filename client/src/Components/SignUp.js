@@ -43,7 +43,6 @@ const SignUp = () => {
   const { errors } = formState;
 
   const onSubmit = async (data) => {
-    console.log("data", data);
     setLoading(!loading);
 
     try {
