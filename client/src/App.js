@@ -21,6 +21,8 @@ import ForgetPassword from "./Components/ForgetPassword";
 import Transaction from "./Components/Transaction";
 import QrCodeScanner from "./Components/QrCodeScanner";
 import QrScan from "./Components/QrScan";
+import QrScanner from "./Components/QrScanner";
+
 
 function App() {
   return (
@@ -37,10 +39,22 @@ function App() {
           <Route path="/timelineSection" exact element={<TimelineSection />} />
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/SignUp" exact element={<SignUp />} />
-          <Route path="/SecretTokenFile"  element={<SecretTokenFile />} />
-          <Route path="/Validator-Dashboard" element={<Protected component={ValidatorDashboard} type="validator" />} />
-          <Route path="/Help-Desk"  element={<Protected component={HelpDesk} />} />
-          <Route path="/Issuer-Dashboard" element={<Protected component={DashboardForm} type="issuer" />} />
+          <Route path="/SecretTokenFile" element={<SecretTokenFile />} />
+          <Route path="/QrScanner" element={<QrScanner />} />
+          <Route
+            path="/Validator-Dashboard"
+            element={
+              <Protected component={ValidatorDashboard} type="validator" />
+            }
+          />
+          <Route
+            path="/Help-Desk"
+            element={<Protected component={HelpDesk} />}
+          />
+          <Route
+            path="/Issuer-Dashboard"
+            element={<Protected component={DashboardForm} type="issuer" />}
+          />
           <Route path="/pagenotfound" exact element={<PageNotFound />} />
           <Route path="/ForgetPassword" exact element={<ForgetPassword />} />
           <Route path="/qrscanner" exact element={<QrCodeScanner/>} />

@@ -122,31 +122,58 @@ export default function Sidebar() {
                     </li>
                   </Link>
                   {userData?.type === "issuer" && (
-                    <Link firstchild="1" popperarrow="0" to="/Transaction">
-                      <li className="pro-menu-item Sidebar_menuItem__37ym_">
-                        <div
-                          className="pro-inner-item"
-                          tabindex="0"
-                          role="button"
-                        >
-                          <span className="pro-icon-wrapper">
-                            <span className="pro-icon">
-                              <GrIcons.GrTransaction
-                                className="Sidebar_icons__2Z2FR"
-                                style={{
-                                  color: "black",
-                                  height: "25",
-                                  width: "25",
-                                }}
-                              />
+                    <>
+                      <Link firstchild="1" popperarrow="0" to="/Transaction">
+                        <li className="pro-menu-item Sidebar_menuItem__37ym_">
+                          <div
+                            className="pro-inner-item"
+                            tabindex="0"
+                            role="button"
+                          >
+                            <span className="pro-icon-wrapper">
+                              <span className="pro-icon">
+                                <GrIcons.GrTransaction
+                                  className="Sidebar_icons__2Z2FR"
+                                  style={{
+                                    color: "black",
+                                    height: "25",
+                                    width: "25",
+                                  }}
+                                />
+                              </span>
                             </span>
-                          </span>
-                          <span className="pro-item-content">
-                            <span className="sd-title">Transaction</span>
-                          </span>
-                        </div>
-                      </li>
-                    </Link>
+                            <span className="pro-item-content">
+                              <span className="sd-title">Transaction</span>
+                            </span>
+                          </div>
+                        </li>
+                      </Link>
+                      <Link firstchild="1" popperarrow="0" to="/QrScanner">
+                        <li className="pro-menu-item Sidebar_menuItem__37ym_">
+                          <div
+                            className="pro-inner-item"
+                            tabindex="0"
+                            role="button"
+                          >
+                            <span className="pro-icon-wrapper">
+                              <span className="pro-icon">
+                                <GrIcons.GrTransaction
+                                  className="Sidebar_icons__2Z2FR"
+                                  style={{
+                                    color: "black",
+                                    height: "25",
+                                    width: "25",
+                                  }}
+                                />
+                              </span>
+                            </span>
+                            <span className="pro-item-content">
+                              <span className="sd-title">QR Code Scanner</span>
+                            </span>
+                          </div>
+                        </li>
+                      </Link>
+                    </>
                   )}
                   <Link firstchild="1" popperarrow="0" to="/Help-desk">
                     <li className="pro-menu-item Sidebar_menuItem__37ym_">
