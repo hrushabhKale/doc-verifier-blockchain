@@ -19,7 +19,8 @@ import Protected from "./Components/Protected";
 import PageNotFound from "./Components/PageNotFound";
 import ForgetPassword from "./Components/ForgetPassword";
 import Transaction from "./Components/Transaction";
-import QrScanner from "./Components/QrScanner";
+import QrCodeScanner from "./Components/QrCodeScanner";
+import QrScan from "./Components/QrScan";
 
 function App() {
   return (
@@ -54,11 +55,9 @@ function App() {
           />
           <Route path="/pagenotfound" exact element={<PageNotFound />} />
           <Route path="/ForgetPassword" exact element={<ForgetPassword />} />
-          <Route
-            path="/Transaction"
-            exact
-            element={<Protected component={Transaction} type="issuer" />}
-          />
+          <Route path="/qrscanner" exact element={<QrCodeScanner/>} />
+          <Route path="/qrscan" exact element={<QrScan/>} />
+          <Route path="/Transaction" exact element={<Protected component={Transaction} type="issuer"/>} />
         </Routes>
       </Router>
     </>
