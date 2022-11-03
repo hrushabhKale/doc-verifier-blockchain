@@ -6,6 +6,7 @@ import "./../Assets/css/Sidebar.css";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import image2 from "./../Assets/images/ethereum.png";
+import { MdQrCodeScanner } from "react-icons/md";
 
 export default function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
@@ -157,7 +158,7 @@ export default function Sidebar() {
                           >
                             <span className="pro-icon-wrapper">
                               <span className="pro-icon">
-                                <GrIcons.GrTransaction
+                                <MdQrCodeScanner
                                   className="Sidebar_icons__2Z2FR"
                                   style={{
                                     color: "black",
