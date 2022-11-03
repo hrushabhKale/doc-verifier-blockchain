@@ -74,9 +74,14 @@ export default function QrCodeScanner() {
     if (successResponse) {
       Swal.fire({
         title: "Details:",
-        html: `email : ${successResponse?.email} ,
-               aadhar :${successResponse?.aadhar}`,
+        html: `<div><p><b>Email :</B> ${successResponse?.email}<br></p>
+        <p><b>Aadhar :</b> ${successResponse?.aadhar}<br></p>
+        <p><b>Created At :</b> ${successResponse?.createdAt}<br></p>
+        <p><b>End date :</b> ${successResponse?.enddate}<br></p></div>
+        <p><b>Tx hash :</b> ${successResponse?.txhash}<br></p></div>`,
         icon: "success",
+        confirmButtonText: 'Ok',
+        confirmButtonColor: "#28a745",
         showCancelButton: true,
         cancelButtonColor: "#d33",
         cancelButtonText: "Close",

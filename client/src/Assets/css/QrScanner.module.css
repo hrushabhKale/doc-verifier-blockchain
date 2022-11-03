@@ -33,3 +33,6 @@
     /* background-color: #2E2E2E; */
     background-image: url('./../images/timeline12.jpg');
 }
+p{
+    text-align: start;
+}
