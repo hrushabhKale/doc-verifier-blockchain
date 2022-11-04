@@ -1,6 +1,6 @@
 .Qr_cam_Section{
     height: 92vh;
-    background-color: #000000;
+    /* background-color: #000000; */
 }
 
 .Qr_card{
@@ -26,7 +26,7 @@
 
 .qr_background{
     /* background-color: #2E2E2E; */
-    background-image: url('./../images/timeline11.jpg');
+    background-image: url('./../images/timeline7.jpg');
 }
 
 .qr_background1{

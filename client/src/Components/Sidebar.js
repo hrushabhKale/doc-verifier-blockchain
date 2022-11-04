@@ -5,7 +5,8 @@ import * as MdIcons from "react-icons/md";
 import "./../Assets/css/Sidebar.css";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
-import image2 from "./../Assets/images/ethereum.png";
+// import image2 from "./../Assets/images/ethereum.png";
+import image2 from "./../Assets/images/user1.png";
 import { MdQrCodeScanner } from "react-icons/md";
 
 export default function Sidebar() {
@@ -46,13 +47,24 @@ export default function Sidebar() {
                 />
               </Link>
             </div>
-            <div className="pro-sidebar-header Sidebar_header__1KB1K">
-              <div className="Sidebar_userDesc__HPrgs">
+            {/* <div className="pro-sidebar-header Sidebar_header__1KB1K"> */}
+              {/* <div className="Sidebar_userDesc__HPrgs">
                 <img src={image2} alt="image1" className="Sidebar-img-top" />
                 <h3>{userData?.userName}</h3>
                 <p>{userData?.type}</p>
+              </div> */}
+              <div class="card sidecard">
+                <img
+                  class="sidecard-img-top sidecard-center "
+                  src={image2}
+                  alt="sidecard image cap"
+                />
+                <div class="sidecard-body">
+                  <h5 class="sidecard-title">{userData?.userName}</h5>
+                  <p class="sidecard-text">{userData?.type}</p>
+                </div>
               </div>
-            </div>
+            {/* </div> */}
             <div className="pro-sidebar-content sidebarContent">
               <nav
                 className="pro-menu Sidebar_menu__2X59C shaped square inner-submenu-arrows"

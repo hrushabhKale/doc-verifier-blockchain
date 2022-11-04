@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useReducer } from "react";
 import FadeLoader from "react-spinners/FadeLoader";
 import Sidebar from "./Sidebar";
 import styles from "./../Assets/css/QrScanner.module.css";
-import image2 from "./../Assets/images/qr-code1.jpg";
+import image2 from "./../Assets/images/qr-code-21360.png";
 import image1 from "./../Assets/images/qr-code.png";
 import { QrReader } from "react-qr-reader";
 import QrScanner from "qr-scanner";
@@ -95,11 +95,12 @@ export default function QrCodeScanner() {
   return (
     <>
       <section className={styles.qr_background1}>
-        <Sidebar />
+        
         <div className="container-fluid">
-          <div className="row">
+          <div className={`row  ${styles.qr_background}`}>
+          <Sidebar />
             <div
-              className={`col-6 col-md-6 p-5  ${styles.Qr_cam_Section} ${styles.qr_background}`}
+              className={`col-6 col-md-6 p-5  ${styles.Qr_cam_Section} `}
             >
               <div class={`card ${styles.Qr_card}`}>
                 {isCameraAccessible ? (
@@ -124,7 +125,7 @@ export default function QrCodeScanner() {
                   />
                 )}
                 <div class="card-body">
-                  <h5 class="card-title">Scan QR-Code with Webcam</h5>
+                  <h5 class="card-title">Scan QR-Code <br/> with Webcam</h5>
                   <p class="card-text">
                     {isCameraAccessible
                       ? "Click to turn Off the camera"
@@ -141,12 +142,12 @@ export default function QrCodeScanner() {
               </div>
             </div>
             <div
-              className={`col-6 col-md-6 p-5 ${styles.qr_background} ${styles.Qr_cam_Section}`}
+              className={`col-6 col-md-6 p-5  ${styles.Qr_cam_Section}`}
             >
               <div class={`card ${styles.Qr_card}`}>
                 <img class="card-img-top" src={image2} alt="Card image cap" />
                 <div class="card-body">
-                  <h5 class="card-title">Scan QR-code with Browse File</h5>
+                  <h5 class="card-title">Select File to <br/> Scan QR-Code</h5>
                   <p class="card-text">Click to Select file</p>
 
                   <input
