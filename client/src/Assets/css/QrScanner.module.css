@@ -1,7 +1,27 @@
-.Qr_cam_Section{
-    height: 92vh;
-    /* background-color: #000000; */
-}
+
+
+@media (min-device-width: 770px){
+    .Qr_cam_Section{
+        padding: 8rem !important;
+    }
+
+  } 
+
+  @media (min-device-width: 450px){
+    .Qr_card{
+        width: 265px;
+    }
+    .Qr_cam_Section{
+        height: 92vh;
+        /* background-color: #000000; */
+    }
+  } 
+
+  @media (min-device-width: 375px){
+    .Qr_cam_Section{
+        padding: 5rem !important;
+    }
+  } 
 
 .Qr_card{
  margin: auto;
