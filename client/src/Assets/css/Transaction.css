@@ -194,3 +194,12 @@ tfoot td {
   .search-box:not(:valid) ~ .close-icon {
     display: none;
   }
+  .table_body{
+    width: 80%;
+  }
+
+  @media screen and (max-width: 480px) {
+    .table_body{
+      width: 100%;
+    }
+  }
