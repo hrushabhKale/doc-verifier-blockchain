@@ -94,14 +94,11 @@ export default function QrCodeScanner() {
 
   return (
     <>
-      <section className={styles.qr_background1}>
-        
-        <div className="container-fluid">
-          <div className={`row  ${styles.qr_background}`}>
+      <section>
+        <div className="container-fluid ">
+          <div className={`row d-sm-flex justify-content-center ${styles.qr_background}`}>
           <Sidebar />
-            <div
-              className={`col-6 col-md-6 p-5  ${styles.Qr_cam_Section} `}
-            >
+            <div className={`col-sm-6 col-md-6 p-5  ${styles.Qr_cam_Section} `}>
               <div class={`card ${styles.Qr_card}`}>
                 {isCameraAccessible ? (
                   <QrReader
@@ -141,9 +138,7 @@ export default function QrCodeScanner() {
                 </div>
               </div>
             </div>
-            <div
-              className={`col-6 col-md-6 p-5  ${styles.Qr_cam_Section}`}
-            >
+            <div className={`col-sm-6 col-md-6 p-5  ${styles.Qr_cam_Section}`}>
               <div class={`card ${styles.Qr_card}`}>
                 <img class="card-img-top" src={image2} alt="Card image cap" />
                 <div class="card-body">
@@ -164,8 +159,8 @@ export default function QrCodeScanner() {
                 </div>
               </div>
             </div>
+            </div>
           </div>
-        </div>
       </section>
     </>
   );

@@ -26,12 +26,9 @@
 
 .qr_background{
     /* background-color: #2E2E2E; */
-    background-image: url('./../images/timeline7.jpg');
-}
-
-.qr_background1{
-    /* background-color: #2E2E2E; */
-    background-image: url('./../images/timeline12.jpg');
+    background-image: url('./../images/Background2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 /* .card-text{
