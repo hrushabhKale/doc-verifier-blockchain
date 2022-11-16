@@ -181,7 +181,7 @@ export default function Sidebar() {
                               </span>
                             </span>
                             <span className="pro-item-content">
-                              <span className="sd-title">QR Code Scanner</span>
+                              <span className="sd-title">QR Scanner</span>
                             </span>
                           </div>
                         </li>
