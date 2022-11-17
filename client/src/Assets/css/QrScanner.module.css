@@ -1,0 +1,56 @@
+
+
+@media (min-device-width: 770px){
+    .Qr_cam_Section{
+        padding: 8rem !important;
+    }
+
+  } 
+
+  @media (min-device-width: 450px){
+    .Qr_card{
+        width: 265px;
+    }
+    .Qr_cam_Section{
+        height: 92vh;
+        /* background-color: #000000; */
+    }
+  } 
+
+  @media (min-device-width: 375px){
+    .Qr_cam_Section{
+        padding: 5rem !important;
+    }
+  } 
+
+.Qr_card{
+ margin: auto;
+ text-align: center;
+ align-items: center;
+
+}
+
+.qr_scanner_box{
+    position: relative;
+    /* left: 33%; */
+    /* top: 8% !important; */
+    height: 36% !important;
+    width: 62%;
+    border: 1px solid red;
+    margin-top: 20px;
+}
+
+.qr_scanner_heading{
+    text-align: center;
+}
+
+.qr_background{
+    /* background-color: #2E2E2E; */
+    background-image: url('./../images/Background2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* .card-text{
+    text-align: start;
+} */

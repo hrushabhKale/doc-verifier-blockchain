@@ -181,7 +181,7 @@ const Transaction = () => {
           <FadeLoader loading={loading} color="#3274ad" />
         </div>
         <div className="row d-flex justify-content-center">
-          <div class="container" style={{ width: "80%" }}>
+          <div class="container table_body">
             <div className="row ">
               <div className="col-md-6 col-sm-8 col-lg-8">
                 {" "}

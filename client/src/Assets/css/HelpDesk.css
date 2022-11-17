@@ -9,22 +9,24 @@
     .Help-section{
         display: block;
         background: #CFF;
-        height:95vh;
+        height:95%;
         width:100%;
         /* padding: 60px;
         padding-left: 120px; */
         box-sizing:border-box;
+        padding-bottom: 27rem;
     }}
 
     @media (max-device-width: 375px){
         .Help-section{
             display: block;
             background: #CFF;
-            height:100vh;
+            height:100%;
             width:100%;
             /* padding: 60px;
             padding-left: 120px; */
             box-sizing:border-box;
+            padding-bottom: 27rem;
         }}
 
     @media (min-device-width: 770px){
@@ -48,12 +50,11 @@
         background-image: url('./../images/Background2.jpg');
     }
 
-    @media (max-device-width: 375px){
+    /* @media (max-device-width: 375px){
         .help-banner {
-            /* background-color: #0c4a99; */
             background-image: url('./../images/Background2.jpg');
             padding-bottom: 2rem;
-        }}
+        }} */
 
     .accordion-button {
         font-weight: 600;
